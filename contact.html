@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Business Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .contact-box{background:var(--surface); border:1px solid var(--line); padding:44px; text-align:center; border-radius:2px;}
+  .contact-box h2{font-family:var(--mono); font-size:24px; margin-bottom:14px;}
+  .contact-box p{color:var(--text-dim); margin-bottom:28px;}
+  .contact-links{display:flex; justify-content:center; gap:16px; flex-wrap:wrap;}
+</style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <div class="logo">BUSINESS TRANSFORMATION <span>LAB</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="dashboard-gallery.html">Dashboard Gallery</a>
+        <a href="insights.html">Insights</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html" class="active">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span>Contact</div>
+      <h1 class="page-title">Let's talk.</h1>
+      <p class="page-lede">Open to Business Analyst / Data &amp; Process Analyst roles across Germany and India.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap-narrow">
+      <div class="contact-box">
+        <h2>Get in touch</h2>
+        <p>Whether it's about a role, a project, or one of the case studies — happy to hear from you.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:asamalkrishna@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="https://linkedin.com/in/amalkrishnaas" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna — Business Transformation Lab</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

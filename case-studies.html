@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Case Studies — Business Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <div class="logo">BUSINESS TRANSFORMATION <span>LAB</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="case-studies.html" class="active">Case Studies</a>
+        <a href="dashboard-gallery.html">Dashboard Gallery</a>
+        <a href="insights.html">Insights</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span>Case Studies</div>
+      <h1 class="page-title">Four real projects. One method.</h1>
+      <p class="page-lede">All four are drawn from actual work at RWE Supply &amp; Trading and Emteria — not simulated data. Each follows the same 13-part structure, from business context through to lessons learned.</p>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="case-grid">
+
+        <a class="case-card" href="case-study-trade-operations.html" style="--tab:var(--itsm)">
+          <div>
+            <div class="case-domain">Trade &amp; Counterparty Operations <span class="case-status live">Live</span></div>
+            <div class="case-title">Getting counterparties Ready to Trade — and keeping them that way</div>
+            <p class="case-desc">Onboarding, master data, and cross-functional approvals at RWE Supply &amp; Trading — and a structured diagnostic process for when a trade booking fails.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-num">15+</div>
+            <div class="metric-label">COUNTERPARTIES / MONTH</div>
+          </div>
+        </a>
+
+        <a class="case-card" href="case-study-kpi-dashboard.html" style="--tab:var(--supply)">
+          <div>
+            <div class="case-domain">KPI &amp; Dashboard Design <span class="case-status live">Live</span></div>
+            <div class="case-title">The KPI that mattered most wasn't the speed metric</div>
+            <p class="case-desc">Jira dashboards for 10+ support teams — and the discovery that "Ready to Trade" tickets were quietly stalling before final approval.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-num">72h → 24h</div>
+            <div class="metric-label">NOMINATION TIME TARGET</div>
+          </div>
+        </a>
+
+        <a class="case-card" href="case-study-reporting-automation.html" style="--tab:var(--mfg)">
+          <div>
+            <div class="case-domain">Reporting &amp; Process Automation <span class="case-status live">Live</span></div>
+            <div class="case-title">The data was already in Jira. The report just wasn't using it.</div>
+            <p class="case-desc">Redesigning SLA cost reporting from a manual monthly rebuild into a refresh-and-go pivot-table model for Accounting.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-num">3</div>
+            <div class="metric-label">NEW REPORTING DIMENSIONS</div>
+          </div>
+        </a>
+
+        <a class="case-card" href="case-study-crm-migration.html" style="--tab:var(--hr)">
+          <div>
+            <div class="case-domain">Systems &amp; Data Migration <span class="case-status live">Live</span></div>
+            <div class="case-title">Migrating 1,250+ CRM records without losing a single deal</div>
+            <p class="case-desc">Moving Emteria's sales pipeline from Pipedrive to HubSpot in validated batches, with cleansing and UAT built in.</p>
+          </div>
+          <div class="case-metric">
+            <div class="metric-num">1,250+</div>
+            <div class="metric-label">RECORDS MIGRATED</div>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head">
+        <div class="section-title" style="color:var(--text-faint)">Bonus: Hands-On Data Analysis</div>
+        <div class="section-sub">// PERSONAL PROJECT</div>
+      </div>
+      <a class="case-card" href="case-study-it-service.html" style="--tab:var(--text-faint); opacity:0.85;">
+        <div>
+          <div class="case-domain" style="color:var(--text-dim)">IT Service Desk Analysis <span class="case-status">Personal project</span></div>
+          <div class="case-title">A 1,000,000-ticket helpdesk dataset, analyzed end to end in Python</div>
+          <p class="case-desc">Not client work — a self-directed technical deep-dive using a simulated dataset, showing hands-on SQL/Python analysis alongside the consulting-style case studies above.</p>
+        </div>
+        <div class="case-metric">
+          <div class="metric-num">5.25h</div>
+          <div class="metric-label">FLAT AVG. RESOLUTION</div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna — Business Transformation Lab</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

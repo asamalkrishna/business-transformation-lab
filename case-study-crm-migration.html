@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systems Migration — Business Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <div class="logo">BUSINESS TRANSFORMATION <span>LAB</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="case-studies.html" class="active">Case Studies</a>
+        <a href="dashboard-gallery.html">Dashboard Gallery</a>
+        <a href="insights.html">Insights</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--hr)"><span class="dot"></span>Case Study — Systems &amp; Data Migration</div>
+      <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Migrating 1,250+ CRM records without losing a single deal</h1>
+      <p class="page-lede">Moving Emteria's sales pipeline from Pipedrive to HubSpot in batches — validating data quality before it ever became a demo-day problem.</p>
+      <div class="tags-row" style="margin-top:20px;">
+        <span class="tag">Emteria GmbH</span>
+        <span class="tag">Pipedrive → HubSpot</span>
+        <span class="tag">Data Migration</span>
+        <span class="tag">UAT</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="doc-layout">
+
+        <nav class="doc-toc">
+          <div class="doc-toc-title">Contents</div>
+          <a href="#executive-summary">01 · Executive Summary</a>
+          <a href="#business-context">02 · Business Context</a>
+          <a href="#stakeholders">03 · Stakeholders</a>
+          <a href="#business-process">04 · Business Process</a>
+          <a href="#business-questions">05 · Business Questions</a>
+          <a href="#data-understanding">06 · Data Understanding</a>
+          <a href="#analysis">07 · Analysis</a>
+          <a href="#key-findings">08 · Key Findings</a>
+          <a href="#root-cause">09 · Root Cause Analysis</a>
+          <a href="#recommendations">10 · Recommendations</a>
+          <a href="#business-case">11 · Business Case</a>
+          <a href="#dashboard">12 · Dashboard</a>
+          <a href="#lessons-learned">13 · Lessons Learned</a>
+        </nav>
+
+        <div>
+
+          <div class="doc-section" id="executive-summary">
+            <div class="doc-num">01 · EXECUTIVE SUMMARY</div>
+            <div class="doc-h">A CRM migration is a data-quality project wearing a systems hat</div>
+            <p>As Emteria grew, Pipedrive stopped meeting the company's needs — particularly around
+            collaboration with Marketing. The business chose to migrate to HubSpot for a unified
+            Sales-and-Marketing platform. I led the data side of that migration: assessing and
+            cleansing over 1,000 historical leads and ~250 active opportunities, building a detailed
+            field-mapping document, and executing the move in validated batches rather than a single
+            cutover — preserving the sales pipeline while minimizing disruption to reps working deals
+            in real time.</p>
+          </div>
+
+          <div class="doc-context">
+          </div>
+
+          <div class="doc-section" id="business-context">
+            <div class="doc-num">02 · BUSINESS CONTEXT</div>
+            <div class="doc-h">Outgrowing a CRM is a quiet but real risk</div>
+            <p>Emteria, a B2B hardware/software startup, had reached a point where Pipedrive no
+            longer supported what the business needed — especially closer collaboration between
+            Sales and Marketing. HubSpot was chosen for its stronger integration capabilities and
+            unified platform. The risk wasn't the decision to migrate; it was doing so without losing
+            or corrupting the customer and deal data the sales team depended on every day.</p>
+          </div>
+
+          <div class="doc-section" id="stakeholders">
+            <div class="doc-num">03 · STAKEHOLDERS</div>
+            <div class="doc-h">Sales needed continuity; Marketing needed the new platform</div>
+            <ul>
+              <li><strong>Sales Manager</strong> — primary partner for requirements and CRM configuration decisions.</li>
+              <li><strong>Sales team</strong> — needed to keep working active deals with minimal disruption during migration.</li>
+              <li><strong>Marketing team</strong> — the reason for the platform change; needed shared visibility HubSpot could provide.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="business-process">
+            <div class="doc-num">04 · BUSINESS PROCESS</div>
+            <div class="doc-h">Assess → cleanse → map → migrate in batches → validate → UAT</div>
+            <p>The migration followed a deliberate sequence: assess the existing Pipedrive dataset,
+            cleanse it (removing duplicates, standardizing values, validating mandatory fields), build a
+            detailed field-mapping document between Pipedrive and HubSpot, migrate in phased
+            batches via CSV export and HubSpot's import tool, validate data integrity after each
+            batch, and run User Acceptance Testing with the Sales team before full rollout.</p>
+          </div>
+
+          <div class="doc-section" id="business-questions">
+            <div class="doc-num">05 · BUSINESS QUESTIONS</div>
+            <div class="doc-h">What had to be true for this migration to be safe</div>
+            <ul>
+              <li>How much of the existing CRM data is duplicate, inconsistent, or incomplete — and does it need fixing before or after migration?</li>
+              <li>How should Pipedrive fields map onto HubSpot's data model, including custom fields and pipeline stages?</li>
+              <li>Can the migration happen without disrupting reps actively working deals?</li>
+              <li>How do we know the migration worked, beyond "the records appeared in HubSpot"?</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="data-understanding">
+            <div class="doc-num">06 · DATA UNDERSTANDING</div>
+            <div class="doc-h">What was actually moving</div>
+            <table class="data-table">
+              <tr><th>Data</th><th>Volume</th></tr>
+              <tr><td>Historical cold leads</td><td class="hl">1,000+</td></tr>
+              <tr><td>Active opportunities</td><td class="hl">~250</td></tr>
+              <tr><td>Total CRM records migrated</td><td class="hl">1,250+</td></tr>
+              <tr><td>Record types</td><td class="hl">Companies, contacts, deals, pipeline stages</td></tr>
+            </table>
+            <p>Before migration, the dataset was assessed for structure, quality, and completeness —
+            this is where duplicate records and inconsistent field values were identified, ahead of any
+            actual data movement.</p>
+          </div>
+
+          <div class="doc-section" id="analysis">
+            <div class="doc-num">07 · ANALYSIS</div>
+            <div class="doc-h">Cleansing and mapping before a single record moved</div>
+            <p>Data cleansing removed duplicate records, corrected inconsistent values, standardized
+            field formats, and validated mandatory information — reducing the risk of carrying poor
+            data quality into the new system. In parallel, a field-mapping document tied every
+            Pipedrive field (contacts, companies, deals, pipeline stages, ownership, custom fields) to its
+            HubSpot equivalent, validated with business stakeholders before migration began.</p>
+          </div>
+
+          <div class="doc-section" id="key-findings">
+            <div class="doc-num">08 · KEY FINDINGS</div>
+            <div class="doc-h">The risk wasn't HubSpot — it was legacy data debt</div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 1</div>
+              <p style="margin-bottom:0;"><strong>Years of CRM use had accumulated duplicate and inconsistent records</strong> — the kind of data debt that's invisible day-to-day but becomes a real problem the moment you need every record to be clean at once.</p>
+            </div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 2</div>
+              <p style="margin-bottom:0;"><strong>A single-shot migration would have made small mapping errors expensive.</strong> With 1,250+ records and custom fields on both sides, an undetected mapping issue could have silently corrupted a meaningful slice of the pipeline.</p>
+            </div>
+          </div>
+
+          <div class="doc-section" id="root-cause">
+            <div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
+            <div class="doc-h">Why a big-bang cutover was the wrong shape for this migration</div>
+            <p>The underlying data had evolved organically over time with no single canonical
+            structure enforced — normal for a growing startup's CRM, but risky to migrate in one
+            pass. No single mapping and validation cycle could realistically catch every edge case in
+            data that heterogeneous, which is why a phased batch approach — validate, learn, adjust,
+            repeat — was structurally the safer choice over a single full migration.</p>
+          </div>
+
+          <div class="doc-section" id="recommendations">
+            <div class="doc-num">10 · RECOMMENDATIONS</div>
+            <div class="doc-h">The approach taken, and why each piece mattered</div>
+            <ul>
+              <li><strong>Cleanse before mapping, map before migrating.</strong> Fixing data quality issues in Pipedrive first meant HubSpot started clean, rather than inheriting the problem.</li>
+              <li><strong>Migrate in validated batches</strong>, not a single cutover — each batch was checked before the next began, catching mapping or quality issues early and cheaply.</li>
+              <li><strong>Document the field mapping</strong> as a standing reference, not a one-time artifact — useful for later configuration questions and onboarding.</li>
+              <li><strong>Run UAT with the actual Sales team</strong> before full rollout, verifying that records, relationships, and pipeline stages behaved as expected for the people who'd use them daily.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="business-case">
+            <div class="doc-num">11 · BUSINESS CASE</div>
+            <div class="doc-h">A migration measured by what didn't go wrong</div>
+            <p>The migration moved 1,250+ CRM records with data integrity maintained throughout,
+            minimal disruption to ongoing sales activity, and a new shared platform that improved
+            Sales-Marketing collaboration going forward. The batch-and-validate approach meant
+            issues were caught and fixed incrementally rather than surfacing as a single high-stakes
+            failure after a full cutover.</p>
+            <div class="kpi-grid">
+              <div class="kpi-cell"><div class="kpi-num">1,250+</div><div class="kpi-label">CRM RECORDS MIGRATED</div></div>
+              <div class="kpi-cell"><div class="kpi-num">~250</div><div class="kpi-label">ACTIVE OPPORTUNITIES PRESERVED</div></div>
+              <div class="kpi-cell"><div class="kpi-num">Batched</div><div class="kpi-label">MIGRATION STRATEGY, VALIDATED AT EACH STEP</div></div>
+            </div>
+          </div>
+
+          <div class="doc-section" id="dashboard">
+            <div class="doc-num">12 · DASHBOARD</div>
+            <div class="doc-h">What came after the migration</div>
+            <p>Once live on HubSpot, the team launched KPI dashboards tracking lead lifecycle
+            metrics and OKRs — reporting that wasn't practical on the previous platform, and one of
+            the direct payoffs of the migration itself.</p>
+          </div>
+
+          <div class="doc-section" id="lessons-learned">
+            <div class="doc-num">13 · LESSONS LEARNED</div>
+            <div class="doc-h">What this migration reinforced about moving systems</div>
+            <ul>
+              <li><strong>Data cleansing is most of the work, and the least visible part.</strong> By the time records show up correctly in the new system, the hard part — deduplication, standardization, validation — is already done.</li>
+              <li><strong>Batching isn't slower, it's cheaper.</strong> Catching a mapping issue in batch two of six costs far less than discovering it after every record has already moved.</li>
+              <li><strong>UAT with real users catches what validation scripts don't.</strong> The Sales team noticed usability and workflow issues that data checks alone wouldn't have surfaced.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna — Business Transformation Lab</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

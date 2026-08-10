@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resume — Business Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<style>
+  .cert-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:8px;}
+</style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <div class="logo">BUSINESS TRANSFORMATION <span>LAB</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="case-studies.html">Case Studies</a>
+        <a href="dashboard-gallery.html">Dashboard Gallery</a>
+        <a href="insights.html">Insights</a>
+        <a href="resume.html" class="active">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow"><span class="dot"></span>Resume</div>
+      <h1 class="page-title">Amal Krishna</h1>
+      <p class="page-lede">Business Analyst | Process Expert — energy trading operations, Essen, Germany.</p>
+      <div style="margin-top:28px;">
+        <a class="btn btn-primary" href="assets/amal-krishna-resume.pdf" target="_blank">Download PDF resume</a>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap-narrow">
+      <p style="color:var(--text-dim); max-width:70ch; margin-bottom:24px;">
+        Business Analyst with experience managing energy trading processes, analysing requirements,
+        and improving digital process and system landscapes. Experienced in process analysis, BPMN,
+        Jira, SQL, Power BI, SAP S/4HANA, automation, and KPI frameworks across international energy
+        operations. Strong in identifying optimisation potential, translating business requirements into
+        technical solutions, and documenting processes for cross-functional stakeholders.
+      </p>
+      <div class="stat-list">
+        <div class="stat"><span class="stat-label">Current role</span><span class="stat-value">Business Analyst, RWE Supply &amp; Trading</span></div>
+        <div class="stat"><span class="stat-label">Location</span><span class="stat-value">Essen, Germany</span></div>
+        <div class="stat"><span class="stat-label">Education</span><span class="stat-value">M.Sc. Management and Engineering, RWTH Aachen</span></div>
+        <div class="stat"><span class="stat-label">Visa status</span><span class="stat-value">EU Blue Card</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap-narrow">
+      <div class="section-head"><div class="section-title">Certifications</div><div class="section-sub">// CREDENTIALS</div></div>
+      <div class="cert-row">
+        <span class="tag">Power BI Dashboards</span>
+        <span class="tag">Process Improvement Foundations</span>
+        <span class="tag">SQL for Data Analysis</span>
+        <span class="tag">JSON Essentials</span>
+      </div>
+      <p style="color:var(--text-dim); margin-top:28px; max-width:65ch;">
+        For the full breakdown of experience, skills, and languages, see the
+        <a href="about.html" style="color:var(--itsm); text-decoration:underline;">About</a> page —
+        or download the PDF above for the version formatted for applications.
+      </p>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna — Business Transformation Lab</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

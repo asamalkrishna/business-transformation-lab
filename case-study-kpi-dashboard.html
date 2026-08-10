@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KPI & Dashboard Design — Business Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <div class="logo">BUSINESS TRANSFORMATION <span>LAB</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="case-studies.html" class="active">Case Studies</a>
+        <a href="dashboard-gallery.html">Dashboard Gallery</a>
+        <a href="insights.html">Insights</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--supply)"><span class="dot"></span>Case Study — KPI &amp; Dashboard Design</div>
+      <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">The KPI that mattered most wasn't the speed metric</h1>
+      <p class="page-lede">Building Jira operational dashboards for 10+ support teams — and discovering that "Ready to Trade but not yet Approved" was a bigger problem than slow nominations.</p>
+      <div class="tags-row" style="margin-top:20px;">
+        <span class="tag">RWE Supply &amp; Trading</span>
+        <span class="tag">Jira · JQL</span>
+        <span class="tag">Power BI</span>
+        <span class="tag">KPI Design</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="doc-layout">
+
+        <nav class="doc-toc">
+          <div class="doc-toc-title">Contents</div>
+          <a href="#executive-summary">01 · Executive Summary</a>
+          <a href="#business-context">02 · Business Context</a>
+          <a href="#stakeholders">03 · Stakeholders</a>
+          <a href="#business-process">04 · Business Process</a>
+          <a href="#business-questions">05 · Business Questions</a>
+          <a href="#data-understanding">06 · Data Understanding</a>
+          <a href="#analysis">07 · Analysis</a>
+          <a href="#key-findings">08 · Key Findings</a>
+          <a href="#root-cause">09 · Root Cause Analysis</a>
+          <a href="#recommendations">10 · Recommendations</a>
+          <a href="#business-case">11 · Business Case</a>
+          <a href="#dashboard">12 · Dashboard</a>
+          <a href="#lessons-learned">13 · Lessons Learned</a>
+        </nav>
+
+        <div>
+
+          <div class="doc-section" id="executive-summary">
+            <div class="doc-num">01 · EXECUTIVE SUMMARY</div>
+            <div class="doc-h">Visible tickets, invisible workflow</div>
+            <p>The New Business Partners team at RWE processed a high volume of onboarding requests
+            through Jira, passing through IT, Credit, Legal, Accounting, and other support functions
+            before a counterparty became Ready to Trade. Every ticket was visible individually — but
+            nobody could see workflow health at the team level: which requests were stuck, whose
+            workload was piling up, or where nomination times had drifted past target.</p>
+            <p>I designed and built the JQL queries and native Jira dashboards that surfaced this,
+            covering nomination turnaround, workload distribution, and stalled tickets across 10+
+            teams. The highest-impact KPI turned out not to be a speed metric at all, but one that
+            caught tickets everyone assumed were already finished.</p>
+          </div>
+
+          <div class="doc-section" id="business-context">
+            <div class="doc-num">02 · BUSINESS CONTEXT</div>
+            <div class="doc-h">Detailed data, no aggregate view</div>
+            <p>Jira held rich operational data — status, workflow stage, assignee, priority,
+            Ready-to-Trade flag, approval status — but it existed at the individual-ticket level.
+            Managers could open any single ticket, but had no standardized way to answer questions
+            like "is this team keeping up?" or "which requests have been sitting untouched the
+            longest?" As backlogs grew and nomination times crept upward — sometimes past 72
+            hours against an internal 24-hour target — the gap in visibility became an operational risk.</p>
+          </div>
+
+          <div class="doc-section" id="stakeholders">
+            <div class="doc-num">03 · STAKEHOLDERS</div>
+            <div class="doc-h">Managers across every support function in the chain</div>
+            <ul>
+              <li><strong>Operational managers</strong> across IT, Credit, Legal, Accounting, and other support functions — the primary dashboard users.</li>
+              <li><strong>New Business Partners team</strong> — owned the underlying onboarding workflow the dashboards measured.</li>
+              <li><strong>Individual team members</strong> — whose workload distribution became visible for the first time.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="business-process">
+            <div class="doc-num">04 · BUSINESS PROCESS</div>
+            <div class="doc-h">From request to Ready to Trade to (eventually) Approved</div>
+            <p>Requests moved through multiple support functions before reaching Ready-to-Trade
+            status — and then needed to reach a separate, final Approved status. Many teams treated
+            "Ready to Trade" as the finish line and didn't always complete the remaining
+            administrative step, leaving a gap between "functionally done" and "formally closed."</p>
+          </div>
+
+          <div class="doc-section" id="business-questions">
+            <div class="doc-num">05 · BUSINESS QUESTIONS</div>
+            <div class="doc-h">What managers actually needed to know day to day</div>
+            <ul>
+              <li>Are nominations landing within the internal 24-hour target, by support function?</li>
+              <li>Is workload distributed evenly across team members, or concentrated on a few?</li>
+              <li>Which tickets have been sitting in the same workflow stage the longest?</li>
+              <li>How many tickets are Ready to Trade but not yet formally Approved?</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="data-understanding">
+            <div class="doc-num">06 · DATA UNDERSTANDING</div>
+            <div class="doc-h">What Jira already had — just not surfaced</div>
+            <p>Fields available per ticket: status, workflow stage, created date, updated date, assignee,
+            support function, priority, Ready-to-Trade status, approval status, and resolution
+            information. All the raw material for the KPIs below already existed — the gap was purely
+            in aggregation and presentation, not data collection.</p>
+          </div>
+
+          <div class="doc-section" id="analysis">
+            <div class="doc-num">07 · ANALYSIS</div>
+            <div class="doc-h">JQL first, dashboard second</div>
+            <p>Every dashboard metric was backed by a custom JQL query — these queries were the
+            actual analytical work; the dashboard was just the presentation layer on top. Requirements
+            came directly from stakeholders across support functions, and dashboards were refined
+            iteratively as feedback came in and reporting needs evolved.</p>
+          </div>
+
+          <div class="doc-section" id="key-findings">
+            <div class="doc-num">08 · KEY FINDINGS</div>
+            <div class="doc-h">Three problems hiding behind "everything's in Jira somewhere"</div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 1</div>
+              <p style="margin-bottom:0;"><strong>Nomination times sometimes exceeded 72 hours</strong> against an internal 24-hour target — three times over, in a process where trading readiness was time-sensitive.</p>
+            </div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 2</div>
+              <p style="margin-bottom:0;"><strong>Workload was unevenly distributed</strong> across team members, invisible without a consolidated view — meaning some people were overloaded while others had headroom.</p>
+            </div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 3</div>
+              <p style="margin-bottom:0;"><strong>"Ready to Trade" wasn't the same as "done."</strong> Teams often stopped at Ready-to-Trade status and left the final Approved step outstanding — a gap that was easy to miss ticket-by-ticket but added up to real backlog and compliance exposure.</p>
+            </div>
+          </div>
+
+          <div class="doc-section" id="root-cause">
+            <div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
+            <div class="doc-h">A visibility gap, not a workflow gap</div>
+            <p>None of these three problems stemmed from Jira lacking the right data — every field
+            needed to detect them already existed. The root cause was aggregation: no one had built
+            the queries and views that would turn ticket-level data into team-level signal. Individual
+            tickets aging in a stage, or sitting at Ready-to-Trade without final approval, were each
+            easy to miss on their own and only became visible once queried in bulk.</p>
+          </div>
+
+          <div class="doc-section" id="recommendations">
+            <div class="doc-num">10 · RECOMMENDATIONS</div>
+            <div class="doc-h">Build the aggregate view, then keep it current</div>
+            <ul>
+              <li><strong>Nomination turnaround time by support function</strong>, measured against the 24-hour target explicitly, not left implicit.</li>
+              <li><strong>Workload distribution</strong> across team members, to support proactive rebalancing.</li>
+              <li><strong>Aging analysis</strong> — tickets stuck in the same workflow stage, surfaced automatically rather than discovered by chance.</li>
+              <li><strong>A dedicated Ready-to-Trade-vs-Approved view</strong>, specifically because it was the gap most likely to be missed and most costly when it was.</li>
+              <li><strong>Ongoing maintenance</strong> — refining JQL queries and KPIs as reporting needs evolved, rather than treating the dashboards as a one-time build.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="business-case">
+            <div class="doc-num">11 · BUSINESS CASE</div>
+            <div class="doc-h">Closing the gap between "looks done" and "is done"</div>
+            <p>The dashboards helped bring nomination turnaround times down toward the 24-hour
+            target from a baseline that had sometimes exceeded 72 hours, reduced workflow backlogs,
+            and improved workload balancing across teams. The Ready-to-Trade-vs-Approved view in
+            particular prompted teams to finish outstanding administrative steps, reducing both
+            backlog and the compliance risk tied to delayed formal approval.</p>
+            <div class="kpi-grid">
+              <div class="kpi-cell"><div class="kpi-num">10+</div><div class="kpi-label">SUPPORT TEAMS COVERED</div></div>
+              <div class="kpi-cell"><div class="kpi-num">72h → 24h</div><div class="kpi-label">NOMINATION TIME, BASELINE vs. TARGET</div></div>
+              <div class="kpi-cell"><div class="kpi-num">7</div><div class="kpi-label">CORE KPIs TRACKED</div></div>
+            </div>
+          </div>
+
+          <div class="doc-section" id="dashboard">
+            <div class="doc-num">12 · DASHBOARD</div>
+            <div class="doc-h">The KPI set, end to end</div>
+            <ul>
+              <li>Nomination turnaround time by support function, vs. the 24-hour internal target</li>
+              <li>Open vs. closed request volumes</li>
+              <li>Workload distribution across team members</li>
+              <li>Priority-wise request distribution</li>
+              <li>Tickets pending in each individual workflow stage</li>
+              <li>Overdue operational requests</li>
+              <li>Ready-to-Trade requests awaiting final Approved status</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="lessons-learned">
+            <div class="doc-num">13 · LESSONS LEARNED</div>
+            <div class="doc-h">The best KPI isn't always the obvious one</div>
+            <ul>
+              <li><strong>Speed metrics get attention; state metrics get missed.</strong> Everyone would have watched a cycle-time chart — almost no one was watching for tickets stuck in a state they assumed was final.</li>
+              <li><strong>If the data already exists, the project is aggregation, not collection.</strong> Every KPI here came from fields Jira already captured — the work was in querying and presenting it, not adding new tracking overhead for teams.</li>
+              <li><strong>Dashboards need maintenance, not just a launch.</strong> Reporting needs kept evolving, and the dashboards that stayed useful were the ones refined alongside stakeholder feedback.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna — Business Transformation Lab</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

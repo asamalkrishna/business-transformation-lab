@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reporting & Process Automation — Business Transformation Lab</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="wrap">
+      <div class="logo">BUSINESS TRANSFORMATION <span>LAB</span></div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="case-studies.html" class="active">Case Studies</a>
+        <a href="dashboard-gallery.html">Dashboard Gallery</a>
+        <a href="insights.html">Insights</a>
+        <a href="resume.html">Resume</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-header">
+    <div class="wrap">
+      <div class="eyebrow" style="color:var(--mfg)"><span class="dot"></span>Case Study — Reporting &amp; Process Automation</div>
+      <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">The data was already in Jira. The report just wasn't using it.</h1>
+      <p class="page-lede">Redesigning SLA cost reporting so Accounting could refresh a pivot table instead of rebuilding a spreadsheet from scratch every month.</p>
+      <div class="tags-row" style="margin-top:20px;">
+        <span class="tag">RWE Supply &amp; Trading</span>
+        <span class="tag">Jira · Excel</span>
+        <span class="tag">Pivot Tables</span>
+        <span class="tag">Process Redesign</span>
+      </div>
+    </div>
+  </header>
+
+  <section>
+    <div class="wrap">
+      <div class="doc-layout">
+
+        <nav class="doc-toc">
+          <div class="doc-toc-title">Contents</div>
+          <a href="#executive-summary">01 · Executive Summary</a>
+          <a href="#business-context">02 · Business Context</a>
+          <a href="#stakeholders">03 · Stakeholders</a>
+          <a href="#business-process">04 · Business Process</a>
+          <a href="#business-questions">05 · Business Questions</a>
+          <a href="#data-understanding">06 · Data Understanding</a>
+          <a href="#analysis">07 · Analysis</a>
+          <a href="#key-findings">08 · Key Findings</a>
+          <a href="#root-cause">09 · Root Cause Analysis</a>
+          <a href="#recommendations">10 · Recommendations</a>
+          <a href="#business-case">11 · Business Case</a>
+          <a href="#dashboard">12 · Dashboard</a>
+          <a href="#lessons-learned">13 · Lessons Learned</a>
+        </nav>
+
+        <div>
+
+          <div class="doc-section" id="executive-summary">
+            <div class="doc-num">01 · EXECUTIVE SUMMARY</div>
+            <div class="doc-h">Redesigning a report that already had the data it needed</div>
+            <p>The New Business Partners team tracked operational effort across support functions —
+            IT, Accounting, Credit, Legal, and others — directly in Jira, which Accounting then used
+            to calculate SLA costs. But the reporting process itself relied on manually copying and
+            consolidating that data every cycle, which was slow and left room for error. I redesigned
+            the process to pull from Jira directly into a structured, pivot-table-based reporting model
+            — turning a rebuild-from-scratch report into a refresh-and-go one.</p>
+          </div>
+
+          <div class="doc-section" id="business-context">
+            <div class="doc-num">02 · BUSINESS CONTEXT</div>
+            <div class="doc-h">Good data, inefficient path to the report</div>
+            <p>The operational effort data Accounting needed already existed in Jira — support
+            functions logged their time there as part of normal workflow. The problem wasn't data
+            availability; it was that the reporting process hadn't been built to use that data directly,
+            so every monthly cycle repeated the same manual consolidation work.</p>
+          </div>
+
+          <div class="doc-section" id="stakeholders">
+            <div class="doc-num">03 · STAKEHOLDERS</div>
+            <div class="doc-h">The team producing the data, and the team consuming it</div>
+            <ul>
+              <li><strong>Accounting</strong> — the primary report consumer, responsible for applying cost rates and using the output for profitability analysis.</li>
+              <li><strong>New Business Partners team</strong> — owned the underlying process and reporting requirements.</li>
+              <li><strong>Support functions</strong> (IT, Credit, Legal, and others) — the source of the operational effort data being reported on.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="business-process">
+            <div class="doc-num">04 · BUSINESS PROCESS</div>
+            <div class="doc-h">Before and after, side by side</div>
+            <p><strong>Before:</strong> Accounting manually extracted operational effort data, performed
+            manual calculations, consolidated everything into reporting sheets, and prepared the final
+            report — every single cycle, from close to scratch.</p>
+            <p><strong>After:</strong> operational effort data flows from Jira directly into a structured pivot-table
+            model. Accounting refreshes the report by replacing the latest Jira export and refreshing
+            the pivot tables — the underlying structure and logic stay intact.</p>
+          </div>
+
+          <div class="doc-section" id="business-questions">
+            <div class="doc-num">05 · BUSINESS QUESTIONS</div>
+            <div class="doc-h">What the redesign needed to solve</div>
+            <ul>
+              <li>How much of the monthly reporting cycle is manual rework that a structured data model could eliminate?</li>
+              <li>Can Jira's existing operational effort data feed the report directly, without manual restructuring first?</li>
+              <li>What additional level of reporting detail — by employee, support function, country — would actually be useful to Accounting?</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="data-understanding">
+            <div class="doc-num">06 · DATA UNDERSTANDING</div>
+            <div class="doc-h">Jira effort logs, Accounting cost rates</div>
+            <p>Primary source: Jira operational effort data. Supporting data: Accounting-provided
+            hourly cost rates, the existing reporting template, and support-function metadata. The
+            raw material was complete — the redesign was about restructuring it into a reusable
+            analytical model instead of a one-off manual export.</p>
+          </div>
+
+          <div class="doc-section" id="analysis">
+            <div class="doc-num">07 · ANALYSIS</div>
+            <div class="doc-h">Mapping the manual steps before removing them</div>
+            <p>The existing workflow was reviewed step by step to identify exactly which activities
+            were manual and where they introduced risk: filtering exported records to the reporting
+            scope, removing null or incomplete entries, validating support-function assignments, and
+            consolidating data across multiple exports before any calculation could happen.</p>
+          </div>
+
+          <div class="doc-section" id="key-findings">
+            <div class="doc-num">08 · KEY FINDINGS</div>
+            <div class="doc-h">The bottleneck was structural, not a skills gap</div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 1</div>
+              <p style="margin-bottom:0;"><strong>The report was rebuilt from scratch every cycle</strong> instead of being refreshed from a persistent data model — every month repeated the same manual consolidation work.</p>
+            </div>
+
+            <div class="finding-box">
+              <div class="flabel">FINDING 2</div>
+              <p style="margin-bottom:0;"><strong>Reporting granularity was limited by the manual process itself.</strong> Breaking costs down by employee, support function, and country wasn't technically hard — it just wasn't practical to do by hand every month.</p>
+            </div>
+          </div>
+
+          <div class="doc-section" id="root-cause">
+            <div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
+            <div class="doc-h">No reusable model between the source and the report</div>
+            <p>The root cause wasn't the data source or the cost-calculation logic — both were sound.
+            It was the absence of a structured reporting model sitting between Jira and the final
+            report. Without one, every cycle required rebuilding that link by hand, which capped both
+            the process's efficiency and the level of detail Accounting could realistically request.</p>
+          </div>
+
+          <div class="doc-section" id="recommendations">
+            <div class="doc-num">10 · RECOMMENDATIONS</div>
+            <div class="doc-h">Build the model once, refresh it monthly</div>
+            <ul>
+              <li><strong>Use Jira as the direct source</strong> for the reporting model, rather than a manually consolidated intermediate file.</li>
+              <li><strong>Structure the data across three dimensions</strong> — Support Function, Individual Employee, and Country — so Accounting could analyze cost at both summary and detailed levels.</li>
+              <li><strong>Build the reporting layer in pivot tables</strong> specifically so it could be refreshed by replacing the latest export, not rebuilt.</li>
+              <li><strong>Validate and document</strong> the new data model so it could be maintained by Accounting without requiring the original builder each cycle.</li>
+            </ul>
+          </div>
+
+          <div class="doc-section" id="business-case">
+            <div class="doc-num">11 · BUSINESS CASE</div>
+            <div class="doc-h">Less manual work, more reporting depth, same accuracy</div>
+            <p>The redesigned process reduced the manual effort required for monthly SLA cost
+            reporting, minimized the risk of reporting errors introduced by manual consolidation, and
+            increased reporting granularity — all while keeping the underlying cost-calculation logic
+            Accounting already relied on. The recurring reporting cycle went from rebuilding a report
+            to refreshing one.</p>
+          </div>
+
+          <div class="doc-section" id="dashboard">
+            <div class="doc-num">12 · DASHBOARD</div>
+            <div class="doc-h">A reporting model, not a single chart</div>
+            <p>The deliverable here was the pivot-table-based reporting model itself — structured
+            across Support Function, Employee, Country, Operational Effort (Hours), and Operational
+            Cost — rather than a single fixed dashboard view. That structure is what let Accounting
+            explore the data from multiple angles without rebuilding anything.</p>
+          </div>
+
+          <div class="doc-section" id="lessons-learned">
+            <div class="doc-num">13 · LESSONS LEARNED</div>
+            <div class="doc-h">Automation isn't always about new tools</div>
+            <ul>
+              <li><strong>The highest-leverage fix used data that already existed.</strong> No new tracking was added — the win came entirely from restructuring how existing data reached the report.</li>
+              <li><strong>Pivot tables were the right tool because the goal wasn't a static summary.</strong> Accounting needed to explore cost from multiple angles, and a flexible analytical layer served that better than a fixed report template.</li>
+              <li><strong>A redesigned process only sticks if someone other than the builder can maintain it.</strong> Documentation and a clear refresh procedure mattered as much as the model itself.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna — Business Transformation Lab</div></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
