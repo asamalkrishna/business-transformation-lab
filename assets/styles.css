@@ -2078,7 +2078,7 @@ select{
 
 
 /* =========================================================
-   V18 — PERSONAL EDITORIAL TYPE + MOTION + MOBILE READING
+   V20 — MOBILE FONT CACHE + TYPOGRAPHY FIX
    ========================================================= */
 
 :root{
@@ -2111,7 +2111,7 @@ body{font-family:var(--font-body);}
 
 /* Personal homepage name: editorial italic rather than handwritten/cursive. */
 .hero-signature{
-  font-family:var(--font-display);
+  font-family:"Fraunces",Georgia,serif !important;
   font-size:clamp(48px,5.1vw,66px);
   font-style:italic;
   font-weight:500;
@@ -2199,7 +2199,7 @@ html.js .reveal[data-delay="5"]{transition-delay:.40s;}
   display:none;
 }
 @media(max-width:760px){
-  .hero-signature{font-size:48px;margin-bottom:12px;}
+  .hero-signature{font-family:"Fraunces",Georgia,serif !important;font-size:48px;margin-bottom:12px;font-style:italic;font-weight:500;}
   .logo{font-size:18px;}
 
   /* Do not let decorative hover motion make touch layouts feel jumpy. */
@@ -2247,6 +2247,6 @@ html.js .reveal[data-delay="5"]{transition-delay:.40s;}
 }
 
 @media(max-width:480px){
-  .hero-signature{font-size:44px;}
+  .hero-signature{font-family:"Fraunces",Georgia,serif !important;font-size:44px;font-style:italic;font-weight:500;}
   .page-title,.hero-title{letter-spacing:-.025em;}
 }
