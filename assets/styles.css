@@ -1731,3 +1731,184 @@ iframe,video,svg,canvas{max-width:100%}
 @media(max-width:700px){
   .life-gallery figure{height:100%;}
 }
+
+
+/* =========================================================
+   V16 — MOBILE / SAFARI REFINEMENT
+   Prevent overflow, improve tap targets, and make dense
+   portfolio components comfortable on narrow screens.
+   ========================================================= */
+
+html, body { width:100%; max-width:100%; overflow-x:hidden; }
+body { -webkit-text-size-adjust:100%; }
+main, header, footer, section, nav { min-width:0; }
+.wrap, .wrap-narrow { min-width:0; }
+
+h1, h2, h3, h4, p, li, a, span, small, strong {
+  overflow-wrap:anywhere;
+}
+table { width:100%; max-width:100%; }
+pre, code { max-width:100%; }
+pre { overflow-x:auto; -webkit-overflow-scrolling:touch; }
+svg, canvas, video { max-width:100%; }
+
+@media (max-width:920px){
+  .site-nav .wrap{
+    min-height:64px;
+    position:relative;
+  }
+  .nav-links{
+    max-height:calc(100svh - 65px);
+    overflow-y:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .nav-links a{
+    min-height:44px;
+    display:flex;
+    align-items:center;
+  }
+  .nav-toggle{
+    flex:0 0 42px;
+    min-width:42px;
+    min-height:42px;
+    -webkit-tap-highlight-color:transparent;
+  }
+}
+
+@media (max-width:700px){
+  .wrap{width:calc(100% - 32px);}
+  section{padding:52px 0;}
+  .page-header{padding:68px 0 34px;}
+  .hero{padding:46px 0 32px;}
+  .page-title,.hero-title{
+    font-size:clamp(38px,11.5vw,58px);
+    line-height:1.02;
+    letter-spacing:-.035em;
+  }
+  .page-lede,.hero-copy{
+    font-size:16px;
+    line-height:1.65;
+  }
+  .section-head{
+    display:block;
+    margin-bottom:28px;
+  }
+  .section-sub{
+    display:block;
+    margin-top:10px;
+  }
+
+  .method-detail-visual{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:16px;
+    padding:14px;
+    margin-bottom:14px;
+  }
+  .method-image{
+    min-height:0;
+    height:auto;
+    aspect-ratio:16/10;
+  }
+  .method-copy{
+    min-width:0;
+    padding:2px 4px 4px;
+  }
+  .method-copy p,
+  .method-copy ul{
+    font-size:14px;
+  }
+
+  .insight-grid{
+    grid-template-columns:1fr;
+    gap:16px;
+  }
+  .insight-card{
+    min-width:0;
+    padding:20px;
+  }
+  .insight-image{
+    height:auto;
+    aspect-ratio:16/9;
+    margin:-20px -20px 18px;
+  }
+  .insight-card h3{font-size:20px;}
+
+  .stepper.horizontal .step{
+    min-width:0;
+  }
+
+  .btn, .hero-actions .btn{
+    min-height:46px;
+  }
+  .hero-actions{
+    gap:10px;
+  }
+
+  .case-grid,
+  .personal-grid,
+  .energy-grid,
+  .chart-grid,
+  .gallery-grid,
+  .visual-gallery-grid,
+  .country-grid,
+  .skill-grid{
+    min-width:0;
+  }
+
+  .country-card{
+    min-height:280px;
+  }
+
+  .home-photo-grid,
+  .visual-story-images{
+    min-width:0;
+  }
+  .home-photo-grid figure{
+    height:240px;
+  }
+
+  .site-footer .wrap{
+    padding-bottom:env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width:480px){
+  .wrap{width:calc(100% - 24px);}
+  .site-nav .wrap{gap:10px;}
+  .logo{font-size:12px; letter-spacing:.06em;}
+  .page-header{padding-top:58px;}
+  section{padding:44px 0;}
+  .page-title,.hero-title{
+    font-size:clamp(35px,11.8vw,50px);
+  }
+  .section-title{font-size:28px;}
+  .page-lede,.hero-copy{font-size:15px;}
+  .method-detail-visual{
+    border-radius:13px;
+    padding:12px;
+  }
+  .method-image{aspect-ratio:4/3;}
+  .method-image span,
+  .insight-image span{font-size:8px;}
+  .insight-card{padding:18px;}
+  .insight-image{
+    margin:-18px -18px 16px;
+    aspect-ratio:4/3;
+  }
+  .insight-card h3{font-size:19px;}
+  .btn{width:100%;}
+  .hero-actions .btn{width:100%;}
+  .stock-credit{
+    font-size:8px;
+    line-height:1.5;
+  }
+}
+
+/* iOS safe-area and touch behaviour */
+@supports (padding:max(0px)){
+  .site-nav .wrap{
+    padding-left:max(0px, env(safe-area-inset-left));
+    padding-right:max(0px, env(safe-area-inset-right));
+  }
+}
