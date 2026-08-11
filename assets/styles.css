@@ -41,7 +41,7 @@ body{
     radial-gradient(700px 500px at 0% 55%, rgba(69,227,154,.08), transparent 62%),
     var(--bg);
   color:var(--text);
-  font-family:"IBM Plex Sans",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
   text-rendering:optimizeLegibility;
@@ -1911,4 +1911,167 @@ svg, canvas, video { max-width:100%; }
     padding-left:max(0px, env(safe-area-inset-left));
     padding-right:max(0px, env(safe-area-inset-right));
   }
+}
+
+
+/* =========================================================
+   V17 — PERSONAL TYPOGRAPHY + METHODOLOGY MOBILE REBUILD
+   ========================================================= */
+
+/* Manrope gives the site a warmer, more personal editorial feel;
+   IBM Plex Mono remains reserved for technical metadata and labels. */
+body,
+button,
+input,
+textarea,
+select{
+  font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+.page-title,
+.hero-title,
+.section-title,
+.case-title,
+.method-copy h3,
+.insight-card h3,
+.personal-card h3,
+.professional-teaser h3{
+  font-family:"Manrope",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  font-weight:700;
+}
+
+/* Methodology stepper: explicit grid placement prevents the description
+   from dropping underneath the number on narrow screens. */
+@media (max-width:760px){
+  .stepper.horizontal{
+    display:flex;
+    flex-direction:column;
+    gap:0;
+    margin-top:4px;
+  }
+  .stepper.horizontal .step{
+    display:grid;
+    grid-template-columns:44px minmax(0,1fr);
+    grid-template-areas:
+      "num title"
+      "line desc";
+    column-gap:16px;
+    row-gap:5px;
+    width:100%;
+    flex:none;
+    padding:0 0 30px;
+    text-align:left;
+    min-width:0;
+  }
+  .stepper.horizontal .step:last-child{padding-bottom:0;}
+  .stepper.horizontal .step-num{
+    grid-area:num;
+    margin:0;
+  }
+  .stepper.horizontal .step-title{
+    grid-area:title;
+    align-self:center;
+    margin:0;
+    min-width:0;
+    font-size:16px;
+    line-height:1.35;
+  }
+  .stepper.horizontal .step-desc{
+    grid-area:desc;
+    min-width:0;
+    margin:0;
+    font-size:13.5px;
+    line-height:1.55;
+  }
+  .stepper.horizontal .step-line{
+    grid-area:line;
+    position:absolute;
+    left:18px;
+    top:38px;
+    right:auto;
+    bottom:0;
+    width:2px;
+    height:auto;
+  }
+}
+
+@media (max-width:480px){
+  .stepper.horizontal .step{
+    grid-template-columns:40px minmax(0,1fr);
+    column-gap:13px;
+    padding-bottom:26px;
+  }
+  .stepper.horizontal .step-num{
+    width:36px;
+    height:36px;
+    font-size:13px;
+  }
+  .stepper.horizontal .step-line{
+    left:17px;
+    top:36px;
+  }
+  .stepper.horizontal .step-title{font-size:15.5px;}
+  .stepper.horizontal .step-desc{font-size:13px;}
+}
+
+/* Methodology detail cards: keep the image, text and list as separate,
+   predictable blocks on phones. */
+@media (max-width:700px){
+  .method-detail-visual{
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    min-width:0;
+    gap:15px;
+    padding:12px;
+    margin:0 0 14px;
+  }
+  .method-image{
+    flex:0 0 auto;
+    width:100%;
+    min-width:0;
+    height:auto;
+    min-height:0;
+    aspect-ratio:16 / 9;
+  }
+  .method-image img{
+    width:100%;
+    height:100%;
+    min-width:0;
+    object-fit:cover;
+  }
+  .method-copy{
+    width:100%;
+    min-width:0;
+    padding:1px 3px 3px;
+  }
+  .method-copy h3{
+    font-size:20px;
+    line-height:1.25;
+    margin-bottom:9px;
+  }
+  .method-copy p,
+  .method-copy ul{
+    font-size:14px;
+    line-height:1.65;
+  }
+  .method-copy ul{padding-left:19px;}
+  .method-copy li{padding-left:1px;}
+}
+
+@media (max-width:480px){
+  .method-detail-visual{padding:10px; border-radius:12px;}
+  .method-image{aspect-ratio:4 / 3; border-radius:10px;}
+  .method-copy h3{font-size:19px;}
+  .method-copy p,
+  .method-copy ul{font-size:13.5px;}
+}
+
+/* Avoid accidental horizontal expansion from long methodology text. */
+.methodology,
+.method-detail-visual,
+.method-copy,
+.stepper,
+.stepper .step{
+  max-width:100%;
+  overflow-wrap:anywhere;
 }
