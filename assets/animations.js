@@ -1,64 +1,63 @@
+
+/* =========================================================
+   AMAL KRISHNA — Site interactions
+   Responsive mobile navigation
+   ========================================================= */
 (function () {
-  const toggle = document.querySelector('.nav-toggle');
-  const links = document.querySelector('.nav-links');
-  if (toggle && links) {
-    toggle.addEventListener('click', () => {
-      const open = links.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', String(open));
-    });
-    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      links.classList.remove('open');
-      toggle.setAttribute('aria-expanded', 'false');
-    }));
-  }
+  "use strict";
 
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  function initNavigation() {
+    var toggle = document.querySelector(".nav-toggle");
+    var menu = document.querySelector(".nav-links");
 
-  const selectors = [
-    '.case-card','.gallery-card','.funfact','.method-detail',
-    '.finding-box','.doc-section','.kpi-cell','.exp-item','.insight-card'
-  ];
+    if (!toggle || !menu) return;
 
-  document.querySelectorAll(selectors.join(',')).forEach(el => el.classList.add('reveal'));
-
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
-    return;
-  }
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (!entry.isIntersecting) return;
-      const el = entry.target;
-      setTimeout(() => el.classList.add('is-visible'), (i % 4) * 60);
-      observer.unobserve(el);
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-})();
-/* V10 responsive navigation */
-document.addEventListener("DOMContentLoaded", function () {
-  const toggle = document.querySelector(".nav-toggle");
-  const links = document.querySelector(".nav-links");
-  if (!toggle || !links) return;
-
-  toggle.addEventListener("click", function () {
-    const isOpen = links.classList.toggle("open");
-    toggle.setAttribute("aria-expanded", String(isOpen));
-  });
-
-  links.querySelectorAll("a").forEach(function (link) {
-    link.addEventListener("click", function () {
-      links.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
-    });
-  });
-
-  document.addEventListener("click", function (event) {
-    if (!links.contains(event.target) && !toggle.contains(event.target)) {
-      links.classList.remove("open");
-      toggle.setAttribute("aria-expanded", "false");
+    function setMenu(open) {
+      menu.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      document.body.classList.toggle("menu-open", open);
     }
-  });
-});
+
+    // Prevent duplicate listeners if a page/script is evaluated more than once.
+    if (toggle.dataset.navReady === "true") return;
+    toggle.dataset.navReady = "true";
+
+    toggle.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      setMenu(!menu.classList.contains("open"));
+    });
+
+    // Navigation links must remain clickable. Close only after the browser
+    // has received the click; do not preventDefault.
+    menu.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        setMenu(false);
+      });
+    });
+
+    // Close when tapping outside the menu.
+    document.addEventListener("click", function (event) {
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        setMenu(false);
+      }
+    });
+
+    // Escape closes the menu.
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") setMenu(false);
+    });
+
+    // Restore desktop state if the viewport grows.
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 920) setMenu(false);
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initNavigation);
+  } else {
+    initNavigation();
+  }
+})();
