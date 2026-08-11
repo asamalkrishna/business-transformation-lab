@@ -9,27 +9,28 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=11" rel="stylesheet"/>
+<link href="assets/styles.css?v=14" rel="stylesheet"/>
 <meta content="Professional case study: migrating 1,250+ CRM records from Pipedrive to HubSpot using cleansing, batching, validation and UAT." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
 <nav class="site-nav">
 <div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
 <button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html" class="">Home</a>
-<a href="about.html" class="">About</a>
-<a href="methodology.html" class="">Methodology</a>
-<a href="case-studies.html" class="">Case Studies</a>
-<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
-<a href="insights.html" class="">Insights</a>
-<a href="credentials.html" class="">Credentials</a>
-<a href="resume.html" class="">Resume</a>
-<a href="contact.html" class="">Contact</a></div>
+<div class="nav-links"><a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="methodology.html">Methodology</a>
+<a href="case-studies.html" class="active">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="insights.html">Insights</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a></div>
 </div>
 </nav>
 <header class="page-header">
 <div class="wrap">
-<div class="eyebrow" style="color:var(--hr)"><span class="dot"></span>Case Study — Systems &amp; Data Migration</div>
+<div class="eyebrow" style="color:var(--blue)"><span class="dot"></span>Case Study — Systems &amp; Data Migration</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Migrating 1,250+ CRM records without losing a single deal</h1>
 <p class="page-lede">Moving Emteria's sales pipeline from Pipedrive to HubSpot in batches — validating data quality before it ever became a demo-day problem.</p>
 <div class="tags-row" style="margin-top:20px;">
@@ -42,7 +43,21 @@
 </header>
 <section>
 <div class="wrap">
-<div class="doc-layout">
+
+<div class="case-visual" style="--tab:var(--blue)">
+  <div class="case-visual-head"><div><div class="case-visual-kicker">Portfolio visual · data migration</div><h2>Protect the pipeline by validating the data before the cutover.</h2></div><div class="case-visual-note">Original migration visual based on the documented process. No CRM export or customer data is displayed.</div></div>
+  <div class="diagram">
+    <div class="migration">
+      <div class="migration-node"><div class="big">Pipedrive</div><div class="small">1,250+ records<br>legacy structure</div></div>
+      <div class="flow-arrow">→</div>
+      <div class="migration-mid"><strong>CLEANSE · MAP · BATCH · VALIDATE</strong><span>Duplicates · field mapping · mandatory values · UAT</span></div>
+      <div class="flow-arrow">→</div>
+      <div class="migration-node"><div class="big">HubSpot</div><div class="small">Unified sales + marketing<br>ready for handover</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout" style="--tab:var(--blue)">
 <nav class="doc-toc">
 <div class="doc-toc-title">Contents</div>
 <a href="#executive-summary">01 · Executive Summary</a>
@@ -71,8 +86,6 @@
             cutover — preserving the sales pipeline while minimizing disruption to reps working deals
             in real time.</p>
 </div>
-<div class="doc-context">
-</div>
 <div class="doc-section" id="business-context">
 <div class="doc-num">02 · BUSINESS CONTEXT</div>
 <div class="doc-h">Outgrowing a CRM is a quiet but real risk</div>
@@ -94,6 +107,15 @@
 <div class="doc-section" id="business-process">
 <div class="doc-num">04 · BUSINESS PROCESS</div>
 <div class="doc-h">Assess → cleanse → map → migrate in batches → validate → UAT</div>
+<div class="process-flow">
+<div class="process-step"><div class="p-num">1</div><div class="p-title">Assess &amp; cleanse Pipedrive data</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">2</div><div class="p-title">Build field-mapping document</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">3</div><div class="p-title">Migrate &amp; validate in batches</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">4</div><div class="p-title">UAT with Sales team</div></div>
+</div>
 <p>The migration followed a deliberate sequence: assess the existing Pipedrive dataset,
             cleanse it (removing duplicates, standardizing values, validating mandatory fields), build a
             detailed field-mapping document between Pipedrive and HubSpot, migrate in phased
@@ -211,5 +233,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=11"></script></body>
+<script src="assets/animations.js?v=14"></script></body>
 </html>

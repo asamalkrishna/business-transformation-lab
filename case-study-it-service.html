@@ -9,27 +9,28 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=11" rel="stylesheet"/>
+<link href="assets/styles.css?v=14" rel="stylesheet"/>
 <meta content="Personal technical case study analysing a simulated 1,000,000-ticket IT helpdesk dataset with Python and pandas." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
 <nav class="site-nav">
 <div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
 <button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html" class="">Home</a>
-<a href="about.html" class="">About</a>
-<a href="methodology.html" class="">Methodology</a>
-<a href="case-studies.html" class="">Case Studies</a>
-<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
-<a href="insights.html" class="">Insights</a>
-<a href="credentials.html" class="">Credentials</a>
-<a href="resume.html" class="">Resume</a>
-<a href="contact.html" class="">Contact</a></div>
+<div class="nav-links"><a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="methodology.html">Methodology</a>
+<a href="case-studies.html" class="active">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="insights.html">Insights</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a></div>
 </div>
 </nav>
 <header class="page-header">
 <div class="wrap">
-<div class="eyebrow" style="color:var(--itsm)"><span class="dot"></span>Case Study — IT Service Transformation</div>
+<div class="eyebrow" style="color:var(--purple)"><span class="dot"></span>Case Study — IT Service Transformation</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Why "Critical" tickets took just as long as "Low" priority ones</h1>
 <p class="page-lede">A root-cause analysis of a 1,000,000-ticket IT helpdesk dataset — and why every dimension that was supposed to differentiate outcomes didn't.</p>
 <div class="tags-row" style="margin-top:20px;">
@@ -42,7 +43,20 @@
 </header>
 <section>
 <div class="wrap">
-<div class="doc-layout">
+
+<div class="case-visual" style="--tab:var(--purple)">
+  <div class="case-visual-head"><div><div class="case-visual-kicker">Portfolio visual · self-directed analysis</div><h2>When the labels change, but the outcome doesn't.</h2></div><div class="case-visual-note">This visual summarises the personal 1M-ticket analysis; the detailed charts remain in the Dashboard Gallery.</div></div>
+  <div class="diagram">
+    <div class="mock-dashboard">
+      <div class="mock-kpi"><div class="label">TICKETS</div><div class="value">1M</div><div class="sub">Simulated dataset</div></div>
+      <div class="mock-kpi"><div class="label">PRIORITY LEVELS</div><div class="value">4</div><div class="sub">Critical → Low</div></div>
+      <div class="mock-kpi"><div class="label">AVG RESOLUTION</div><div class="value">~5.25h</div><div class="sub">Flat across priority</div></div>
+      <div class="mock-kpi"><div class="label">KEY GAP</div><div class="value">30%</div><div class="sub">Missing resolution timestamp</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout" style="--tab:var(--purple)">
 <nav class="doc-toc">
 <div class="doc-toc-title">Contents</div>
 <a href="#executive-summary">01 · Executive Summary</a>
@@ -256,7 +270,7 @@
 <div class="chart-card"><img alt="Ticket volume by category, showing roughly even distribution across five categories" src="assets/charts/volume_by_category.png"/></div>
 </div>
 <div class="chart-card"><img alt="Daily ticket volume across November 2023, showing consistent daily volume with no strong trend" src="assets/charts/daily_volume.png"/></div>
-<p style="margin-top:8px;">More views — including a live-filterable version of this dashboard — are in the <a href="dashboard-gallery.html" style="color:var(--itsm); text-decoration:underline;">Dashboard Gallery</a>.</p>
+<p style="margin-top:8px;">More views — including a live-filterable version of this dashboard — are in the <a href="dashboard-gallery.html" style="color:var(--purple); text-decoration:underline;">Dashboard Gallery</a>.</p>
 </div>
 <div class="doc-section" id="lessons-learned">
 <div class="doc-num">13 · LESSONS LEARNED</div>
@@ -284,5 +298,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=11"></script></body>
+<script src="assets/animations.js?v=14"></script></body>
 </html>

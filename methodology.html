@@ -9,21 +9,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=11">
+<link rel="stylesheet" href="assets/styles.css?v=14">
 </head>
 <body><nav class="site-nav">
   <div class="wrap">
     <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
     <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
-    <div class="nav-links"><a href="index.html" class="">Home</a>
-<a href="about.html" class="">About</a>
+    <div class="nav-links"><a href="index.html">Home</a>
+<a href="about.html">About</a>
 <a href="methodology.html" class="active">Methodology</a>
-<a href="case-studies.html" class="">Case Studies</a>
-<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
-<a href="insights.html" class="">Insights</a>
-<a href="credentials.html" class="">Credentials</a>
-<a href="resume.html" class="">Resume</a>
-<a href="contact.html" class="">Contact</a></div>
+<a href="case-studies.html">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="insights.html">Insights</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a></div>
   </div>
 </nav>
 <header class="page-header">
@@ -48,14 +49,33 @@
 <section>
   <div class="wrap-narrow">
     <div class="section-head"><h2 class="section-title">What each step means in practice</h2></div>
-    <div class="method-detail" style="border-left-color:var(--accent)"><div class="doc-num">01</div><h3>Understand the Business</h3><p>Before opening a dataset, I map who is affected, what process generates the data and what decision changes if the analysis goes one way or another.</p><ul><li>Identify stakeholders and ownership.</li><li>Map the process end to end.</li><li>Define the decision the analysis needs to support.</li></ul></div>
-    <div class="method-detail" style="border-left-color:var(--blue)"><div class="doc-num">02</div><h3>Explore the Data</h3><p>Profile the data before building a dashboard. The objective is to understand whether the data can actually answer the question.</p><ul><li>Check types, ranges, nulls and duplicates.</li><li>Compare distributions across relevant categories.</li><li>Separate data-quality problems from process problems.</li></ul></div>
-    <div class="method-detail" style="border-left-color:var(--gold)"><div class="doc-num">03</div><h3>Diagnose Root Causes</h3><p>Look for where the outcome should vary and test whether it actually does. A good analysis explains the mechanism, not only the symptom.</p><ul><li>Segment by priority, team, category or workflow stage.</li><li>Distinguish process failure from data-capture failure.</li><li>Use evidence to narrow the cause before recommending a fix.</li></ul></div>
-    <div class="method-detail" style="border-left-color:var(--green)"><div class="doc-num">04</div><h3>Design KPIs</h3><p>A KPI earns its place only when someone would do something differently because of it.</p><ul><li>Connect each KPI to a decision or root cause.</li><li>Define targets explicitly.</li><li>Design for a cadence the team can realistically maintain.</li></ul></div>
-    <div class="method-detail" style="border-left-color:var(--purple)"><div class="doc-num">05</div><h3>Recommend Improvements</h3><p>Recommendations should be specific enough to assign: a process change, system rule, control or policy.</p><ul><li>Prioritise effort against expected impact.</li><li>Assign ownership and a measurable outcome.</li><li>Sequence the changes instead of presenting a wish list.</li></ul></div>
-    <div class="method-detail" style="border-left-color:var(--accent)"><div class="doc-num">06</div><h3>Estimate Business Impact</h3><p>When the impact is an estimate, I label the assumptions. A transparent number is more useful than false precision.</p><ul><li>Show baseline versus projected state.</li><li>State assumptions explicitly.</li><li>Flag sensitivity where the estimate is assumption-heavy.</li></ul></div>
+    <div class="method-detail method-detail-visual" style="border-left-color:var(--accent)">
+  <div class="method-image"><img src="https://images.pexels.com/photos/7691719/pexels-photo-7691719.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Stakeholder workshop" loading="lazy"><span>Stakeholder workshop</span></div>
+  <div class="method-copy"><div class="doc-num">01</div><h3>Understand the Business</h3><p>Before opening a dataset, I map who is affected, what process generates the data and what decision changes if the analysis goes one way or another.</p><ul><li>Identify stakeholders and ownership.</li><li>Map the process end to end.</li><li>Define the decision the analysis needs to support.</li></ul></div>
+</div>
+    <div class="method-detail method-detail-visual" style="border-left-color:var(--blue)">
+  <div class="method-image"><img src="https://images.pexels.com/photos/37828833/pexels-photo-37828833.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Data exploration" loading="lazy"><span>Data exploration</span></div>
+  <div class="method-copy"><div class="doc-num">02</div><h3>Explore the Data</h3><p>Profile the data before building a dashboard. The objective is to understand whether the data can actually answer the question.</p><ul><li>Check types, ranges, nulls and duplicates.</li><li>Compare distributions across relevant categories.</li><li>Separate data-quality problems from process problems.</li></ul></div>
+</div>
+    <div class="method-detail method-detail-visual" style="border-left-color:var(--gold)">
+  <div class="method-image"><img src="https://images.pexels.com/photos/9301821/pexels-photo-9301821.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Investigate the signal" loading="lazy"><span>Investigate the signal</span></div>
+  <div class="method-copy"><div class="doc-num">03</div><h3>Diagnose Root Causes</h3><p>Look for where the outcome should vary and test whether it actually does. A good analysis explains the mechanism, not only the symptom.</p><ul><li>Segment by priority, team, category or workflow stage.</li><li>Distinguish process failure from data-capture failure.</li><li>Use evidence to narrow the cause before recommending a fix.</li></ul></div>
+</div>
+    <div class="method-detail method-detail-visual" style="border-left-color:var(--green)">
+  <div class="method-image"><img src="https://images.pexels.com/photos/30332440/pexels-photo-30332440.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Measure what matters" loading="lazy"><span>Measure what matters</span></div>
+  <div class="method-copy"><div class="doc-num">04</div><h3>Design KPIs</h3><p>A KPI earns its place only when someone would do something differently because of it.</p><ul><li>Connect each KPI to a decision or root cause.</li><li>Define targets explicitly.</li><li>Design for a cadence the team can realistically maintain.</li></ul></div>
+</div>
+    <div class="method-detail method-detail-visual" style="border-left-color:var(--purple)">
+  <div class="method-image"><img src="https://images.pexels.com/photos/7688454/pexels-photo-7688454.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Plan the change" loading="lazy"><span>Plan the change</span></div>
+  <div class="method-copy"><div class="doc-num">05</div><h3>Recommend Improvements</h3><p>Recommendations should be specific enough to assign: a process change, system rule, control or policy.</p><ul><li>Prioritise effort against expected impact.</li><li>Assign ownership and a measurable outcome.</li><li>Sequence the changes instead of presenting a wish list.</li></ul></div>
+</div>
+    <div class="method-detail method-detail-visual" style="border-left-color:var(--accent)">
+  <div class="method-image"><img src="https://images.pexels.com/photos/6289026/pexels-photo-6289026.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Quantify the outcome" loading="lazy"><span>Quantify the outcome</span></div>
+  <div class="method-copy"><div class="doc-num">06</div><h3>Estimate Business Impact</h3><p>When the impact is an estimate, I label the assumptions. A transparent number is more useful than false precision.</p><ul><li>Show baseline versus projected state.</li><li>State assumptions explicitly.</li><li>Flag sensitivity where the estimate is assumption-heavy.</li></ul></div>
+</div>
   </div>
 </section>
+<section><div class="wrap"><div class="stock-credit">Supporting visuals: Pexels. The diagrams and professional case-study visuals elsewhere are original portfolio graphics.</div></div></section>
 <section>
   <div class="wrap">
     <div class="callout"><strong>The principle:</strong> the dashboard is usually the last step, not the first. The valuable work is deciding what should be measured, why it matters, and what action the signal should trigger.</div>
@@ -72,6 +92,6 @@
     </div>
     © 2026 Amal Krishna · Business Analyst · Data &amp; Process Optimisation
   </div>
-</footer><script src="assets/animations.js?v=11"></script>
+</footer><script src="assets/animations.js?v=14"></script>
 </body>
 </html>

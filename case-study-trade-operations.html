@@ -9,27 +9,28 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=11" rel="stylesheet"/>
+<link href="assets/styles.css?v=14" rel="stylesheet"/>
 <meta content="Professional case study: counterparty onboarding, master data, approvals and trading readiness at RWE Supply &amp; Trading." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
 <nav class="site-nav">
 <div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
 <button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html" class="">Home</a>
-<a href="about.html" class="">About</a>
-<a href="methodology.html" class="">Methodology</a>
-<a href="case-studies.html" class="">Case Studies</a>
-<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
-<a href="insights.html" class="">Insights</a>
-<a href="credentials.html" class="">Credentials</a>
-<a href="resume.html" class="">Resume</a>
-<a href="contact.html" class="">Contact</a></div>
+<div class="nav-links"><a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="methodology.html">Methodology</a>
+<a href="case-studies.html" class="active">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="insights.html">Insights</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a></div>
 </div>
 </nav>
 <header class="page-header">
 <div class="wrap">
-<div class="eyebrow" style="color:var(--itsm)"><span class="dot"></span>Case Study — Trade &amp; Counterparty Operations</div>
+<div class="eyebrow" style="color:var(--accent)"><span class="dot"></span>Case Study — Trade &amp; Counterparty Operations</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Getting counterparties Ready to Trade — and keeping them that way</h1>
 <p class="page-lede">How onboarding, master data, and cross-functional approvals come together before an energy trading desk can execute a single deal — and what happens when one piece is missing.</p>
 <div class="tags-row" style="margin-top:20px;">
@@ -42,7 +43,21 @@
 </header>
 <section>
 <div class="wrap">
-<div class="doc-layout">
+
+<div class="case-visual" style="--tab:var(--accent)">
+  <div class="case-visual-head"><div><div class="case-visual-kicker">Portfolio visual · anonymised</div><h2>Trading readiness is a chain, not a checkbox.</h2></div><div class="case-visual-note">Original visual based on the process described in the case study. No RWE system screenshot or proprietary data is shown.</div></div>
+  <div class="diagram">
+    <div class="flow-diagram">
+      <div class="flow-node"><div class="small">01 · Intake</div><strong>Jira request</strong><span>Counterparty details, agreements, portfolios</span></div><div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="small">02 · Controls</div><strong>Legal · Credit · Compliance</strong><span>Contractual, credit and regulatory gates</span></div><div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="small">03 · Master data</div><strong>Endur</strong><span>Counterparty, BU, portfolio and instrument setup</span></div><div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="small">04 · Validation</div><strong>Trade checks</strong><span>Diagnose missing prerequisites and failed bookings</span></div><div class="flow-arrow">→</div>
+      <div class="flow-node"><div class="small">05 · Outcome</div><strong>Ready to Trade</strong><span>Operationally usable, not merely "onboarded"</span></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout" style="--tab:var(--accent)">
 <nav class="doc-toc">
 <div class="doc-toc-title">Contents</div>
 <a href="#executive-summary">01 · Executive Summary</a>
@@ -105,6 +120,15 @@
 <div class="doc-section" id="business-process">
 <div class="doc-num">04 · BUSINESS PROCESS</div>
 <div class="doc-h">Jira request → three approvals → Endur → Ready to Trade</div>
+<div class="process-flow">
+<div class="process-step"><div class="p-num">1</div><div class="p-title">Jira request submitted</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">2</div><div class="p-title">Legal / Credit / Compliance approvals</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">3</div><div class="p-title">Data maintained in Endur</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">4</div><div class="p-title">Counterparty Ready to Trade</div></div>
+</div>
 <p>A Jira request captures counterparty information, requested agreements, and portfolio
             selection. It progresses through Legal, Credit, and Compliance approval stages — each
             adding its own piece: agreement terms and collateral requirements from Legal, an approved
@@ -198,7 +222,7 @@
 <li><strong>Reduce redundant counterparty setups.</strong> As part of the CALM (Counterparty Agreement Lifecycle Management) initiative, evaluated agreement structures to cut down on duplicate configurations that increased the chance of a mismatch.</li>
 <li><strong>Standardize the diagnostic workflow.</strong> The structured troubleshooting sequence in Section 9 turned "the trade won't book" from an open-ended investigation into a repeatable checklist.</li>
 <li><strong>Support process automation via RPA</strong> and optimize Jira workflows to reduce the recurring errors that were consuming the most manual re-work.</li>
-<li><strong>Give teams earlier visibility into stalled approvals</strong> — this is the direct link to the KPI dashboard work covered in the <a href="case-study-kpi-dashboard.html" style="color:var(--itsm); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>.</li>
+<li><strong>Give teams earlier visibility into stalled approvals</strong> — this is the direct link to the KPI dashboard work covered in the <a href="case-study-kpi-dashboard.html" style="color:var(--accent); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>.</li>
 </ul>
 </div>
 <div class="doc-section" id="business-case">
@@ -223,7 +247,7 @@
             from two places: Power BI and Jira dashboards flagging teams that hadn't nominated an
             approver within 24 hours (closing bottlenecks before they escalated), and the broader
             KPI dashboard suite covered in the
-            <a href="case-study-kpi-dashboard.html" style="color:var(--itsm); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>,
+            <a href="case-study-kpi-dashboard.html" style="color:var(--accent); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>,
             which tracks nomination turnaround, workload distribution, and requests stuck in a given
             approval stage.</p>
 </div>
@@ -253,5 +277,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=11"></script></body>
+<script src="assets/animations.js?v=14"></script></body>
 </html>

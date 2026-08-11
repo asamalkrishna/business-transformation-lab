@@ -9,27 +9,28 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=11" rel="stylesheet"/>
+<link href="assets/styles.css?v=14" rel="stylesheet"/>
 <meta content="Professional case study: Jira KPI dashboards for 10+ support functions, workflow visibility and trading-readiness controls." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
 <nav class="site-nav">
 <div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
 <button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html" class="">Home</a>
-<a href="about.html" class="">About</a>
-<a href="methodology.html" class="">Methodology</a>
-<a href="case-studies.html" class="">Case Studies</a>
-<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
-<a href="insights.html" class="">Insights</a>
-<a href="credentials.html" class="">Credentials</a>
-<a href="resume.html" class="">Resume</a>
-<a href="contact.html" class="">Contact</a></div>
+<div class="nav-links"><a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="methodology.html">Methodology</a>
+<a href="case-studies.html" class="active">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="insights.html">Insights</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a></div>
 </div>
 </nav>
 <header class="page-header">
 <div class="wrap">
-<div class="eyebrow" style="color:var(--supply)"><span class="dot"></span>Case Study — KPI &amp; Dashboard Design</div>
+<div class="eyebrow" style="color:var(--green)"><span class="dot"></span>Case Study — KPI &amp; Dashboard Design</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">The KPI that mattered most wasn't the speed metric</h1>
 <p class="page-lede">Building Jira operational dashboards for 10+ support teams — and discovering that "Ready to Trade but not yet Approved" was a bigger problem than slow nominations.</p>
 <div class="tags-row" style="margin-top:20px;">
@@ -42,7 +43,24 @@
 </header>
 <section>
 <div class="wrap">
-<div class="doc-layout">
+
+<div class="case-visual" style="--tab:var(--green)">
+  <div class="case-visual-head"><div><div class="case-visual-kicker">Portfolio visual · conceptual dashboard</div><h2>From ticket-level noise to team-level signal.</h2></div><div class="case-visual-note">Conceptual KPI interface reconstructed from the documented metrics. It is not a screenshot of the RWE dashboard.</div></div>
+  <div class="diagram">
+    <div class="mock-dashboard">
+      <div class="mock-kpi"><div class="label">NOMINATION TIME</div><div class="value">18.4h</div><div class="sub">Target &lt; 24h</div></div>
+      <div class="mock-kpi"><div class="label">OPEN REQUESTS</div><div class="value">47</div><div class="sub">Across support teams</div></div>
+      <div class="mock-kpi"><div class="label">OVERDUE</div><div class="value">8</div><div class="sub">Needs attention</div></div>
+      <div class="mock-kpi"><div class="label">READY → APPROVED</div><div class="value">12</div><div class="sub">Final step pending</div></div>
+    </div>
+    <div class="mock-panels">
+      <div class="mock-panel"><div class="mock-panel-title">Nomination time by function · conceptual</div><div class="bar-chart"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div></div>
+      <div class="mock-panel"><div class="mock-panel-title">Workflow state</div><div class="status-list"><div class="status-row"><span>Open</span><b>47</b></div><div class="status-row"><span>Ready to Trade</span><b>12</b></div><div class="status-row"><span>Overdue</span><b>8</b></div><div class="status-row"><span>Approved</span><b>—</b></div></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="doc-layout" style="--tab:var(--green)">
 <nav class="doc-toc">
 <div class="doc-toc-title">Contents</div>
 <a href="#executive-summary">01 · Executive Summary</a>
@@ -95,6 +113,15 @@
 <div class="doc-section" id="business-process">
 <div class="doc-num">04 · BUSINESS PROCESS</div>
 <div class="doc-h">From request to Ready to Trade to (eventually) Approved</div>
+<div class="process-flow">
+<div class="process-step"><div class="p-num">1</div><div class="p-title">Request logged in Jira</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">2</div><div class="p-title">Routed across support functions</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">3</div><div class="p-title">Marked Ready to Trade</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">4</div><div class="p-title">Final Approved status (often skipped)</div></div>
+</div>
 <p>Requests moved through multiple support functions before reaching Ready-to-Trade
             status — and then needed to reach a separate, final Approved status. Many teams treated
             "Ready to Trade" as the finish line and didn't always complete the remaining
@@ -215,5 +242,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=11"></script></body>
+<script src="assets/animations.js?v=14"></script></body>
 </html>

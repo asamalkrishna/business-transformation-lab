@@ -9,27 +9,28 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=11" rel="stylesheet"/>
+<link href="assets/styles.css?v=14" rel="stylesheet"/>
 <meta content="Professional case study: redesigning Jira and Excel reporting into a structured refresh-and-go model." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
 <nav class="site-nav">
 <div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
 <button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html" class="">Home</a>
-<a href="about.html" class="">About</a>
-<a href="methodology.html" class="">Methodology</a>
-<a href="case-studies.html" class="">Case Studies</a>
-<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
-<a href="insights.html" class="">Insights</a>
-<a href="credentials.html" class="">Credentials</a>
-<a href="resume.html" class="">Resume</a>
-<a href="contact.html" class="">Contact</a></div>
+<div class="nav-links"><a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="methodology.html">Methodology</a>
+<a href="case-studies.html" class="active">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="insights.html">Insights</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a></div>
 </div>
 </nav>
 <header class="page-header">
 <div class="wrap">
-<div class="eyebrow" style="color:var(--mfg)"><span class="dot"></span>Case Study — Reporting &amp; Process Automation</div>
+<div class="eyebrow" style="color:var(--gold)"><span class="dot"></span>Case Study — Reporting &amp; Process Automation</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">The data was already in Jira. The report just wasn't using it.</h1>
 <p class="page-lede">Redesigning SLA cost reporting so Accounting could refresh a pivot table instead of rebuilding a spreadsheet from scratch every month.</p>
 <div class="tags-row" style="margin-top:20px;">
@@ -42,7 +43,20 @@
 </header>
 <section>
 <div class="wrap">
-<div class="doc-layout">
+
+<div class="case-visual" style="--tab:var(--gold)">
+  <div class="case-visual-head"><div><div class="case-visual-kicker">Portfolio visual · process redesign</div><h2>Same source data. A very different reporting path.</h2></div><div class="case-visual-note">Original process graphic based on the documented Jira → model → Accounting workflow. No company report is reproduced.</div></div>
+  <div class="diagram">
+    <div class="before-after">
+      <div class="ba-panel"><div class="ba-label">Before</div><h3>Rebuild every cycle</h3><ul><li>Extract effort data</li><li>Clean and consolidate manually</li><li>Rebuild calculations</li><li>Recreate pivot views</li><li>Apply cost rates and report</li></ul></div>
+      <div class="ba-arrow">→</div>
+      <div class="ba-panel"><div class="ba-label">After</div><h3>Refresh a structured model</h3><ul><li>Replace the latest source export</li><li>Validate the structured dataset</li><li>Refresh pivot model</li><li>Slice by function, employee and country</li><li>Accounting consumes the same logic</li></ul></div>
+    </div>
+    <div class="model-strip"><span class="model-node">Jira effort logs</span><span class="model-node">→</span><span class="model-node active">Structured model</span><span class="model-node">→</span><span class="model-node">Cost rates</span><span class="model-node">→</span><span class="model-node active">Accounting view</span></div>
+  </div>
+</div>
+
+<div class="doc-layout" style="--tab:var(--gold)">
 <nav class="doc-toc">
 <div class="doc-toc-title">Contents</div>
 <a href="#executive-summary">01 · Executive Summary</a>
@@ -90,6 +104,15 @@
 <div class="doc-section" id="business-process">
 <div class="doc-num">04 · BUSINESS PROCESS</div>
 <div class="doc-h">Before and after, side by side</div>
+<div class="process-flow">
+<div class="process-step"><div class="p-num">1</div><div class="p-title">Extract effort data from Jira</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">2</div><div class="p-title">Clean, filter &amp; validate manually</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">3</div><div class="p-title">Rebuild pivot model from scratch</div></div>
+<div class="process-arrow">→</div>
+<div class="process-step"><div class="p-num">4</div><div class="p-title">Apply cost rates &amp; report</div></div>
+</div>
 <p><strong>Before:</strong> Accounting manually extracted operational effort data, performed
             manual calculations, consolidated everything into reporting sheets, and prepared the final
             report — every single cycle, from close to scratch.</p>
@@ -195,5 +218,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=11"></script></body>
+<script src="assets/animations.js?v=14"></script></body>
 </html>
