@@ -3,94 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dashboard and data-analysis gallery from Amal Krishna's Business Analyst portfolio, including Python analysis and operational KPI work.">
+<meta name="theme-color" content="#08262B">
 <title>Dashboard Gallery — Amal Krishna</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<style>
-  .gallery-item{background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:16px; margin-bottom:24px;}
-  .gallery-caption{font-family:var(--mono); font-size:12.5px; color:var(--text-dim); padding:14px 6px 4px;}
-  .gallery-caption strong{color:var(--text);}
-  .gallery-grid{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
-  @media (max-width:760px){.gallery-grid{grid-template-columns:1fr;}}
-</style>
 </head>
-<body>
-
-  <nav class="site-nav">
-    <div class="wrap">
-      <div class="logo">AMAL <span>KRISHNA</span></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="methodology.html">Methodology</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="dashboard-gallery.html" class="active">Dashboard Gallery</a>
-        <a href="insights.html">Insights</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </div>
+<body><nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+    <div class="nav-links"><a href="index.html" class="">Home</a>
+<a href="about.html" class="">About</a>
+<a href="methodology.html" class="">Methodology</a>
+<a href="case-studies.html" class="">Case Studies</a>
+<a href="dashboard-gallery.html" class="active">Dashboard Gallery</a>
+<a href="insights.html" class="">Insights</a>
+<a href="credentials.html" class="">Credentials</a>
+<a href="resume.html" class="">Resume</a>
+<a href="contact.html" class="">Contact</a></div>
+  </div>
+</nav>
+<header class="page-header">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Dashboard gallery</div>
+    <h1 class="page-title">The analytical views behind the case studies.</h1>
+    <p class="page-lede">A visual index of dashboards and charts used to investigate operational questions. The important part is not the chart itself — it is the decision the chart supports.</p>
+  </div>
+</header>
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2 class="section-title">IT Service Desk Analysis</h2><span class="section-sub">Personal project · Python / pandas · 1M tickets</span></div>
+    <div class="gallery-grid">
+      <div class="gallery-card"><img src="assets/charts/resolution_by_priority.png" alt="Average resolution time by ticket priority"><div class="gallery-cap"><div class="g-title">Resolution time by priority</div><div class="g-sub">~5.25 hours across every priority level — a signal that priority was not changing outcomes.</div></div></div>
+      <div class="gallery-card"><img src="assets/charts/escalation_by_team.png" alt="Escalation rate by support team"><div class="gallery-cap"><div class="g-title">Escalation by team</div><div class="g-sub">All four teams cluster around the same ~50% escalation rate.</div></div></div>
+      <div class="gallery-card"><img src="assets/charts/completeness_by_status.png" alt="Resolution timestamp completeness by status"><div class="gallery-cap"><div class="g-title">Resolution-date completeness</div><div class="g-sub">About 30% of records lack a resolution timestamp, including tickets marked Resolved.</div></div></div>
+      <div class="gallery-card"><img src="assets/charts/volume_by_category.png" alt="Ticket volume by category"><div class="gallery-cap"><div class="g-title">Volume by category</div><div class="g-sub">An even distribution across five categories makes category alone a weak explanation for the flat outcome.</div></div></div>
+      <div class="gallery-card"><img src="assets/charts/daily_volume.png" alt="Daily ticket volume in November 2023"><div class="gallery-cap"><div class="g-title">Daily ticket volume</div><div class="g-sub">Consistent daily intake with no strong trend across the month.</div></div></div>
     </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="wrap">
-      <div class="eyebrow"><span class="dot"></span>Dashboard Gallery</div>
-      <h1 class="page-title">Every chart, in one place.</h1>
-      <p class="page-lede">Pulled straight from the case studies — a running gallery of the views built to support each analysis. More will land here as new case studies go live.</p>
+    <div style="margin-top:22px"><a class="btn btn-primary" href="case-study-it-service.html">Read the full analysis →</a></div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2 class="section-title">Professional case studies</h2><span class="section-sub">RWE Supply &amp; Trading · Emteria</span></div>
+    <div class="kpi-grid">
+      <div class="kpi-cell"><div class="kpi-num">15+</div><div class="kpi-label">COUNTERPARTIES / MONTH</div><div class="kpi-context">Trade operations and onboarding.</div></div>
+      <div class="kpi-cell"><div class="kpi-num">10+</div><div class="kpi-label">SUPPORT FUNCTIONS</div><div class="kpi-context">Jira KPI and workflow dashboards.</div></div>
+      <div class="kpi-cell"><div class="kpi-num">72h → 24h</div><div class="kpi-label">NOMINATION TARGET</div><div class="kpi-context">Workflow visibility and prioritisation.</div></div>
+      <div class="kpi-cell"><div class="kpi-num">1,250+</div><div class="kpi-label">CRM RECORDS</div><div class="kpi-context">Pipedrive to HubSpot migration.</div></div>
     </div>
-  </header>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-title" style="color:var(--text-faint)">IT Service Desk Analysis <span style="font-size:11px; color:var(--text-faint); font-weight:400;">(personal project)</span></div>
-        <div class="section-sub">// 1M-TICKET HELPDESK ANALYSIS</div>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="assets/charts/resolution_by_priority.png" alt="Average resolution time by priority">
-          <div class="gallery-caption"><strong>Avg. resolution time by priority</strong> — flat at ~5.25h regardless of priority level.</div>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/charts/escalation_by_team.png" alt="Escalation rate by team">
-          <div class="gallery-caption"><strong>Escalation rate by team</strong> — all four teams cluster around 50%.</div>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/charts/completeness_by_status.png" alt="Resolution-date capture rate by status">
-          <div class="gallery-caption"><strong>Resolution-date capture rate</strong> — ~70% across every status, including "Resolved."</div>
-        </div>
-        <div class="gallery-item">
-          <img src="assets/charts/volume_by_category.png" alt="Ticket volume by category">
-          <div class="gallery-caption"><strong>Ticket volume by category</strong> — an even split across five categories.</div>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="assets/charts/daily_volume.png" alt="Daily ticket volume, November 2023">
-        <div class="gallery-caption"><strong>Daily ticket volume — November 2023</strong> — consistent daily intake with no strong trend across the month.</div>
-      </div>
-      <p style="margin-top:8px;"><a href="case-study-it-service.html" style="color:var(--itsm); text-decoration:underline; font-family:var(--mono); font-size:13px;">→ Read the full case study</a></p>
+    <div style="margin-top:24px"><a class="btn" href="case-studies.html">Explore the case studies →</a></div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:asamalkrishna@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/amalkrishnaas/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.instagram.com/_krish_amal_/" target="_blank" rel="noopener">Instagram</a>
+      <a href="resume.html">Resume</a>
+      <a href="case-studies.html">Case studies</a>
     </div>
-  </section>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-title">Real Project Case Studies</div>
-        <div class="section-sub">// RWE SUPPLY &amp; TRADING · EMTERIA</div>
-      </div>
-      <p style="color:var(--text-dim); max-width:60ch; margin-bottom:20px;">
-        The four core case studies (Trade &amp; Counterparty Operations, KPI &amp; Dashboard Design,
-        Reporting &amp; Process Automation, Systems &amp; Data Migration) are narrative-driven rather
-        than chart-driven — see each one directly for its KPI breakdowns and business case figures.
-      </p>
-      <a href="case-studies.html" style="color:var(--itsm); text-decoration:underline; font-family:var(--mono); font-size:13px;">→ View all case studies</a>
-    </div>
-  </section>
-
-  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna. Built one case study at a time.</div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/animations.js" defer></script>
+    © 2026 Amal Krishna · Business Analyst · Data &amp; Process Optimisation
+  </div>
+</footer><script src="assets/animations.js"></script>
 </body>
 </html>

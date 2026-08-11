@@ -1,47 +1,39 @@
-// Lightweight scroll-reveal — tags common content blocks with .reveal
-// then fades/slides them in as they enter the viewport. No dependencies.
 (function () {
+  const toggle = document.querySelector('.nav-toggle');
+  const links = document.querySelector('.nav-links');
+  if (toggle && links) {
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  }
+
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var selectors = [
-    'section',
-    '.case-card',
-    '.gallery-card',
-    '.funfact',
-    '.method-detail',
-    '.finding-box',
-    '.doc-section',
-    '.kpi-cell',
-    '.exp-item'
+  const selectors = [
+    '.case-card','.gallery-card','.funfact','.method-detail',
+    '.finding-box','.doc-section','.kpi-cell','.exp-item','.insight-card'
   ];
 
-  document.querySelectorAll(selectors.join(',')).forEach(function (el) {
-    el.classList.add('reveal');
-  });
+  document.querySelectorAll(selectors.join(',')).forEach(el => el.classList.add('reveal'));
 
   if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      el.classList.add('is-visible');
-    });
+    document.querySelectorAll('.reveal').forEach(el => el.classList.add('is-visible'));
     return;
   }
 
-  var observer = new IntersectionObserver(
-    function (entries) {
-      entries.forEach(function (entry, i) {
-        if (entry.isIntersecting) {
-          var el = entry.target;
-          setTimeout(function () {
-            el.classList.add('is-visible');
-          }, (i % 4) * 70);
-          observer.unobserve(el);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      setTimeout(() => el.classList.add('is-visible'), (i % 4) * 60);
+      observer.unobserve(el);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
 
-  document.querySelectorAll('.reveal').forEach(function (el) {
-    observer.observe(el);
-  });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 })();

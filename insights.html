@@ -3,66 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Short analytical notes by Amal Krishna on Business Analysis, operational KPIs, process improvement and data quality.">
+<meta name="theme-color" content="#08262B">
 <title>Insights — Amal Krishna</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<style>
-  .post-card{background:var(--surface); border:1px solid var(--line); border-radius:2px; padding:26px 28px; margin-bottom:16px;}
-  .post-date{font-family:var(--mono); font-size:11px; color:var(--text-faint); letter-spacing:0.05em; margin-bottom:10px;}
-  .post-title{font-size:17.5px; font-weight:600; margin-bottom:8px;}
-  .post-desc{color:var(--text-dim); font-size:14px; max-width:65ch;}
-</style>
 </head>
-<body>
-
-  <nav class="site-nav">
-    <div class="wrap">
-      <div class="logo">AMAL <span>KRISHNA</span></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="methodology.html">Methodology</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="dashboard-gallery.html">Dashboard Gallery</a>
-        <a href="insights.html" class="active">Insights</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </div>
+<body><nav class="site-nav">
+  <div class="wrap">
+    <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
+    <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+    <div class="nav-links"><a href="index.html" class="">Home</a>
+<a href="about.html" class="">About</a>
+<a href="methodology.html" class="">Methodology</a>
+<a href="case-studies.html" class="">Case Studies</a>
+<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
+<a href="life.html" class="active">Life</a>
+<a href="credentials.html" class="">Credentials</a>
+<a href="resume.html" class="">Resume</a>
+<a href="contact.html" class="">Contact</a></div>
+  </div>
+</nav>
+<header class="page-header">
+  <div class="wrap">
+    <div class="eyebrow"><span class="dot"></span>Insights</div>
+    <h1 class="page-title">A few things I have learned from working with operational data.</h1>
+    <p class="page-lede">Short notes on analysis and process improvement. No generic “10 dashboard tips” — just observations that came out of real work and structured case analysis.</p>
+  </div>
+</header>
+<section>
+  <div class="wrap">
+    <div class="insight-grid">
+      <article class="insight-card"><div class="num">01 · KPI DESIGN</div><h3>The best KPI is the one that changes the next action.</h3><p>A cycle-time metric can look impressive and still fail operationally. In the RWE workflow, the more useful signal was a state KPI: requests that looked ready but were not formally approved. The metric mattered because somebody could act on it.</p></article>
+      <article class="insight-card"><div class="num">02 · DATA QUALITY</div><h3>Missing data can be the finding, not just a cleaning step.</h3><p>In the IT service analysis, resolution timestamps were missing from roughly 30% of tickets, including records marked Resolved. Cleaning that field away would have hidden the process problem instead of explaining it.</p></article>
+      <article class="insight-card"><div class="num">03 · AUTOMATION</div><h3>Automate the structure before automating the clicks.</h3><p>If a report has to be rebuilt manually every month, the first question should be whether the underlying data model is reusable. A stable model often removes more work than a more elaborate automation script.</p></article>
+      <article class="insight-card"><div class="num">04 · PROCESS</div><h3>When a process “mostly works,” measure where it stops working.</h3><p>Operational processes rarely fail everywhere. They fail at handoffs, missing prerequisites, ambiguous ownership or unobserved workflow states. Segmenting the process is often more useful than looking at one overall average.</p></article>
+      <article class="insight-card"><div class="num">05 · BUSINESS ANALYSIS</div><h3>Start with the decision, not the available data.</h3><p>It is tempting to build around whatever fields happen to exist. A better sequence is to define the decision first, identify the evidence required, and only then decide which fields and tools are necessary.</p></article>
+      <article class="insight-card"><div class="num">06 · STAKEHOLDERS</div><h3>A dashboard is a product, not a screenshot.</h3><p>Operational reporting changes as teams learn what they need. The most useful dashboards are maintained: definitions, queries, ownership and feedback loops are treated as part of the deliverable.</p></article>
     </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="wrap">
-      <div class="eyebrow"><span class="dot"></span>Insights</div>
-      <h1 class="page-title">Shorter notes, between case studies.</h1>
-      <p class="page-lede">Smaller observations and lessons that don't need a full 13-section write-up — patterns I notice across projects, tooling notes, and things worth remembering.</p>
+  </div>
+</section>
+<section>
+  <div class="wrap"><div class="callout">More detailed examples are embedded directly in the <a href="case-studies.html" style="color:var(--accent)">case studies</a>, where each claim is tied back to a business question, dataset or process.</div></div>
+</section>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="mailto:asamalkrishna@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/amalkrishnaas/" target="_blank" rel="noopener">LinkedIn</a>
+<a href="https://www.instagram.com/_krish_amal_/" target="_blank" rel="noopener">Instagram</a>
+      <a href="resume.html">Resume</a>
+      <a href="case-studies.html">Case studies</a>
     </div>
-  </header>
-
-  <section>
-    <div class="wrap-narrow">
-      <div class="post-card">
-        <div class="post-date">[DATE]</div>
-        <div class="post-title">[Placeholder — e.g. "When 'no variation' in your data is the finding"]</div>
-        <p class="post-desc">[Placeholder — a short reflection, 2-4 sentences, expanding on an idea from one of your case studies or day-to-day work.]</p>
-      </div>
-      <div class="post-card">
-        <div class="post-date">[DATE]</div>
-        <div class="post-title">[Placeholder — e.g. "A checklist for auditing a KPI before trusting it"]</div>
-        <p class="post-desc">[Placeholder — a short reflection or checklist.]</p>
-      </div>
-      <div class="post-card">
-        <div class="post-date">[DATE]</div>
-        <div class="post-title">[Placeholder — add your own note]</div>
-        <p class="post-desc">[Placeholder text.]</p>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna. Built one case study at a time.</div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/animations.js" defer></script>
+    © 2026 Amal Krishna · Business Analyst · Data &amp; Process Optimisation
+  </div>
+</footer><script src="assets/animations.js"></script>
 </body>
 </html>

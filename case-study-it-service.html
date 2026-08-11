@@ -1,260 +1,243 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IT Service Transformation — Amal Krishna</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>IT Service Desk Analysis — Amal Krishna</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/styles.css" rel="stylesheet"/>
+<meta content="Personal technical case study analysing a simulated 1,000,000-ticket IT helpdesk dataset with Python and pandas." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
-
-  <nav class="site-nav">
-    <div class="wrap">
-      <div class="logo">AMAL <span>KRISHNA</span></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="methodology.html">Methodology</a>
-        <a href="case-studies.html" class="active">Case Studies</a>
-        <a href="dashboard-gallery.html">Dashboard Gallery</a>
-        <a href="insights.html">Insights</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="wrap">
-      <div class="eyebrow" style="color:var(--itsm)"><span class="dot"></span>Case Study — IT Service Transformation</div>
-      <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Why "Critical" tickets took just as long as "Low" priority ones</h1>
-      <p class="page-lede">A root-cause analysis of a 1,000,000-ticket IT helpdesk dataset — and why every dimension that was supposed to differentiate outcomes didn't.</p>
-      <div class="tags-row" style="margin-top:20px;">
-        <span class="tag">Personal project</span>
-        <span class="tag">Simulated dataset · 1M tickets</span>
-        <span class="tag">Python · pandas</span>
-        <span class="tag">Nov 2023</span>
-      </div>
-    </div>
-  </header>
-
-  <section>
-    <div class="wrap">
-      <div class="doc-layout">
-
-        <nav class="doc-toc">
-          <div class="doc-toc-title">Contents</div>
-          <a href="#executive-summary">01 · Executive Summary</a>
-          <a href="#business-context">02 · Business Context</a>
-          <a href="#stakeholders">03 · Stakeholders</a>
-          <a href="#business-process">04 · Business Process</a>
-          <a href="#business-questions">05 · Business Questions</a>
-          <a href="#data-understanding">06 · Data Understanding</a>
-          <a href="#analysis">07 · Analysis</a>
-          <a href="#key-findings">08 · Key Findings</a>
-          <a href="#root-cause">09 · Root Cause Analysis</a>
-          <a href="#recommendations">10 · Recommendations</a>
-          <a href="#business-case">11 · Business Case</a>
-          <a href="#dashboard">12 · Dashboard</a>
-          <a href="#lessons-learned">13 · Lessons Learned</a>
-        </nav>
-
-        <div>
-
-          <div class="doc-section" id="executive-summary">
-            <div class="doc-num">01 · EXECUTIVE SUMMARY</div>
-            <div class="doc-h">Priority labels weren't changing outcomes</div>
-            <p>This case study analyzes a simulated IT helpdesk dataset of 1,000,000 tickets logged
+<nav class="site-nav">
+<div class="wrap">
+<a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
+<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
+<div class="nav-links"><a href="index.html" class="">Home</a>
+<a href="about.html" class="">About</a>
+<a href="methodology.html" class="">Methodology</a>
+<a href="case-studies.html" class="">Case Studies</a>
+<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
+<a href="insights.html" class="">Insights</a>
+<a href="credentials.html" class="">Credentials</a>
+<a href="resume.html" class="">Resume</a>
+<a href="contact.html" class="">Contact</a></div>
+</div>
+</nav>
+<header class="page-header">
+<div class="wrap">
+<div class="eyebrow" style="color:var(--itsm)"><span class="dot"></span>Case Study — IT Service Transformation</div>
+<h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Why "Critical" tickets took just as long as "Low" priority ones</h1>
+<p class="page-lede">A root-cause analysis of a 1,000,000-ticket IT helpdesk dataset — and why every dimension that was supposed to differentiate outcomes didn't.</p>
+<div class="tags-row" style="margin-top:20px;">
+<span class="tag">Personal project</span>
+<span class="tag">Simulated dataset · 1M tickets</span>
+<span class="tag">Python · pandas</span>
+<span class="tag">Nov 2023</span>
+</div>
+</div>
+</header>
+<section>
+<div class="wrap">
+<div class="doc-layout">
+<nav class="doc-toc">
+<div class="doc-toc-title">Contents</div>
+<a href="#executive-summary">01 · Executive Summary</a>
+<a href="#business-context">02 · Business Context</a>
+<a href="#stakeholders">03 · Stakeholders</a>
+<a href="#business-process">04 · Business Process</a>
+<a href="#business-questions">05 · Business Questions</a>
+<a href="#data-understanding">06 · Data Understanding</a>
+<a href="#analysis">07 · Analysis</a>
+<a href="#key-findings">08 · Key Findings</a>
+<a href="#root-cause">09 · Root Cause Analysis</a>
+<a href="#recommendations">10 · Recommendations</a>
+<a href="#business-case">11 · Business Case</a>
+<a href="#dashboard">12 · Dashboard</a>
+<a href="#lessons-learned">13 · Lessons Learned</a>
+</nav>
+<div>
+<div class="doc-section" id="executive-summary">
+<div class="doc-num">01 · EXECUTIVE SUMMARY</div>
+<div class="doc-h">Priority labels weren't changing outcomes</div>
+<p>This case study analyzes a simulated IT helpdesk dataset of 1,000,000 tickets logged
             over November 2023, spanning five categories, four support teams, and four priority
             levels. The starting business question was simple: <strong>is the service desk actually
             triaging work by priority, and can leadership trust the resolution-time metrics being
             reported?</strong></p>
-            <p>The analysis found that average resolution time was statistically flat across every
+<p>The analysis found that average resolution time was statistically flat across every
             priority level (5.24–5.25 hours), escalation rate was flat at ~50% regardless of team or
             category, and 30% of tickets — including 30% of tickets marked "Resolved" — had no
             resolution timestamp at all. None of the fields meant to differentiate how work is
             handled were actually doing so.</p>
-            <p>The recommendation isn't a new dashboard — it's three structural fixes: enforce
+<p>The recommendation isn't a new dashboard — it's three structural fixes: enforce
             priority-based SLA routing, formalize escalation criteria, and make resolution-timestamp
             capture mandatory before a ticket can close. Section 11 estimates the impact of the
             first fix alone.</p>
-          </div>
-
-          <div class="doc-section" id="business-context">
-            <div class="doc-num">02 · BUSINESS CONTEXT</div>
-            <div class="doc-h">A helpdesk that logs everything but enforces little</div>
-            <p>IT service desks are typically built around a priority system: Critical and High
+</div>
+<div class="doc-section" id="business-context">
+<div class="doc-num">02 · BUSINESS CONTEXT</div>
+<div class="doc-h">A helpdesk that logs everything but enforces little</div>
+<p>IT service desks are typically built around a priority system: Critical and High
             priority tickets are supposed to be triaged and resolved faster than Low priority ones,
             because they represent bigger business impact — a down production system versus a
             cosmetic UI bug, for instance. Escalation exists as a safety valve for tickets that a
             frontline team can't resolve alone.</p>
-            <p>In this dataset, tickets are logged with a priority, a category, an assigned team, and
+<p>In this dataset, tickets are logged with a priority, a category, an assigned team, and
             an escalation flag — the raw ingredients for exactly that kind of differentiated
             service. Whether those fields are actually influencing how tickets get handled, rather
             than just being recorded, is the question this case study sets out to answer.</p>
-            <div class="callout">Dataset: 1,000,000 tickets · 11 fields · single month (Nov 2023) · used here as a personal project, not client data.</div>
-          </div>
-
-          <div class="doc-section" id="stakeholders">
-            <div class="doc-num">03 · STAKEHOLDERS</div>
-            <div class="doc-h">Who this analysis would actually be for</div>
-            <ul>
-              <li><strong>IT Service Desk Manager</strong> — owns day-to-day triage and staffing, needs to know if priority is being honored operationally.</li>
-              <li><strong>Team Leads</strong> (Desktop Support, Application Support, Security Team, Network Team) — accountable for their team's resolution times and escalation patterns.</li>
-              <li><strong>IT Operations Director</strong> — reports SLA performance upward and needs to trust the underlying numbers.</li>
-              <li><strong>End users / employees</strong> — submit tickets and set an implicit priority expectation when they mark something Critical.</li>
-              <li><strong>Reporting / BI team</strong> — builds dashboards on top of this data and inherits any data-quality gaps silently.</li>
-            </ul>
-          </div>
-
-          <div class="doc-section" id="business-process">
-            <div class="doc-num">04 · BUSINESS PROCESS</div>
-            <div class="doc-h">How a ticket is supposed to flow</div>
-            <p>A ticket is created by a user or monitoring system, assigned a category and
+<div class="callout">Dataset: 1,000,000 tickets · 11 fields · single month (Nov 2023) · used here as a personal project, not client data.</div>
+</div>
+<div class="doc-section" id="stakeholders">
+<div class="doc-num">03 · STAKEHOLDERS</div>
+<div class="doc-h">Who this analysis would actually be for</div>
+<ul>
+<li><strong>IT Service Desk Manager</strong> — owns day-to-day triage and staffing, needs to know if priority is being honored operationally.</li>
+<li><strong>Team Leads</strong> (Desktop Support, Application Support, Security Team, Network Team) — accountable for their team's resolution times and escalation patterns.</li>
+<li><strong>IT Operations Director</strong> — reports SLA performance upward and needs to trust the underlying numbers.</li>
+<li><strong>End users / employees</strong> — submit tickets and set an implicit priority expectation when they mark something Critical.</li>
+<li><strong>Reporting / BI team</strong> — builds dashboards on top of this data and inherits any data-quality gaps silently.</li>
+</ul>
+</div>
+<div class="doc-section" id="business-process">
+<div class="doc-num">04 · BUSINESS PROCESS</div>
+<div class="doc-h">How a ticket is supposed to flow</div>
+<p>A ticket is created by a user or monitoring system, assigned a category and
             subcategory (e.g. Security → "Suspicious DLL injection"), given a priority level, and
             routed to one of four teams. From there it moves through Open → In Progress / Pending /
             On Hold, may be escalated if the assigned team can't resolve it, and is eventually
             marked Resolved with a resolution timestamp recorded.</p>
-            <p>In principle, priority should compress this timeline for urgent tickets, and
+<p>In principle, priority should compress this timeline for urgent tickets, and
             escalation should correlate with ticket severity and category (e.g. Security incidents
             escalating more often than routine hardware requests).</p>
-          </div>
-
-          <div class="doc-section" id="business-questions">
-            <div class="doc-num">05 · BUSINESS QUESTIONS</div>
-            <div class="doc-h">What leadership actually wants to know</div>
-            <ul>
-              <li>Are Critical and High priority tickets being resolved meaningfully faster than Low priority ones?</li>
-              <li>Is escalation applied consistently based on severity, or does it vary by team/category?</li>
-              <li>Can the "average resolution time" metric currently reported upward be trusted?</li>
-              <li>Where should the service desk focus its first improvement effort?</li>
-            </ul>
-          </div>
-
-          <div class="doc-section" id="data-understanding">
-            <div class="doc-num">06 · DATA UNDERSTANDING</div>
-            <div class="doc-h">1M rows, 11 fields, one clear gap</div>
-            <p>The dataset contains <strong>1,000,000 tickets</strong> created during November 2023
+</div>
+<div class="doc-section" id="business-questions">
+<div class="doc-num">05 · BUSINESS QUESTIONS</div>
+<div class="doc-h">What leadership actually wants to know</div>
+<ul>
+<li>Are Critical and High priority tickets being resolved meaningfully faster than Low priority ones?</li>
+<li>Is escalation applied consistently based on severity, or does it vary by team/category?</li>
+<li>Can the "average resolution time" metric currently reported upward be trusted?</li>
+<li>Where should the service desk focus its first improvement effort?</li>
+</ul>
+</div>
+<div class="doc-section" id="data-understanding">
+<div class="doc-num">06 · DATA UNDERSTANDING</div>
+<div class="doc-h">1M rows, 11 fields, one clear gap</div>
+<p>The dataset contains <strong>1,000,000 tickets</strong> created during November 2023
             (~33,300 tickets/day on average, with low day-to-day variance). Fields: Ticket_ID,
             Date_Created, Date_Resolved, Category, Subcategory, Priority, Status, Assigned_Team,
             Resolution_Time_Hrs, Description, Escalated.</p>
-            <table class="data-table">
-              <tr><th>Dimension</th><th>Distribution</th></tr>
-              <tr><td>Category</td><td class="hl">Software 20.1% · Security 20.0% · Network 20.0% · Hardware 20.0% · Access 20.0%</td></tr>
-              <tr><td>Priority</td><td class="hl">Low 25.0% · Medium 25.0% · High 25.0% · Critical 25.0%</td></tr>
-              <tr><td>Status</td><td class="hl">Resolved 20.1% · On Hold 20.1% · Open 20.0% · In Progress 19.9% · Pending 19.9%</td></tr>
-              <tr><td>Assigned Team</td><td class="hl">Desktop Support 39.9% · Application Support 20.1% · Security Team 20.0% · Network Team 20.0%</td></tr>
-              <tr><td>Escalated</td><td class="hl">False 50.0% · True 50.0%</td></tr>
-              <tr><td>Date_Resolved</td><td class="hl">30.0% missing (across every status, including "Resolved")</td></tr>
-            </table>
-            <p>Two things stood out before any deeper analysis: every categorical field is close to
+<table class="data-table">
+<tr><th>Dimension</th><th>Distribution</th></tr>
+<tr><td>Category</td><td class="hl">Software 20.1% · Security 20.0% · Network 20.0% · Hardware 20.0% · Access 20.0%</td></tr>
+<tr><td>Priority</td><td class="hl">Low 25.0% · Medium 25.0% · High 25.0% · Critical 25.0%</td></tr>
+<tr><td>Status</td><td class="hl">Resolved 20.1% · On Hold 20.1% · Open 20.0% · In Progress 19.9% · Pending 19.9%</td></tr>
+<tr><td>Assigned Team</td><td class="hl">Desktop Support 39.9% · Application Support 20.1% · Security Team 20.0% · Network Team 20.0%</td></tr>
+<tr><td>Escalated</td><td class="hl">False 50.0% · True 50.0%</td></tr>
+<tr><td>Date_Resolved</td><td class="hl">30.0% missing (across every status, including "Resolved")</td></tr>
+</table>
+<p>Two things stood out before any deeper analysis: every categorical field is close to
             perfectly evenly distributed, and <strong>Date_Resolved is missing for 30% of tickets
             regardless of current status</strong> — a data-quality issue worth flagging before
             trusting any resolution-time KPI built on top of it.</p>
-          </div>
-
-          <div class="doc-section" id="analysis">
-            <div class="doc-num">07 · ANALYSIS</div>
-            <div class="doc-h">Slicing resolution time and escalation across every dimension</div>
-            <p>Average resolution time and escalation rate were compared across Priority, Category,
+</div>
+<div class="doc-section" id="analysis">
+<div class="doc-num">07 · ANALYSIS</div>
+<div class="doc-h">Slicing resolution time and escalation across every dimension</div>
+<p>Average resolution time and escalation rate were compared across Priority, Category,
             Assigned Team, and the top Subcategories (filtered to those with 500+ tickets, to avoid
             reading noise as signal).</p>
-            <table class="data-table">
-              <tr><th>Priority</th><th>Avg. Resolution (hrs)</th><th>Escalation Rate</th></tr>
-              <tr><td>Low</td><td class="hl">5.24</td><td>50.1%</td></tr>
-              <tr><td>Medium</td><td class="hl">5.25</td><td>49.9%</td></tr>
-              <tr><td>High</td><td class="hl">5.25</td><td>50.0%</td></tr>
-              <tr><td>Critical</td><td class="hl">5.25</td><td>50.0%</td></tr>
-            </table>
-            <p>The same flatness held across Category and Assigned Team, and the subcategory with
+<table class="data-table">
+<tr><th>Priority</th><th>Avg. Resolution (hrs)</th><th>Escalation Rate</th></tr>
+<tr><td>Low</td><td class="hl">5.24</td><td>50.1%</td></tr>
+<tr><td>Medium</td><td class="hl">5.25</td><td>49.9%</td></tr>
+<tr><td>High</td><td class="hl">5.25</td><td>50.0%</td></tr>
+<tr><td>Critical</td><td class="hl">5.25</td><td>50.0%</td></tr>
+</table>
+<p>The same flatness held across Category and Assigned Team, and the subcategory with
             the single highest escalation rate ("Access denied by SIEM policy") sat at 52.9% — only
             marginally above the 50% baseline, and within the range expected from sampling noise at
             ~2,000 tickets per subcategory. No dimension showed a meaningful, consistent effect on
             either resolution time or escalation.</p>
-          </div>
-
-          <div class="doc-section" id="key-findings">
-            <div class="doc-num">08 · KEY FINDINGS</div>
-            <div class="doc-h">Three findings, all pointing the same direction</div>
-
-            <div class="finding-box">
-              <div class="flabel">FINDING 1</div>
-              <p style="margin-bottom:0;"><strong>Resolution time does not vary by priority.</strong>
+</div>
+<div class="doc-section" id="key-findings">
+<div class="doc-num">08 · KEY FINDINGS</div>
+<div class="doc-h">Three findings, all pointing the same direction</div>
+<div class="finding-box">
+<div class="flabel">FINDING 1</div>
+<p style="margin-bottom:0;"><strong>Resolution time does not vary by priority.</strong>
               Critical tickets took 5.25 hours on average to resolve — statistically the same as
               Low priority tickets at 5.24 hours. A four-level priority system is producing a
               single, undifferentiated outcome.</p>
-            </div>
-
-            <div class="finding-box">
-              <div class="flabel">FINDING 2</div>
-              <p style="margin-bottom:0;"><strong>Escalation is a coin flip, not a decision.</strong>
+</div>
+<div class="finding-box">
+<div class="flabel">FINDING 2</div>
+<p style="margin-bottom:0;"><strong>Escalation is a coin flip, not a decision.</strong>
               Every team and category escalates almost exactly 50% of tickets. If escalation were
               tied to genuine severity or team capability, at least some teams or categories should
               escalate noticeably more or less than others.</p>
-            </div>
-
-            <div class="finding-box">
-              <div class="flabel">FINDING 3</div>
-              <p style="margin-bottom:0;"><strong>Resolution-time reporting has a 30% data gap.</strong>
+</div>
+<div class="finding-box">
+<div class="flabel">FINDING 3</div>
+<p style="margin-bottom:0;"><strong>Resolution-time reporting has a 30% data gap.</strong>
               Even among tickets marked "Resolved," 30% have no resolution timestamp. Any average
               resolution-time figure currently being reported is built on 70% of the relevant
               tickets, silently.</p>
-            </div>
-          </div>
-
-          <div class="doc-section" id="root-cause">
-            <div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
-            <div class="doc-h">Why the numbers look this way</div>
-            <p><strong>Root cause of Finding 1 — no SLA-driven routing.</strong> Priority appears to
+</div>
+</div>
+<div class="doc-section" id="root-cause">
+<div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
+<div class="doc-h">Why the numbers look this way</div>
+<p><strong>Root cause of Finding 1 — no SLA-driven routing.</strong> Priority appears to
             be a field that's captured but not operationalized: there's no evidence of a queueing
             or routing rule that pulls Critical tickets to the front. Tickets are most likely worked
             in the order they arrive (or another priority-blind order), regardless of the label
             attached to them.</p>
-            <p><strong>Root cause of Finding 2 — undefined escalation criteria.</strong> A flat ~50%
+<p><strong>Root cause of Finding 2 — undefined escalation criteria.</strong> A flat ~50%
             escalation rate across every team and category is the signature of a decision with no
             consistent rule behind it — most consistent with escalation being left to individual
             agent judgment rather than tied to defined severity thresholds or ticket type.</p>
-            <p><strong>Root cause of Finding 3 — no closure validation.</strong> The ticketing system
+<p><strong>Root cause of Finding 3 — no closure validation.</strong> The ticketing system
             allows a ticket to move to "Resolved" without requiring a resolution timestamp to be
             entered. This is a process/system gap, not a random data error — it happens at a
             constant ~30% rate across every status, suggesting a systemic missing step rather than
             occasional human error.</p>
-          </div>
-
-          <div class="doc-section" id="recommendations">
-            <div class="doc-num">10 · RECOMMENDATIONS</div>
-            <div class="doc-h">Three structural fixes, in priority order</div>
-            <ul>
-              <li><strong>1. Introduce tiered SLA targets, enforced by routing.</strong> Define explicit targets per priority (e.g. Critical: 2h, High: 4h, Medium: 8h, Low: 24h) and route/queue tickets so Critical work is actually surfaced first — not just labeled first. Owner: Service Desk Manager.</li>
-              <li><strong>2. Formalize escalation criteria.</strong> Replace ad-hoc escalation with documented thresholds tied to category and severity, and require an escalation reason code. This also makes Finding 2 auditable going forward. Owner: Team Leads.</li>
-              <li><strong>3. Make resolution-timestamp entry mandatory to close a ticket.</strong> A one-line system validation rule closes the 30% data gap at the source, and every resolution-time KPI downstream becomes trustworthy without extra reporting work. Owner: ITSM platform admin.</li>
-              <li><strong>4. Monitor with three new KPIs</strong> (below), reviewed weekly by the Service Desk Manager for the first quarter after rollout.</li>
-            </ul>
-            <div class="kpi-grid" style="margin-top:20px;">
-              <div class="kpi-cell"><div class="kpi-num">SLA %</div><div class="kpi-label">SLA COMPLIANCE RATE, BY PRIORITY TIER</div></div>
-              <div class="kpi-cell"><div class="kpi-num">ECI</div><div class="kpi-label">ESCALATION CONSISTENCY INDEX (VARIANCE ACROSS TEAMS)</div></div>
-              <div class="kpi-cell"><div class="kpi-num">100%</div><div class="kpi-label">RESOLUTION-TIMESTAMP CAPTURE RATE (TARGET)</div></div>
-            </div>
-          </div>
-
-          <div class="doc-section" id="business-case">
-            <div class="doc-num">11 · BUSINESS CASE</div>
-            <div class="doc-h">Estimating the impact of SLA-based routing</div>
-            <p>This estimate covers Recommendation 1 only (tiered SLA routing for Critical
+</div>
+<div class="doc-section" id="recommendations">
+<div class="doc-num">10 · RECOMMENDATIONS</div>
+<div class="doc-h">Three structural fixes, in priority order</div>
+<ul>
+<li><strong>1. Introduce tiered SLA targets, enforced by routing.</strong> Define explicit targets per priority (e.g. Critical: 2h, High: 4h, Medium: 8h, Low: 24h) and route/queue tickets so Critical work is actually surfaced first — not just labeled first. Owner: Service Desk Manager.</li>
+<li><strong>2. Formalize escalation criteria.</strong> Replace ad-hoc escalation with documented thresholds tied to category and severity, and require an escalation reason code. This also makes Finding 2 auditable going forward. Owner: Team Leads.</li>
+<li><strong>3. Make resolution-timestamp entry mandatory to close a ticket.</strong> A one-line system validation rule closes the 30% data gap at the source, and every resolution-time KPI downstream becomes trustworthy without extra reporting work. Owner: ITSM platform admin.</li>
+<li><strong>4. Monitor with three new KPIs</strong> (below), reviewed weekly by the Service Desk Manager for the first quarter after rollout.</li>
+</ul>
+<div class="kpi-grid" style="margin-top:20px;">
+<div class="kpi-cell"><div class="kpi-num">SLA %</div><div class="kpi-label">SLA COMPLIANCE RATE, BY PRIORITY TIER</div></div>
+<div class="kpi-cell"><div class="kpi-num">ECI</div><div class="kpi-label">ESCALATION CONSISTENCY INDEX (VARIANCE ACROSS TEAMS)</div></div>
+<div class="kpi-cell"><div class="kpi-num">100%</div><div class="kpi-label">RESOLUTION-TIMESTAMP CAPTURE RATE (TARGET)</div></div>
+</div>
+</div>
+<div class="doc-section" id="business-case">
+<div class="doc-num">11 · BUSINESS CASE</div>
+<div class="doc-h">Estimating the impact of SLA-based routing</div>
+<p>This estimate covers Recommendation 1 only (tiered SLA routing for Critical
             tickets), since it's the fix most directly tied to a measurable time saving. Figures
             are illustrative and assumption-labeled, shown per 1,000 Critical tickets so they can be
             rescaled to a real organization's actual ticket volume.</p>
-            <table class="data-table">
-              <tr><th>Metric</th><th>Current</th><th>Target (assumption)</th></tr>
-              <tr><td>Avg. resolution time — Critical</td><td class="hl">5.25 hrs</td><td class="hl">2.5 hrs</td></tr>
-              <tr><td>Time saved per Critical ticket</td><td colspan="2" class="hl">2.75 hrs</td></tr>
-              <tr><td>Hours saved per 1,000 Critical tickets</td><td colspan="2" class="hl">2,750 hrs</td></tr>
-              <tr><td>At an assumed €45/hr loaded support cost</td><td colspan="2" class="hl">≈ €123,750 saved per 1,000 tickets</td></tr>
-            </table>
-            <div class="callout">
+<table class="data-table">
+<tr><th>Metric</th><th>Current</th><th>Target (assumption)</th></tr>
+<tr><td>Avg. resolution time — Critical</td><td class="hl">5.25 hrs</td><td class="hl">2.5 hrs</td></tr>
+<tr><td>Time saved per Critical ticket</td><td class="hl" colspan="2">2.75 hrs</td></tr>
+<tr><td>Hours saved per 1,000 Critical tickets</td><td class="hl" colspan="2">2,750 hrs</td></tr>
+<tr><td>At an assumed €45/hr loaded support cost</td><td class="hl" colspan="2">≈ €123,750 saved per 1,000 tickets</td></tr>
+</table>
+<div class="callout">
               Assumptions: (1) target resolution time of 2.5 hrs for Critical tickets is a
               planning estimate, not derived from this dataset; (2) €45/hr is an illustrative loaded
               cost figure, not a real organization's actual rate; (3) this dataset's Critical ticket
@@ -262,38 +245,44 @@
               realistic single-organization volume — the per-1,000-ticket figures above are the
               transferable part of this estimate.
             </div>
-          </div>
+</div>
+<div class="doc-section" id="dashboard">
+<div class="doc-num">12 · DASHBOARD</div>
+<div class="doc-h">The five views this analysis was built on</div>
+<div class="chart-grid">
+<div class="chart-card"><img alt="Average resolution time by priority, showing a flat ~5.25 hours across all four levels" src="assets/charts/resolution_by_priority.png"/></div>
+<div class="chart-card"><img alt="Escalation rate by team, showing all four teams clustered around 50%" src="assets/charts/escalation_by_team.png"/></div>
+<div class="chart-card"><img alt="Resolution-date capture rate by status, showing roughly 70% across every status" src="assets/charts/completeness_by_status.png"/></div>
+<div class="chart-card"><img alt="Ticket volume by category, showing roughly even distribution across five categories" src="assets/charts/volume_by_category.png"/></div>
+</div>
+<div class="chart-card"><img alt="Daily ticket volume across November 2023, showing consistent daily volume with no strong trend" src="assets/charts/daily_volume.png"/></div>
+<p style="margin-top:8px;">More views — including a live-filterable version of this dashboard — are in the <a href="dashboard-gallery.html" style="color:var(--itsm); text-decoration:underline;">Dashboard Gallery</a>.</p>
+</div>
+<div class="doc-section" id="lessons-learned">
+<div class="doc-num">13 · LESSONS LEARNED</div>
+<div class="doc-h">What this case study reinforced</div>
+<ul>
+<li><strong>"No variation" is a finding, not a dead end.</strong> It would have been easy to conclude "priority has no effect, nothing to report" — the more useful read was asking why a field that should create variation isn't.</li>
+<li><strong>Data completeness has to be checked before anything is built on top of it.</strong> A resolution-time KPI is meaningless if a third of the underlying tickets are silently excluded from it.</li>
+<li><strong>Structural findings transfer even from a simulated dataset.</strong> The specific numbers here are illustrative, but the pattern — fields recorded without being operationalized — is one I look for in real operational data too.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-links">
+<a href="mailto:asamalkrishna@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/amalkrishnaas/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="resume.html">Resume</a>
+<a href="case-studies.html">Case studies</a>
+</div>
+    © 2026 Amal Krishna · Business Analyst · Data &amp; Process Optimisation
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-          <div class="doc-section" id="dashboard">
-            <div class="doc-num">12 · DASHBOARD</div>
-            <div class="doc-h">The five views this analysis was built on</div>
-            <div class="chart-grid">
-              <div class="chart-card"><img src="assets/charts/resolution_by_priority.png" alt="Average resolution time by priority, showing a flat ~5.25 hours across all four levels"></div>
-              <div class="chart-card"><img src="assets/charts/escalation_by_team.png" alt="Escalation rate by team, showing all four teams clustered around 50%"></div>
-              <div class="chart-card"><img src="assets/charts/completeness_by_status.png" alt="Resolution-date capture rate by status, showing roughly 70% across every status"></div>
-              <div class="chart-card"><img src="assets/charts/volume_by_category.png" alt="Ticket volume by category, showing roughly even distribution across five categories"></div>
-            </div>
-            <div class="chart-card"><img src="assets/charts/daily_volume.png" alt="Daily ticket volume across November 2023, showing consistent daily volume with no strong trend"></div>
-            <p style="margin-top:8px;">More views — including a live-filterable version of this dashboard — are in the <a href="dashboard-gallery.html" style="color:var(--itsm); text-decoration:underline;">Dashboard Gallery</a>.</p>
-          </div>
-
-          <div class="doc-section" id="lessons-learned">
-            <div class="doc-num">13 · LESSONS LEARNED</div>
-            <div class="doc-h">What this case study reinforced</div>
-            <ul>
-              <li><strong>"No variation" is a finding, not a dead end.</strong> It would have been easy to conclude "priority has no effect, nothing to report" — the more useful read was asking why a field that should create variation isn't.</li>
-              <li><strong>Data completeness has to be checked before anything is built on top of it.</strong> A resolution-time KPI is meaningless if a third of the underlying tickets are silently excluded from it.</li>
-              <li><strong>Structural findings transfer even from a simulated dataset.</strong> The specific numbers here are illustrative, but the pattern — fields recorded without being operationalized — is one I look for in real operational data too.</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna. Built one case study at a time.</div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/animations.js" defer></script>
-</body>
+<script src="assets/animations.js"></script></body>
 </html>

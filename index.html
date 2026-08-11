@@ -3,164 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Amal Krishna — Business Analyst & Process Storyteller</title>
+<meta name="theme-color" content="#08262B">
+<meta name="description" content="Amal Krishna — a personal website about his life between Oman, India and Germany, and his work in data, process and energy.">
+<title>Amal Krishna — Personal Website</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/styles.css">
-<style>
-  .hero{padding:88px 0 60px;}
-  .hero-inner{display:grid; grid-template-columns:1fr auto; gap:40px; align-items:flex-start;}
-  .headshot{width:132px; height:132px; border-radius:4px; object-fit:cover; border:1px solid var(--line);}
-  @media (max-width:760px){.hero-inner{grid-template-columns:1fr;} .headshot{width:88px; height:88px;}}
-  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin:32px 0 56px;}
-  .signal-wrap{width:100%; height:64px;}
-  .signal-wrap path{stroke-dasharray:6 5; animation:flow 3.5s linear infinite;}
-  @keyframes flow{to{stroke-dashoffset:-88;}}
-  @media (prefers-reduced-motion: reduce){.signal-wrap path{animation:none;}}
-  .about-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:48px;}
-  .about-grid p{color:var(--text-dim); margin-bottom:16px; max-width:58ch;}
-  @media (max-width:760px){.about-grid{grid-template-columns:1fr;}}
-  .case-grid{display:flex; flex-direction:column; gap:14px;}
-</style>
 </head>
 <body>
-
-  <nav class="site-nav">
-    <div class="wrap">
-      <div class="logo">AMAL <span>KRISHNA</span></div>
-      <div class="nav-links">
-        <a href="index.html" class="active">Home</a>
-        <a href="about.html">About</a>
-        <a href="methodology.html">Methodology</a>
-        <a href="case-studies.html">Case Studies</a>
-        <a href="dashboard-gallery.html">Dashboard Gallery</a>
-        <a href="insights.html">Insights</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="hero warm-glow">
-    <div class="wrap">
-      <div class="hero-inner">
-        <div>
-          <div class="eyebrow"><span class="dot"></span>Business Analyst · Energy Trading Operations</div>
-          <h1 class="page-title" style="font-size:clamp(32px,6vw,54px)">Hi, I'm Amal —<br>I turn operational data into business decisions.</h1>
-          <p class="page-lede" style="max-width:640px; font-size:17px;">
-            I work in energy trading operations, and this site walks through real problems I've solved —
-            counterparty onboarding, KPI design, reporting automation, systems migration — using the same
-            six-step method every time: understand, explore, diagnose, measure, recommend, and quantify the impact.
-          </p>
-        </div>
-        <img class="headshot" src="assets/headshot.jpg" alt="Amal Krishna smiling on a trip to Prague">
-      </div>
-
+<nav class="site-nav"><div class="wrap">
+<a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
+<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
+<div class="nav-links">
+<a class="active" href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="methodology.html">Methodology</a>
+<a href="case-studies.html">Case Studies</a>
+<a href="dashboard-gallery.html">Dashboard Gallery</a>
+<a href="life.html">Life</a>
+<a href="credentials.html">Credentials</a>
+<a href="resume.html">Resume</a>
+<a href="contact.html">Contact</a>
+</div></div></nav>
+<header class="home-hero">
+  <div class="wrap home-hero-grid">
+    <div class="home-intro">
+      <div class="eyebrow"><span class="dot"></span>Hello, I'm Amal</div>
+      <h1 class="hero-title">India, Oman, Germany.<br><span>And everything in between.</span></h1>
+      <p class="hero-copy">I grew up in Oman, lived and worked in India, and moved to Germany for university and my professional life. This is my corner of the internet — part work, part curiosity, and part life outside the job title.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="case-studies.html">Browse case studies</a>
-        <a class="btn btn-ghost" href="methodology.html">See the methodology</a>
+        <a class="btn btn-primary" href="about.html">About me →</a>
+        <a class="btn" href="life.html">Life outside work →</a>
       </div>
-
-      <svg class="signal-wrap" viewBox="0 0 1000 64" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M0,45 L100,45 L130,15 L170,55 L210,25 L260,42 L310,18 L360,45 L420,45 L460,10 L500,50 L550,28 L610,38 L660,15 L710,45 L760,45 L810,20 L860,44 L910,32 L1000,40"
-          fill="none" stroke="#2b3846" stroke-width="1.5"/>
-        <path d="M0,45 L100,45 L130,15 L170,55 L210,25 L260,42 L310,18 L360,45 L420,45 L460,10 L500,50 L550,28 L610,38 L660,15 L710,45 L760,45 L810,20 L860,44 L910,32 L1000,40"
-          fill="none" stroke="#f2835c" stroke-width="1.5" opacity="0.85"/>
-      </svg>
+      <div class="hero-note">Oman → India → Germany · Business · Data · Energy · Life</div>
     </div>
-  </header>
-
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-title">Case Studies</div>
-        <div class="section-sub">// FROM RWE SUPPLY &amp; TRADING AND EMTERIA</div>
-      </div>
-      <div class="case-grid">
-
-        <a class="case-card" href="case-study-trade-operations.html" style="--tab:var(--itsm)">
-          <div>
-            <div class="case-domain">Trade &amp; Counterparty Operations <span class="case-status live">Live</span></div>
-            <div class="case-title">Getting counterparties Ready to Trade — and keeping them that way</div>
-            <p class="case-desc">Onboarding, master data, and cross-functional approvals across four legal entities at RWE Supply &amp; Trading.</p>
-          </div>
-          <div class="case-metric">
-            <div class="metric-num">15+</div>
-            <div class="metric-label">COUNTERPARTIES / MONTH</div>
-          </div>
-        </a>
-
-        <a class="case-card" href="case-study-kpi-dashboard.html" style="--tab:var(--supply)">
-          <div>
-            <div class="case-domain">KPI &amp; Dashboard Design <span class="case-status live">Live</span></div>
-            <div class="case-title">The KPI that mattered most wasn't the speed metric</div>
-            <p class="case-desc">Jira dashboards for 10+ support teams, built on data that already existed but had never been aggregated.</p>
-          </div>
-          <div class="case-metric">
-            <div class="metric-num">72h → 24h</div>
-            <div class="metric-label">NOMINATION TARGET</div>
-          </div>
-        </a>
-
-      </div>
-      <p style="margin-top:20px;"><a href="case-studies.html" style="color:var(--itsm); text-decoration:underline; font-family:var(--mono); font-size:13px;">→ See all four case studies</a></p>
+    <div class="home-portrait">
+      <img src="assets/headshot.jpg" alt="Amal Krishna" loading="eager">
+      <div class="portrait-caption"><span>01</span> A little corner of the internet</div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-title">About Me</div>
-        <div class="section-sub">// WHY THIS SITE EXISTS</div>
-      </div>
-      <div class="about-grid">
-        <div>
-          <p>
-            Most portfolios show finished dashboards. This one shows the whole path to get there —
-            starting from a business question, not a chart. Every case study follows the same
-            structure: business context, stakeholders, the process as it actually works, data
-            understanding, root cause analysis, KPI design, recommendations, and a business case.
-          </p>
-          <p>
-            I work full-time as a Business Analyst at RWE Supply &amp; Trading in Essen, Germany,
-            focused on counterparty onboarding, master data, and KPI reporting. The case studies
-            here are drawn from that work and from my time at Emteria — real projects, not
-            simulated ones.
-          </p>
-        </div>
-        <div class="stat-list">
-          <div class="stat"><span class="stat-label">Current role</span><span class="stat-value">Business Analyst</span></div>
-          <div class="stat"><span class="stat-label">Employer</span><span class="stat-value">RWE Supply &amp; Trading</span></div>
-          <div class="stat"><span class="stat-label">Based in</span><span class="stat-value">Essen, Germany</span></div>
-          <div class="stat"><span class="stat-label">Core stack</span><span class="stat-value">SQL · Power BI · Jira · Endur</span></div>
-        </div>
-      </div>
+<section class="home-mini">
+  <div class="wrap">
+    <div class="mini-grid">
+      <div><span class="energy-label">WHERE</span><strong>Oman · India · Germany</strong><p>Three places, three chapters.</p></div>
+      <div><span class="energy-label">CURIOUS ABOUT</span><strong>People · systems · technology</strong><p>Anything worth understanding.</p></div>
+      <div><span class="energy-label">OUTSIDE WORK</span><strong>Travel · music · making things</strong><p>And, yes, Formula 1.</p></div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section>
-    <div class="wrap">
-      <div class="section-head">
-        <div class="section-title">The Method</div>
-        <div class="section-sub">// SIX STEPS, EVERY TIME</div>
-      </div>
-      <div class="stepper horizontal">
-        <div class="step"><div class="step-num">1</div><div class="step-line"></div><div class="step-title">Understand the Business</div><div class="step-desc">Who's affected, what decision is at stake.</div></div>
-        <div class="step"><div class="step-num">2</div><div class="step-line"></div><div class="step-title">Explore the Data</div><div class="step-desc">Shape, quality, gaps, and what's actually measurable.</div></div>
-        <div class="step"><div class="step-num">3</div><div class="step-line"></div><div class="step-title">Identify Root Causes</div><div class="step-desc">Not just what's wrong — why it's happening.</div></div>
-        <div class="step"><div class="step-num">4</div><div class="step-line"></div><div class="step-title">Design KPIs</div><div class="step-desc">Metrics that would actually change a decision.</div></div>
-        <div class="step"><div class="step-num">5</div><div class="step-line"></div><div class="step-title">Recommend Improvements</div><div class="step-desc">Specific, prioritized, and ownable by someone.</div></div>
-        <div class="step"><div class="step-num">6</div><div class="step-line"></div><div class="step-title">Estimate Business Impact</div><div class="step-desc">A defensible, assumption-labeled number.</div></div>
-      </div>
+<section>
+  <div class="wrap visual-story">
+    <div class="visual-story-copy">
+      <div class="section-head"><h2 class="section-title">Three places shaped me.</h2><span class="section-sub">A short version</span></div>
+      <p>Growing up in Oman gave me an early exposure to different cultures. India became the place where I lived and started my professional journey. Germany became home for university and the next stage of my career.</p>
+      <a class="text-link" href="life.html">More of the personal story →</a>
     </div>
-  </section>
+    <div class="visual-story-images">
+      <figure><img src="assets/gallery-prague.jpg" alt="Travel photograph from Amal's collection" loading="lazy"><figcaption>Travel / places / perspective</figcaption></figure>
+      <figure><img src="assets/gallery-rwe.jpg" alt="Work-related photograph from Amal's collection" loading="lazy"><figcaption>Work / systems / energy</figcaption></figure>
+    </div>
+  </div>
+</section>
 
-  <footer class="site-footer">
-    <div class="wrap">© <span id="year"></span> Amal Krishna. Built one case study at a time.</div>
-  </footer>
-
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/animations.js" defer></script>
+<section>
+  <div class="wrap">
+    <div class="section-head"><h2 class="section-title">The professional side.</h2><span class="section-sub">When you want the other half</span></div>
+    <div class="professional-teaser">
+      <div><span class="case-domain">RWE Supply &amp; Trading</span><h3>Business analysis, data &amp; process optimisation.</h3><p>I work around operational workflows, counterparty processes, KPIs, reporting and data — turning complex problems into something teams can actually work with.</p></div>
+      <div class="teaser-links"><a class="btn" href="case-studies.html">See the work →</a><a class="btn" href="credentials.html">Credentials →</a></div>
+    </div>
+  </div>
+</section>
+<footer class="site-footer"><div class="wrap">
+<div class="footer-links">
+<a href="mailto:asamalkrishna@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/amalkrishnaas/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://www.instagram.com/_krish_amal_/" rel="noopener" target="_blank">Instagram</a>
+<a href="resume.html">Resume</a>
+<a href="case-studies.html">Case studies</a>
+</div>
+© 2026 Amal Krishna · Personal website
+</div></footer>
+<script src="assets/animations.js"></script>
 </body>
 </html>

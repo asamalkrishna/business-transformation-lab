@@ -1,268 +1,257 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trade & Counterparty Operations — Amal Krishna</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css">
-</head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Trade &amp; Counterparty Operations — Amal Krishna</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&amp;family=IBM+Plex+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="assets/styles.css" rel="stylesheet"/>
+<meta content="Professional case study: counterparty onboarding, master data, approvals and trading readiness at RWE Supply &amp; Trading." name="description"/><meta content="#08262B" name="theme-color"/></head>
 <body>
-
-  <nav class="site-nav">
-    <div class="wrap">
-      <div class="logo">AMAL <span>KRISHNA</span></div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="methodology.html">Methodology</a>
-        <a href="case-studies.html" class="active">Case Studies</a>
-        <a href="dashboard-gallery.html">Dashboard Gallery</a>
-        <a href="insights.html">Insights</a>
-        <a href="resume.html">Resume</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="page-header">
-    <div class="wrap">
-      <div class="eyebrow" style="color:var(--itsm)"><span class="dot"></span>Case Study — Trade &amp; Counterparty Operations</div>
-      <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Getting counterparties Ready to Trade — and keeping them that way</h1>
-      <p class="page-lede">How onboarding, master data, and cross-functional approvals come together before an energy trading desk can execute a single deal — and what happens when one piece is missing.</p>
-      <div class="tags-row" style="margin-top:20px;">
-        <span class="tag">RWE Supply &amp; Trading</span>
-        <span class="tag">Jira · Endur</span>
-        <span class="tag">Root Cause Analysis</span>
-        <span class="tag">Master Data Management</span>
-      </div>
-    </div>
-  </header>
-
-  <section>
-    <div class="wrap">
-      <div class="doc-layout">
-
-        <nav class="doc-toc">
-          <div class="doc-toc-title">Contents</div>
-          <a href="#executive-summary">01 · Executive Summary</a>
-          <a href="#business-context">02 · Business Context</a>
-          <a href="#stakeholders">03 · Stakeholders</a>
-          <a href="#business-process">04 · Business Process</a>
-          <a href="#business-questions">05 · Business Questions</a>
-          <a href="#data-understanding">06 · Data Understanding</a>
-          <a href="#analysis">07 · Analysis</a>
-          <a href="#key-findings">08 · Key Findings</a>
-          <a href="#root-cause">09 · Root Cause Analysis</a>
-          <a href="#recommendations">10 · Recommendations</a>
-          <a href="#business-case">11 · Business Case</a>
-          <a href="#dashboard">12 · Dashboard</a>
-          <a href="#lessons-learned">13 · Lessons Learned</a>
-        </nav>
-
-        <div>
-
-          <div class="doc-section" id="executive-summary">
-            <div class="doc-num">01 · EXECUTIVE SUMMARY</div>
-            <div class="doc-h">A trade can't happen until a lot of quiet work is finished first</div>
-            <p>At RWE Supply &amp; Trading, no counterparty can trade energy or commodity products until
+<nav class="site-nav">
+<div class="wrap">
+<a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
+<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
+<div class="nav-links"><a href="index.html" class="">Home</a>
+<a href="about.html" class="">About</a>
+<a href="methodology.html" class="">Methodology</a>
+<a href="case-studies.html" class="">Case Studies</a>
+<a href="dashboard-gallery.html" class="">Dashboard Gallery</a>
+<a href="insights.html" class="">Insights</a>
+<a href="credentials.html" class="">Credentials</a>
+<a href="resume.html" class="">Resume</a>
+<a href="contact.html" class="">Contact</a></div>
+</div>
+</nav>
+<header class="page-header">
+<div class="wrap">
+<div class="eyebrow" style="color:var(--itsm)"><span class="dot"></span>Case Study — Trade &amp; Counterparty Operations</div>
+<h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Getting counterparties Ready to Trade — and keeping them that way</h1>
+<p class="page-lede">How onboarding, master data, and cross-functional approvals come together before an energy trading desk can execute a single deal — and what happens when one piece is missing.</p>
+<div class="tags-row" style="margin-top:20px;">
+<span class="tag">RWE Supply &amp; Trading</span>
+<span class="tag">Jira · Endur</span>
+<span class="tag">Root Cause Analysis</span>
+<span class="tag">Master Data Management</span>
+</div>
+</div>
+</header>
+<section>
+<div class="wrap">
+<div class="doc-layout">
+<nav class="doc-toc">
+<div class="doc-toc-title">Contents</div>
+<a href="#executive-summary">01 · Executive Summary</a>
+<a href="#business-context">02 · Business Context</a>
+<a href="#stakeholders">03 · Stakeholders</a>
+<a href="#business-process">04 · Business Process</a>
+<a href="#business-questions">05 · Business Questions</a>
+<a href="#data-understanding">06 · Data Understanding</a>
+<a href="#analysis">07 · Analysis</a>
+<a href="#key-findings">08 · Key Findings</a>
+<a href="#root-cause">09 · Root Cause Analysis</a>
+<a href="#recommendations">10 · Recommendations</a>
+<a href="#business-case">11 · Business Case</a>
+<a href="#dashboard">12 · Dashboard</a>
+<a href="#lessons-learned">13 · Lessons Learned</a>
+</nav>
+<div>
+<div class="doc-section" id="executive-summary">
+<div class="doc-num">01 · EXECUTIVE SUMMARY</div>
+<div class="doc-h">A trade can't happen until a lot of quiet work is finished first</div>
+<p>At RWE Supply &amp; Trading, no counterparty can trade energy or commodity products until
             they clear legal, credit, compliance, and operational checks — a process that runs through
             Jira for workflow and approvals, and Endur (RWE's ETRM platform) for master data and
             trading configuration. I owned this onboarding process end to end: validating incoming
             requests, chasing down approvals across Legal, Credit, and Compliance, maintaining
             counterparty records in Endur, and troubleshooting trade bookings that failed after
             "onboarding" looked complete.</p>
-            <p>Handling 15+ counterparty onboardings a month across four legal entities (Germany, UK,
+<p>Handling 15+ counterparty onboardings a month across four legal entities (Germany, UK,
             US, Singapore), the recurring pattern wasn't one big failure point — it was several small,
             specific gaps (a missing Business Unit, an agreement that didn't cover the traded
             instrument, a credit workflow that failed silently) that each blocked trading in a different
             way. The work was as much about diagnosing <em>which</em> gap it was as it was about
             processing the request itself.</p>
-          </div>
-
-          <div class="doc-section" id="business-context">
-            <div class="doc-num">02 · BUSINESS CONTEXT</div>
-            <div class="doc-h">Why onboarding exists as a gate, not a formality</div>
-            <p>RWE Supply &amp; Trading trades with a wide range of external counterparties, and every
+</div>
+<div class="doc-section" id="business-context">
+<div class="doc-num">02 · BUSINESS CONTEXT</div>
+<div class="doc-h">Why onboarding exists as a gate, not a formality</div>
+<p>RWE Supply &amp; Trading trades with a wide range of external counterparties, and every
             one of them has to be fully configured — contractually and operationally — before a
             trader can book a deal with them. The onboarding workflow starts with a Jira request
             containing counterparty information, moves through Legal, Credit, and Compliance
             approval stages, and finishes with the approved data being maintained in Endur. Only once
             every mandatory prerequisite is in place does a counterparty become "Ready to Trade."</p>
-            <p>The objective isn't just paperwork — it directly protects the business: preventing failed
+<p>The objective isn't just paperwork — it directly protects the business: preventing failed
             trade bookings, keeping counterparty master data accurate, and reducing operational risk
             across four legal entities operating under different regulatory regimes.</p>
-          </div>
-
-          <div class="doc-section" id="stakeholders">
-            <div class="doc-num">03 · STAKEHOLDERS</div>
-            <div class="doc-h">Eight groups, one shared deadline</div>
-            <ul>
-              <li><strong>Front Office / Traders</strong> — need the counterparty Ready to Trade before a deal can be booked, and are the first to notice if it isn't.</li>
-              <li><strong>Legal</strong> — provides ISDA / EFET agreements, agreement terms, and collateral requirements.</li>
-              <li><strong>Credit</strong> — approves credit limits and monitors automated credit workflows.</li>
-              <li><strong>Compliance</strong> — clears counterparties from a regulatory standpoint.</li>
-              <li><strong>Portfolio Team &amp; Trading Operations</strong> — depend on correct portfolio and Business Unit configuration.</li>
-              <li><strong>Business Engineering &amp; Internal Support Functions</strong> — maintain the systems (Jira, Endur) the whole process runs on.</li>
-            </ul>
-          </div>
-
-          <div class="doc-section" id="business-process">
-            <div class="doc-num">04 · BUSINESS PROCESS</div>
-            <div class="doc-h">Jira request → three approvals → Endur → Ready to Trade</div>
-            <p>A Jira request captures counterparty information, requested agreements, and portfolio
+</div>
+<div class="doc-section" id="stakeholders">
+<div class="doc-num">03 · STAKEHOLDERS</div>
+<div class="doc-h">Eight groups, one shared deadline</div>
+<ul>
+<li><strong>Front Office / Traders</strong> — need the counterparty Ready to Trade before a deal can be booked, and are the first to notice if it isn't.</li>
+<li><strong>Legal</strong> — provides ISDA / EFET agreements, agreement terms, and collateral requirements.</li>
+<li><strong>Credit</strong> — approves credit limits and monitors automated credit workflows.</li>
+<li><strong>Compliance</strong> — clears counterparties from a regulatory standpoint.</li>
+<li><strong>Portfolio Team &amp; Trading Operations</strong> — depend on correct portfolio and Business Unit configuration.</li>
+<li><strong>Business Engineering &amp; Internal Support Functions</strong> — maintain the systems (Jira, Endur) the whole process runs on.</li>
+</ul>
+</div>
+<div class="doc-section" id="business-process">
+<div class="doc-num">04 · BUSINESS PROCESS</div>
+<div class="doc-h">Jira request → three approvals → Endur → Ready to Trade</div>
+<p>A Jira request captures counterparty information, requested agreements, and portfolio
             selection. It progresses through Legal, Credit, and Compliance approval stages — each
             adding its own piece: agreement terms and collateral requirements from Legal, an approved
             credit limit from Credit, regulatory clearance from Compliance. Once every prerequisite is
             satisfied, the approved data is maintained in Endur: counterparty records, agreements,
             instrument permissions, portfolio configuration, and Business Units. Only then is the
             counterparty available for trading.</p>
-          </div>
-
-          <div class="doc-section" id="business-questions">
-            <div class="doc-num">05 · BUSINESS QUESTIONS</div>
-            <div class="doc-h">What I was actually being asked to answer</div>
-            <ul>
-              <li>Is this a genuinely new onboarding, or an additional approval request for an existing counterparty?</li>
-              <li>Which mandatory approvals — Legal, Credit, Compliance — are still outstanding, and where is the request stuck?</li>
-              <li>When a trader can't book a deal, which specific prerequisite is missing — agreement, instrument eligibility, portfolio, Business Unit, or credit limit?</li>
-              <li>Where are onboarding requests losing time, and which teams need to be chased?</li>
-            </ul>
-          </div>
-
-          <div class="doc-section" id="data-understanding">
-            <div class="doc-num">06 · DATA UNDERSTANDING</div>
-            <div class="doc-h">Four data sources, one master record</div>
-            <table class="data-table">
-              <tr><th>Source</th><th>What it holds</th></tr>
-              <tr><td>Jira</td><td class="hl">Counterparty info, approval workflow, portfolio selection, requested agreements, operational status</td></tr>
-              <tr><td>Credit Team</td><td class="hl">Approved credit limits, credit approval status</td></tr>
-              <tr><td>Legal</td><td class="hl">ISDA / EFET agreements, agreement terms, collateral requirements</td></tr>
-              <tr><td>Endur</td><td class="hl">Counterparty master data, agreements, instrument permissions, portfolio config, Business Units, credit info</td></tr>
-            </table>
-            <p>Endur is the system of record — everything approved elsewhere ultimately has to be
+</div>
+<div class="doc-section" id="business-questions">
+<div class="doc-num">05 · BUSINESS QUESTIONS</div>
+<div class="doc-h">What I was actually being asked to answer</div>
+<ul>
+<li>Is this a genuinely new onboarding, or an additional approval request for an existing counterparty?</li>
+<li>Which mandatory approvals — Legal, Credit, Compliance — are still outstanding, and where is the request stuck?</li>
+<li>When a trader can't book a deal, which specific prerequisite is missing — agreement, instrument eligibility, portfolio, Business Unit, or credit limit?</li>
+<li>Where are onboarding requests losing time, and which teams need to be chased?</li>
+</ul>
+</div>
+<div class="doc-section" id="data-understanding">
+<div class="doc-num">06 · DATA UNDERSTANDING</div>
+<div class="doc-h">Four data sources, one master record</div>
+<table class="data-table">
+<tr><th>Source</th><th>What it holds</th></tr>
+<tr><td>Jira</td><td class="hl">Counterparty info, approval workflow, portfolio selection, requested agreements, operational status</td></tr>
+<tr><td>Credit Team</td><td class="hl">Approved credit limits, credit approval status</td></tr>
+<tr><td>Legal</td><td class="hl">ISDA / EFET agreements, agreement terms, collateral requirements</td></tr>
+<tr><td>Endur</td><td class="hl">Counterparty master data, agreements, instrument permissions, portfolio config, Business Units, credit info</td></tr>
+</table>
+<p>Endur is the system of record — everything approved elsewhere ultimately has to be
             reflected there correctly, or trade validation fails downstream regardless of what Jira
             says.</p>
-          </div>
-
-          <div class="doc-section" id="analysis">
-            <div class="doc-num">07 · ANALYSIS</div>
-            <div class="doc-h">What the work actually looked like week to week</div>
-            <ul>
-              <li><strong>Counterparty validation</strong> — reviewing incoming Jira requests, checking whether the counterparty already existed in Endur, and distinguishing new onboardings from additional approval requests.</li>
-              <li><strong>Approval validation</strong> — confirming Legal, Credit, and Compliance had all signed off before onboarding progressed.</li>
-              <li><strong>Credit validation</strong> — verifying approved limits and manually validating entries when the automated credit workflow failed.</li>
-              <li><strong>Endur master data maintenance</strong> — keeping counterparty records, agreements, portfolio assignments, and trading permissions accurate and current.</li>
-              <li><strong>Stakeholder coordination</strong> — following up on delayed approvals across Legal, Credit, and Compliance, and resolving onboarding bottlenecks directly.</li>
-            </ul>
-          </div>
-
-          <div class="doc-section" id="key-findings">
-            <div class="doc-num">08 · KEY FINDINGS</div>
-            <div class="doc-h">Trading readiness fails in specific, repeatable ways</div>
-
-            <div class="finding-box">
-              <div class="flabel">FINDING 1</div>
-              <p style="margin-bottom:0;"><strong>Agreements and instruments don't automatically match.</strong>
+</div>
+<div class="doc-section" id="analysis">
+<div class="doc-num">07 · ANALYSIS</div>
+<div class="doc-h">What the work actually looked like week to week</div>
+<ul>
+<li><strong>Counterparty validation</strong> — reviewing incoming Jira requests, checking whether the counterparty already existed in Endur, and distinguishing new onboardings from additional approval requests.</li>
+<li><strong>Approval validation</strong> — confirming Legal, Credit, and Compliance had all signed off before onboarding progressed.</li>
+<li><strong>Credit validation</strong> — verifying approved limits and manually validating entries when the automated credit workflow failed.</li>
+<li><strong>Endur master data maintenance</strong> — keeping counterparty records, agreements, portfolio assignments, and trading permissions accurate and current.</li>
+<li><strong>Stakeholder coordination</strong> — following up on delayed approvals across Legal, Credit, and Compliance, and resolving onboarding bottlenecks directly.</li>
+</ul>
+</div>
+<div class="doc-section" id="key-findings">
+<div class="doc-num">08 · KEY FINDINGS</div>
+<div class="doc-h">Trading readiness fails in specific, repeatable ways</div>
+<div class="finding-box">
+<div class="flabel">FINDING 1</div>
+<p style="margin-bottom:0;"><strong>Agreements and instruments don't automatically match.</strong>
               A valid ISDA or EFET agreement had to exist <em>and</em> explicitly cover the instrument
               being traded — an agreement permitting Power Futures wouldn't necessarily cover Coal
               Swaps. Because agreements were configured manually to reflect each counterparty's
               unique terms, this mismatch was a recurring, specific failure mode rather than a rare edge case.</p>
-            </div>
-
-            <div class="finding-box">
-              <div class="flabel">FINDING 2</div>
-              <p style="margin-bottom:0;"><strong>Business Unit configuration was an easy-to-miss dependency.</strong>
+</div>
+<div class="finding-box">
+<div class="flabel">FINDING 2</div>
+<p style="margin-bottom:0;"><strong>Business Unit configuration was an easy-to-miss dependency.</strong>
               Each portfolio contains multiple Business Units — the internal entities authorized to
               trade — and if the required BUs weren't associated with the agreement or portfolio
               setup, trade validation failed even when everything else looked complete.</p>
-            </div>
-
-            <div class="finding-box">
-              <div class="flabel">FINDING 3</div>
-              <p style="margin-bottom:0;"><strong>Automated credit workflows sometimes failed silently.</strong>
+</div>
+<div class="finding-box">
+<div class="flabel">FINDING 3</div>
+<p style="margin-bottom:0;"><strong>Automated credit workflows sometimes failed silently.</strong>
               When they did, there was no fallback except manual validation — meaning credit
               approval status in the system couldn't always be trusted without a manual check.</p>
-            </div>
-          </div>
-
-          <div class="doc-section" id="root-cause">
-            <div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
-            <div class="doc-h">A structured diagnostic sequence for "the trade won't book"</div>
-            <p>When a trader reported a failed booking, the fastest path to a fix was a fixed diagnostic
+</div>
+</div>
+<div class="doc-section" id="root-cause">
+<div class="doc-num">09 · ROOT CAUSE ANALYSIS</div>
+<div class="doc-h">A structured diagnostic sequence for "the trade won't book"</div>
+<p>When a trader reported a failed booking, the fastest path to a fix was a fixed diagnostic
             order rather than checking everything at once:</p>
-            <ul>
-              <li>Verify the legal entity and counterparty</li>
-              <li>Confirm agreement availability, then validate its configuration</li>
-              <li>Confirm instrument eligibility under that agreement</li>
-              <li>Verify collateralization settings, where applicable</li>
-              <li>Validate portfolio assignment and Business Unit configuration</li>
-              <li>Verify approved credit limits</li>
-              <li>Only then, investigate deeper Endur configuration issues</li>
-            </ul>
-            <p>This ordering matters: agreement and instrument mismatches were the most common
+<ul>
+<li>Verify the legal entity and counterparty</li>
+<li>Confirm agreement availability, then validate its configuration</li>
+<li>Confirm instrument eligibility under that agreement</li>
+<li>Verify collateralization settings, where applicable</li>
+<li>Validate portfolio assignment and Business Unit configuration</li>
+<li>Verify approved credit limits</li>
+<li>Only then, investigate deeper Endur configuration issues</li>
+</ul>
+<p>This ordering matters: agreement and instrument mismatches were the most common
             root cause, so checking them first resolved most cases quickly, rather than starting with
             the rarer, harder-to-diagnose Endur configuration issues.</p>
-          </div>
-
-          <div class="doc-section" id="recommendations">
-            <div class="doc-num">10 · RECOMMENDATIONS</div>
-            <div class="doc-h">Reduce the surface area for the failure, not just react to it</div>
-            <ul>
-              <li><strong>Reduce redundant counterparty setups.</strong> As part of the CALM (Counterparty Agreement Lifecycle Management) initiative, evaluated agreement structures to cut down on duplicate configurations that increased the chance of a mismatch.</li>
-              <li><strong>Standardize the diagnostic workflow.</strong> The structured troubleshooting sequence in Section 9 turned "the trade won't book" from an open-ended investigation into a repeatable checklist.</li>
-              <li><strong>Support process automation via RPA</strong> and optimize Jira workflows to reduce the recurring errors that were consuming the most manual re-work.</li>
-              <li><strong>Give teams earlier visibility into stalled approvals</strong> — this is the direct link to the KPI dashboard work covered in the <a href="case-study-kpi-dashboard.html" style="color:var(--itsm); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>.</li>
-            </ul>
-          </div>
-
-          <div class="doc-section" id="business-case">
-            <div class="doc-num">11 · BUSINESS CASE</div>
-            <div class="doc-h">What accurate, fast onboarding is worth</div>
-            <p>The business case here is risk avoidance and velocity rather than a single cost figure:
+</div>
+<div class="doc-section" id="recommendations">
+<div class="doc-num">10 · RECOMMENDATIONS</div>
+<div class="doc-h">Reduce the surface area for the failure, not just react to it</div>
+<ul>
+<li><strong>Reduce redundant counterparty setups.</strong> As part of the CALM (Counterparty Agreement Lifecycle Management) initiative, evaluated agreement structures to cut down on duplicate configurations that increased the chance of a mismatch.</li>
+<li><strong>Standardize the diagnostic workflow.</strong> The structured troubleshooting sequence in Section 9 turned "the trade won't book" from an open-ended investigation into a repeatable checklist.</li>
+<li><strong>Support process automation via RPA</strong> and optimize Jira workflows to reduce the recurring errors that were consuming the most manual re-work.</li>
+<li><strong>Give teams earlier visibility into stalled approvals</strong> — this is the direct link to the KPI dashboard work covered in the <a href="case-study-kpi-dashboard.html" style="color:var(--itsm); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>.</li>
+</ul>
+</div>
+<div class="doc-section" id="business-case">
+<div class="doc-num">11 · BUSINESS CASE</div>
+<div class="doc-h">What accurate, fast onboarding is worth</div>
+<p>The business case here is risk avoidance and velocity rather than a single cost figure:
             every onboarding processed correctly is a counterparty that can trade without a failed
             booking, a compliance exposure, or a delay traced back to master data. At 15+
             onboardings a month across four legal entities, even a small reduction in rework — one
             fewer misconfigured agreement, one fewer manual credit check — compounds quickly
             across a year of onboarding volume.</p>
-            <div class="kpi-grid">
-              <div class="kpi-cell"><div class="kpi-num">15+</div><div class="kpi-label">COUNTERPARTIES ONBOARDED / MONTH</div></div>
-              <div class="kpi-cell"><div class="kpi-num">4</div><div class="kpi-label">LEGAL ENTITIES (DE · UK · US · SG)</div></div>
-              <div class="kpi-cell"><div class="kpi-num">8+</div><div class="kpi-label">DISTINCT FAILURE MODES DIAGNOSED &amp; DOCUMENTED</div></div>
-            </div>
-          </div>
-
-          <div class="doc-section" id="dashboard">
-            <div class="doc-num">12 · DASHBOARD</div>
-            <div class="doc-h">Where this connects to reporting</div>
-            <p>The onboarding process itself doesn't have a single dashboard — visibility into it comes
+<div class="kpi-grid">
+<div class="kpi-cell"><div class="kpi-num">15+</div><div class="kpi-label">COUNTERPARTIES ONBOARDED / MONTH</div></div>
+<div class="kpi-cell"><div class="kpi-num">4</div><div class="kpi-label">LEGAL ENTITIES (DE · UK · US · SG)</div></div>
+<div class="kpi-cell"><div class="kpi-num">8+</div><div class="kpi-label">DISTINCT FAILURE MODES DIAGNOSED &amp; DOCUMENTED</div></div>
+</div>
+</div>
+<div class="doc-section" id="dashboard">
+<div class="doc-num">12 · DASHBOARD</div>
+<div class="doc-h">Where this connects to reporting</div>
+<p>The onboarding process itself doesn't have a single dashboard — visibility into it comes
             from two places: Power BI and Jira dashboards flagging teams that hadn't nominated an
             approver within 24 hours (closing bottlenecks before they escalated), and the broader
             KPI dashboard suite covered in the
             <a href="case-study-kpi-dashboard.html" style="color:var(--itsm); text-decoration:underline;">KPI &amp; Dashboard Design case study</a>,
             which tracks nomination turnaround, workload distribution, and requests stuck in a given
             approval stage.</p>
-          </div>
+</div>
+<div class="doc-section" id="lessons-learned">
+<div class="doc-num">13 · LESSONS LEARNED</div>
+<div class="doc-h">What years of onboarding tickets taught me</div>
+<ul>
+<li><strong>Most "the trade won't book" issues aren't mysterious</strong> — they cluster into a small set of known failure modes. Documenting them turns tribal knowledge into a repeatable process.</li>
+<li><strong>The system of record isn't always the first place someone looks.</strong> Jira could show every approval as complete while Endur configuration was still wrong — trusting only the front-end status was a common (and avoidable) mistake.</li>
+<li><strong>Prevention beats troubleshooting.</strong> Every recurring failure mode fixed at the process level (CALM, RPA, Jira workflow changes) was one less ticket to diagnose manually later.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-links">
+<a href="mailto:asamalkrishna@gmail.com">Email</a>
+<a href="https://www.linkedin.com/in/amalkrishnaas/" rel="noopener" target="_blank">LinkedIn</a>
+<a href="resume.html">Resume</a>
+<a href="case-studies.html">Case studies</a>
+</div>
+    © 2026 Amal Krishna · Business Analyst · Data &amp; Process Optimisation
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-          <div class="doc-section" id="lessons-learned">
-            <div class="doc-num">13 · LESSONS LEARNED</div>
-            <div class="doc-h">What years of onboarding tickets taught me</div>
-            <ul>
-              <li><strong>Most "the trade won't book" issues aren't mysterious</strong> — they cluster into a small set of known failure modes. Documenting them turns tribal knowledge into a repeatable process.</li>
-              <li><strong>The system of record isn't always the first place someone looks.</strong> Jira could show every approval as complete while Endur configuration was still wrong — trusting only the front-end status was a common (and avoidable) mistake.</li>
-              <li><strong>Prevention beats troubleshooting.</strong> Every recurring failure mode fixed at the process level (CALM, RPA, Jira workflow changes) was one less ticket to diagnose manually later.</li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="site-footer"><div class="wrap">© <span id="year"></span> Amal Krishna. Built one case study at a time.</div></footer>
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
-  <script src="assets/animations.js" defer></script>
-</body>
+<script src="assets/animations.js"></script></body>
 </html>
