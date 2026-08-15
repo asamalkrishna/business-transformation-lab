@@ -63,19 +63,27 @@
     if (currentPage === "index.html") document.querySelector(".nav-home")?.classList.add("active");
 
     // Dropdown menus inside the main navigation.
+    // Use a dedicated mobile-open class as well as the desktop/open state.
+    // This avoids Safari/mobile focus styles preventing the submenu from
+    // becoming visible after tapping Work or Personal.
     document.querySelectorAll(".nav-dropdown-toggle").forEach(function (button) {
       button.addEventListener("click", function (event) {
         event.preventDefault();
         event.stopPropagation();
+
         var dropdown = button.closest(".nav-dropdown");
+        if (!dropdown) return;
+
         var isOpen = dropdown.classList.contains("open");
+
         document.querySelectorAll(".nav-dropdown.open").forEach(function (other) {
-          other.classList.remove("open");
+          other.classList.remove("open", "mobile-open");
           var otherButton = other.querySelector(".nav-dropdown-toggle");
           if (otherButton) otherButton.setAttribute("aria-expanded", "false");
         });
+
         if (!isOpen) {
-          dropdown.classList.add("open");
+          dropdown.classList.add("open", "mobile-open");
           button.setAttribute("aria-expanded", "true");
         }
       });

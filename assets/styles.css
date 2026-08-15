@@ -2432,11 +2432,18 @@ html.js .reveal[data-delay="5"]{transition-delay:.40s;}
     pointer-events:auto;
     display:none;
   }
-  .nav-dropdown.open .nav-dropdown-menu{display:block;}
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown:focus-within .nav-dropdown-menu{display:none;}
-  .nav-dropdown.open:hover .nav-dropdown-menu,
-  .nav-dropdown.open:focus-within .nav-dropdown-menu{display:block;}
+  /* Mobile: submenu visibility is controlled by the tap state, not hover/focus. */
+  .nav-dropdown.open .nav-dropdown-menu,
+  .nav-dropdown.mobile-open .nav-dropdown-menu{
+    display:block !important;
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+    transform:none !important;
+  }
+  .nav-dropdown:not(.open) .nav-dropdown-menu{
+    display:none !important;
+  }
   .nav-dropdown-menu a{padding:11px 12px;font-size:12px;}
 }
 
