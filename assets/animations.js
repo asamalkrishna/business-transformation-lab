@@ -49,6 +49,49 @@
       if (event.key === "Escape") setMenu(false);
     });
 
+    // Mark the current page in the compact navigation.
+    var currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      var href = (link.getAttribute("href") || "").split("#")[0].toLowerCase();
+      if (href && href === currentPage) {
+        link.classList.add("active");
+        var parentDropdown = link.closest(".nav-dropdown");
+        if (parentDropdown) parentDropdown.classList.add("has-active");
+      }
+    });
+    if (currentPage === "about.html") document.querySelector(".nav-about")?.classList.add("active");
+    if (currentPage === "index.html") document.querySelector(".nav-home")?.classList.add("active");
+
+    // Dropdown menus inside the main navigation.
+    document.querySelectorAll(".nav-dropdown-toggle").forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = button.closest(".nav-dropdown");
+        var isOpen = dropdown.classList.contains("open");
+        document.querySelectorAll(".nav-dropdown.open").forEach(function (other) {
+          other.classList.remove("open");
+          var otherButton = other.querySelector(".nav-dropdown-toggle");
+          if (otherButton) otherButton.setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          dropdown.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    document.querySelectorAll(".nav-dropdown-menu a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        document.querySelectorAll(".nav-dropdown.open").forEach(function (dropdown) {
+          dropdown.classList.remove("open");
+          var button = dropdown.querySelector(".nav-dropdown-toggle");
+          if (button) button.setAttribute("aria-expanded", "false");
+        });
+        setMenu(false);
+      });
+    });
+
     // Restore desktop state if the viewport grows.
     window.addEventListener("resize", function () {
       if (window.innerWidth > 920) setMenu(false);

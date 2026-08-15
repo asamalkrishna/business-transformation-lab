@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -9,30 +7,58 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=25" rel="stylesheet"/>
-<meta content="Professional case study: redesigning Jira and Excel reporting into a structured refresh-and-go model." name="description"/><meta content="#08262B" name="theme-color"/></head>
+<link href="assets/styles.css?v=34" rel="stylesheet"/>
+<meta content="Professional case study: redesigning Jira and Excel reporting into a structured refresh-and-go model." name="description"/><meta content="#08262B" name="theme-color"/><link rel="stylesheet" href="assets/interactive-work.css">
+<link rel="stylesheet" href="assets/work-visuals-v38.css">
+</head>
 <body>
-<nav class="site-nav">
-<div class="wrap">
+<nav class="site-nav"><div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
-<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="methodology.html">Methodology</a>
-<a href="case-studies.html" class="active">Case Studies</a>
-<a href="dashboard-gallery.html">Dashboard Gallery</a>
-<a href="insights.html">Insights</a>
-<a href="life.html">Life</a>
-<a href="credentials.html">Recommendations</a>
-<a href="resume.html">Resume</a>
-<a href="contact.html">Contact</a></div>
+<button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+<div class="nav-links">
+<a href="index.html" class="nav-home">Home</a>
+<a href="about.html" class="nav-about">About</a>
+<div class="nav-dropdown nav-work">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Work <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="methodology.html">How I Work</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="dashboard-gallery.html">Dashboard Gallery</a>
+    <a href="insights.html">Thinking</a>
+    <a href="credentials.html">Recommendations</a>
+    <a href="resume.html">Resume</a>
+  </div>
 </div>
-</nav>
+<div class="nav-dropdown nav-personal">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Personal <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="life.html">Life</a>
+    <a href="travel.html">Travel</a>
+    <a href="formula-1.html">Formula 1</a>
+    <a href="interests.html">Interests &amp; Hobbies</a>
+    <a href="creative.html">Music &amp; Creativity</a>
+  </div>
+</div>
+<a href="contact.html" class="nav-contact">Contact</a>
+</div></div></nav>
 <header class="page-header">
 <div class="wrap">
-<div class="eyebrow" style="color:var(--gold)"><span class="dot"></span>Case Study — Reporting &amp; Process Automation</div>
-<h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">The data was already in Jira. The report just wasn't using it.</h1>
-<p class="page-lede">Redesigning SLA cost reporting so Accounting could refresh a pivot table instead of rebuilding a spreadsheet from scratch every month.</p>
+<div class="eyebrow" style="color:var(--gold)"><span class="dot"></span>Case Study — SLA Cost Reporting Redesign</div>
+<h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Redesigning SLA cost reporting around the data already captured in Jira</h1>
+<section class="work-visual"><div class="work-visual-head"><div class="eyebrow">Data story</div><h3>Turn a manual SLA reporting cycle into a repeatable reporting model.</h3><p>Operational effort data already existed in Jira, but Accounting still had to manually restructure and consolidate it before reporting. The redesign used Jira as the primary source and a structured pivot-table model to simplify recurring reporting.</p></div><div class="sv sv-grid cost-flow"><div class="cost-node"><b>Jira</b><span>Operational effort data</span></div><div class="cost-arrow">→</div><div class="cost-node"><b>Validate</b><span>Completeness and consistency</span></div><div class="cost-arrow">→</div><div class="cost-node"><b>Transform</b><span>Standardise and structure</span></div><div class="cost-arrow">→</div><div class="cost-node highlight"><b>Pivot model</b><span>Employee · support function · country</span></div></div><div class="sv" style="margin-top:0"><div style="padding:1rem 1.2rem;display:grid;grid-template-columns:1fr 44px 1fr;align-items:center;gap:.5rem"><div class="cost-node"><b>Refresh</b><span>Replace the latest Jira export and update the model.</span></div><div class="cost-arrow">→</div><div class="cost-node highlight"><b>Recurring SLA report</b><span>More granular, consistent reporting for Accounting.</span></div></div></div></section>
+
+
+<section class="process-story">
+<div class="story-head"><div class="eyebrow">Automation flow</div><h3>From Jira effort data to a repeatable SLA report</h3><p class="story-copy">The redesigned workflow uses Jira as the primary source and organizes operational effort by employee, support function and country.</p></div>
+<div class="story-steps">
+<div class="story-step"><b>01 · Collect</b><span>Jira effort data across support functions</span></div>
+<div class="story-step"><b>02 · Transform</b><span>Clean and structure the source data</span></div>
+<div class="story-step"><b>03 · Calculate</b><span>Apply accounting rates and business logic</span></div>
+<div class="story-step"><b>04 · Report</b><span>Refresh the consolidated view</span></div>
+</div></section>
+
+
+<p class="page-lede">Redesigning SLA cost reporting so Accounting could refresh a structured pivot-table model instead of manually rebuilding the reporting process.</p>
 <div class="tags-row" style="margin-top:20px;">
 <span class="tag">RWE Supply &amp; Trading</span>
 <span class="tag">Jira · Excel</span>
@@ -218,5 +244,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=25"></script></body>
+<script src="assets/animations.js?v=34"></script></body>
 </html>

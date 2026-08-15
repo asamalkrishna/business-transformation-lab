@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -9,34 +8,70 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=25" rel="stylesheet"/>
-<meta content="Professional case study: Jira KPI dashboards for 10+ support functions, workflow visibility and trading-readiness controls." name="description"/><meta content="#08262B" name="theme-color"/></head>
+<link href="assets/styles.css?v=34" rel="stylesheet"/>
+<meta content="Professional case study: Jira KPI dashboards for 10+ support functions, workflow visibility and trading-readiness controls." name="description"/><meta content="#08262B" name="theme-color"/><link rel="stylesheet" href="assets/interactive-work.css">
+<link rel="stylesheet" href="assets/work-visuals-v38.css">
+<link rel="stylesheet" href="assets/work-visuals-v39.css">
+</head>
 <body>
-<nav class="site-nav">
-<div class="wrap">
+<nav class="site-nav"><div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
-<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="methodology.html">Methodology</a>
-<a href="case-studies.html" class="active">Case Studies</a>
-<a href="dashboard-gallery.html">Dashboard Gallery</a>
-<a href="insights.html">Insights</a>
-<a href="life.html">Life</a>
-<a href="credentials.html">Recommendations</a>
-<a href="resume.html">Resume</a>
-<a href="contact.html">Contact</a></div>
+<button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+<div class="nav-links">
+<a href="index.html" class="nav-home">Home</a>
+<a href="about.html" class="nav-about">About</a>
+<div class="nav-dropdown nav-work">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Work <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="methodology.html">How I Work</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="dashboard-gallery.html">Dashboard Gallery</a>
+    <a href="insights.html">Thinking</a>
+    <a href="credentials.html">Recommendations</a>
+    <a href="resume.html">Resume</a>
+  </div>
 </div>
-</nav>
+<div class="nav-dropdown nav-personal">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Personal <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="life.html">Life</a>
+    <a href="travel.html">Travel</a>
+    <a href="formula-1.html">Formula 1</a>
+    <a href="interests.html">Interests &amp; Hobbies</a>
+    <a href="creative.html">Music &amp; Creativity</a>
+  </div>
+</div>
+<a href="contact.html" class="nav-contact">Contact</a>
+</div></div></nav>
 <header class="page-header">
 <div class="wrap">
 <div class="eyebrow" style="color:var(--green)"><span class="dot"></span>Case Study — KPI &amp; Dashboard Design</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">The KPI that mattered most wasn't the speed metric</h1>
+<section class="work-visual"><div class="work-visual-head"><div class="eyebrow">See the process</div><h3>One slow nomination can hold up the chain. The dashboard turns that hidden delay into a visible action.</h3><p>The visual separates the operational workflow from the management layer: Jira captures the workflow, while the KPI layer makes nomination delays, stuck stages and backlog visible. The documented internal target for nomination turnaround is 24 hours.</p></div><div class="sv sv-grid trade-flow"><div class="trade-main"><div class="trade-box"><div class="trade-kicker">REQUEST</div><h4>Counterparty enters workflow</h4><p>The request waits for support functions to nominate the required approvers.</p></div><div class="trade-arrow">→</div><div class="trade-box"><div class="trade-kicker">APPROVAL LAYER</div><h4>Four support functions</h4><div class="approval-stack"><div class="approval-chip"><b>Legal</b><span>Agreement</span></div><div class="approval-chip"><b>Credit</b><span>Approval</span></div><div class="approval-chip"><b>Compliance</b><span>Approval</span></div><div class="approval-chip"><b>Other teams</b><span>Operational workflow</span></div></div></div><div class="trade-arrow">→</div><div class="trade-box"><div class="trade-kicker">OUTCOME</div><h4>Queue forms behind one stage</h4><p>Requests remain open and the overall readiness time increases.</p></div></div><div class="trade-bottom"><div class="trade-box"><div class="trade-kicker">DASHBOARD SIGNAL</div><h4>Nomination time · open requests · stuck stage · Ready to Trade</h4><p>The Jira dashboard makes the exception visible to the team responsible for clearing it.</p></div><div class="trade-box"><div class="trade-kicker">ACTION LOOP</div><h4>Find → Make visible → Act → Clear</h4><p>The KPI is useful because it changes behaviour, not because it looks good on a dashboard.</p></div></div></div></section>
+
+
+
+
+
+<section class="bottleneck-visual" aria-label="Animated KPI bottleneck explanation">
+  <div class="bottleneck-head">
+    <div class="eyebrow">Bottleneck animation</div>
+    <h3>When nomination slows down, the queue becomes visible.</h3>
+    <p>This is an illustrative animation of the documented bottleneck: requests move through support-function nomination, but delayed nominations can cause requests to accumulate. The KPI dashboard makes that stage visible so teams can intervene.</p>
+  </div>
+  <div class="bottleneck-stage">
+    <div class="bottleneck-lane">
+      <div class="bn-node"><div class="bn-kicker">01 · REQUESTS</div><h4>Jira workflow</h4><p>Requests enter the onboarding workflow and wait for the required support-function actions.</p></div>
+      <div class="bn-middle"><div class="bn-arrow"></div><div class="bn-approval"><strong>Nomination</strong><span>Support functions are assigned</span></div><div class="bn-pulse"></div><div class="bn-queue" aria-hidden="true"><i class="bn-ticket"></i><i class="bn-ticket"></i><i class="bn-ticket"></i><i class="bn-ticket"></i><i class="bn-ticket"></i></div><div class="bn-bottleneck">queue builds here</div></div>
+      <div class="bn-node"><div class="bn-kicker">02 · KPI SIGNAL</div><h4>Dashboard intervention</h4><p>Nomination time, stuck stages, overdue requests and backlog become visible for action.</p></div>
+    </div>
+    <div class="bottleneck-caption"><span><strong>24h target:</strong> nomination turnaround is measured against the internal operational target.</span><span><strong>Historical problem:</strong> some nomination times exceeded 72h; visibility helped bring performance closer to target and reduce backlog.</span></div>
+  </div>
+</section>
 <p class="page-lede">Building Jira operational dashboards for 10+ support teams — and discovering that "Ready to Trade but not yet Approved" was a bigger problem than slow nominations.</p>
 <div class="tags-row" style="margin-top:20px;">
 <span class="tag">RWE Supply &amp; Trading</span>
 <span class="tag">Jira · JQL</span>
-<span class="tag">Power BI</span>
 <span class="tag">KPI Design</span>
 </div>
 </div>
@@ -48,14 +83,14 @@
   <div class="case-visual-head"><div><div class="case-visual-kicker">Portfolio visual · conceptual dashboard</div><h2>From ticket-level noise to team-level signal.</h2></div><div class="case-visual-note">Conceptual KPI interface reconstructed from the documented metrics. It is not a screenshot of the RWE dashboard.</div></div>
   <div class="diagram">
     <div class="mock-dashboard">
-      <div class="mock-kpi"><div class="label">NOMINATION TIME</div><div class="value">18.4h</div><div class="sub">Target &lt; 24h</div></div>
-      <div class="mock-kpi"><div class="label">OPEN REQUESTS</div><div class="value">47</div><div class="sub">Across support teams</div></div>
-      <div class="mock-kpi"><div class="label">OVERDUE</div><div class="value">8</div><div class="sub">Needs attention</div></div>
-      <div class="mock-kpi"><div class="label">READY → APPROVED</div><div class="value">12</div><div class="sub">Final step pending</div></div>
+      <div class="mock-kpi"><div class="label">NOMINATION TIME</div><div class="value">24h</div><div class="sub">Internal target</div></div>
+      <div class="mock-kpi"><div class="label">OPEN REQUESTS</div><div class="value">LIVE</div><div class="sub">Across support teams</div></div>
+      <div class="mock-kpi"><div class="label">OVERDUE</div><div class="value">FLAG</div><div class="sub">Needs attention</div></div>
+      <div class="mock-kpi"><div class="label">READY → APPROVED</div><div class="value">PENDING</div><div class="sub">Final status check</div></div>
     </div>
     <div class="mock-panels">
       <div class="mock-panel"><div class="mock-panel-title">Nomination time by function · conceptual</div><div class="bar-chart"><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i><i class="bar"></i></div></div>
-      <div class="mock-panel"><div class="mock-panel-title">Workflow state</div><div class="status-list"><div class="status-row"><span>Open</span><b>47</b></div><div class="status-row"><span>Ready to Trade</span><b>12</b></div><div class="status-row"><span>Overdue</span><b>8</b></div><div class="status-row"><span>Approved</span><b>—</b></div></div></div>
+      <div class="mock-panel"><div class="mock-panel-title">Workflow state</div><div class="status-list"><div class="status-row"><span>Open</span><b>LIVE</b></div><div class="status-row"><span>Ready to Trade</span><b>CHECK</b></div><div class="status-row"><span>Overdue</span><b>FLAG</b></div><div class="status-row"><span>Approved</span><b>FINAL</b></div></div></div>
     </div>
   </div>
 </div>
@@ -242,5 +277,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=25"></script></body>
+<script src="assets/animations.js?v=34"></script></body>
 </html>

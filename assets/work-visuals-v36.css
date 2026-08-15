@@ -1,0 +1,109 @@
+
+/* v36: visual storytelling system for Work */
+.work-visual {
+  margin: 4rem 0;
+  border-radius: 28px;
+  border: 1px solid rgba(127,127,127,.22);
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba(127,127,127,.06), rgba(127,127,127,.015));
+}
+.work-visual-head { padding: 1.8rem 1.8rem .8rem; }
+.work-visual-head .eyebrow { font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; opacity:.6; }
+.work-visual-head h3 { margin:.35rem 0 .5rem; font-size:clamp(1.4rem,2.5vw,2rem); }
+.work-visual-head p { max-width:760px; opacity:.78; line-height:1.65; }
+.approval-canvas {
+  position:relative; min-height:430px; margin:1rem 1.2rem 1.2rem; padding:1rem;
+  border-radius:22px; overflow:hidden; background:
+  radial-gradient(circle at 12% 50%, rgba(100,150,200,.09), transparent 25%),
+  linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.015));
+}
+.approval-canvas:before {
+  content:""; position:absolute; left:5%; right:5%; top:51%; height:2px;
+  background:linear-gradient(90deg,transparent,rgba(127,127,127,.25) 5%,rgba(127,127,127,.25) 95%,transparent);
+}
+.approval-title { position:absolute; left:2rem; top:1.1rem; font-size:.7rem; letter-spacing:.12em; opacity:.55; text-transform:uppercase; }
+.approval-lanes {
+  position:absolute; left:5%; right:5%; top:32%; display:grid; grid-template-columns:repeat(5,1fr); gap:1rem;
+}
+.approval-lane {
+  position:relative; min-height:170px; border:1px solid rgba(127,127,127,.2); border-radius:18px;
+  padding:1rem; background:rgba(255,255,255,.055); transition:.4s;
+}
+.approval-lane strong { display:block; font-size:.9rem; }
+.approval-lane small { display:block; margin-top:.5rem; opacity:.62; line-height:1.4; }
+.approval-lane .state {
+  position:absolute; top:-7px; left:50%; width:14px; height:14px; border-radius:50%;
+  transform:translateX(-50%); background:#888; box-shadow:0 0 0 6px rgba(127,127,127,.08);
+}
+.approval-lane.done .state { background:#55ad77; }
+.approval-lane.stuck { transform:translateY(18px); border-color:rgba(210,100,75,.55); }
+.approval-lane.stuck .state { background:#d66c51; animation:dangerPulse 1.3s infinite; }
+.queue {
+  position:absolute; left:2.5%; top:50%; display:flex; gap:8px; z-index:3;
+}
+.queue span {
+  width:18px;height:18px;border-radius:50%;background:#9a9a9a;opacity:.25;
+  animation:queueFlow 8s linear infinite;
+}
+.queue span:nth-child(2){animation-delay:1.2s}.queue span:nth-child(3){animation-delay:2.4s}
+.queue span:nth-child(4){animation-delay:3.6s}.queue span:nth-child(5){animation-delay:4.8s}
+.queue span:nth-child(6){animation-delay:6s}
+.sla-badge { position:absolute; right:2rem; top:1rem; padding:.45rem .7rem; border-radius:999px; border:1px solid rgba(127,127,127,.22); font-size:.68rem; }
+.bottleneck-callout {
+  position:absolute; right:4%; bottom:1.1rem; max-width:280px; padding:.85rem 1rem;
+  border-radius:16px; background:rgba(210,100,75,.1); border:1px solid rgba(210,100,75,.25);
+  font-size:.76rem; line-height:1.45;
+}
+@keyframes queueFlow {
+  0%{transform:translateX(0);opacity:.15}
+  20%{opacity:.9}
+  78%{transform:translateX(250px);opacity:.9}
+  100%{transform:translateX(340px);opacity:0}
+}
+@keyframes dangerPulse {
+  0%,100%{box-shadow:0 0 0 5px rgba(210,100,75,.08)}
+  50%{box-shadow:0 0 0 12px rgba(210,100,75,.18)}
+}
+.after-panel {
+  margin:0 1.2rem 1.2rem; padding:1.2rem; border-radius:20px;
+  border:1px solid rgba(127,127,127,.2); background:rgba(255,255,255,.04);
+}
+.after-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:1rem; }
+.mini-dashboard { border:1px solid rgba(127,127,127,.2); border-radius:16px; padding:1rem; }
+.dash-row { display:flex; justify-content:space-between; padding:.55rem 0; border-bottom:1px solid rgba(127,127,127,.1); font-size:.8rem; }
+.dash-row:last-child{border-bottom:0}
+.dash-alert { color:inherit; font-weight:700; }
+.clear-flow { display:flex; align-items:center; gap:.45rem; flex-wrap:wrap; margin-top:.8rem; }
+.clear-flow span { padding:.5rem .65rem; border:1px solid rgba(80,170,110,.25); border-radius:10px; font-size:.72rem; background:rgba(80,170,110,.07); }
+.blueprint-visual {
+  margin:1rem 1.2rem 1.2rem; min-height:300px; padding:1.5rem; border-radius:22px;
+  background:
+    linear-gradient(rgba(80,130,180,.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(80,130,180,.08) 1px,transparent 1px);
+  background-size:24px 24px; border:1px solid rgba(80,130,180,.2);
+}
+.blueprint-route { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; align-items:center; }
+.location-block { padding:1rem; border:1px dashed rgba(80,130,180,.45); border-radius:16px; background:rgba(80,130,180,.04); }
+.location-block strong{display:block}.location-block small{opacity:.65;line-height:1.4}
+.route-arrow { text-align:center; font-size:1.6rem; opacity:.45; }
+.data-pipeline {
+  margin:1rem 1.2rem 1.2rem; display:grid; grid-template-columns:repeat(4,1fr); gap:.75rem;
+}
+.pipeline-step { min-height:150px; padding:1rem; border-radius:18px; border:1px solid rgba(127,127,127,.2); position:relative; overflow:hidden; }
+.pipeline-step:after { content:""; position:absolute; left:-30%; right:-30%; bottom:0; height:3px; background:rgba(127,127,127,.25); animation:scanline 3s linear infinite; }
+.pipeline-step:nth-child(2):after{animation-delay:.6s}.pipeline-step:nth-child(3):after{animation-delay:1.2s}.pipeline-step:nth-child(4):after{animation-delay:1.8s}
+.pipeline-step b{display:block;margin-bottom:.4rem}.pipeline-step span{font-size:.75rem;opacity:.68;line-height:1.45}
+@keyframes scanline { 0%{transform:translateX(-30%)} 100%{transform:translateX(30%)} }
+.forecast-visual { margin:1rem 1.2rem 1.2rem; padding:1.3rem; border-radius:20px; border:1px solid rgba(127,127,127,.2); }
+.chart-area { height:240px; position:relative; overflow:hidden; border-bottom:1px solid rgba(127,127,127,.2); }
+.chart-line { position:absolute; width:150%; height:150%; border-top:3px solid rgba(127,127,127,.55); transform:rotate(-12deg); left:-20%; top:55%; animation:chartMove 5s ease-in-out infinite alternate; }
+.chart-line.actual { border-top-style:dashed; top:58%; transform:rotate(-9deg); animation-delay:.7s; }
+.chart-label { position:absolute; top:8px; left:8px; font-size:.7rem; letter-spacing:.1em; opacity:.55; }
+@keyframes chartMove { from{transform:translateX(-3%) rotate(-12deg)} to{transform:translateX(5%) rotate(-7deg)} }
+@media(max-width:800px){
+  .approval-lanes{grid-template-columns:1fr 1fr; top:25%}
+  .approval-canvas{min-height:700px}
+  .approval-lane:last-child{grid-column:1/-1}
+  .after-grid,.blueprint-route,.data-pipeline{grid-template-columns:1fr}
+  .route-arrow{transform:rotate(90deg)}
+}

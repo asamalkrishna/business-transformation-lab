@@ -1,6 +1,4 @@
 <!DOCTYPE html>
-<!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="utf-8"/>
@@ -9,29 +7,71 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:ital,wght@0,500;0,600;0,700;1,500;1,600;1,700&display=swap" rel="stylesheet"/>
-<link href="assets/styles.css?v=25" rel="stylesheet"/>
-<meta content="Professional case study: counterparty onboarding, master data, approvals and trading readiness at RWE Supply &amp; Trading." name="description"/><meta content="#08262B" name="theme-color"/></head>
+<link href="assets/styles.css?v=34" rel="stylesheet"/>
+<meta content="Professional case study: counterparty onboarding, master data, approvals and trading readiness at RWE Supply &amp; Trading." name="description"/><meta content="#08262B" name="theme-color"/><link rel="stylesheet" href="assets/interactive-work.css">
+<link rel="stylesheet" href="assets/work-visuals-v38.css">
+</head>
 <body>
-<nav class="site-nav">
-<div class="wrap">
+<nav class="site-nav"><div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
-<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html">Home</a>
-<a href="about.html">About</a>
-<a href="methodology.html">Methodology</a>
-<a href="case-studies.html" class="active">Case Studies</a>
-<a href="dashboard-gallery.html">Dashboard Gallery</a>
-<a href="insights.html">Insights</a>
-<a href="life.html">Life</a>
-<a href="credentials.html">Recommendations</a>
-<a href="resume.html">Resume</a>
-<a href="contact.html">Contact</a></div>
+<button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+<div class="nav-links">
+<a href="index.html" class="nav-home">Home</a>
+<a href="about.html" class="nav-about">About</a>
+<div class="nav-dropdown nav-work">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Work <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="methodology.html">How I Work</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="dashboard-gallery.html">Dashboard Gallery</a>
+    <a href="insights.html">Thinking</a>
+    <a href="credentials.html">Recommendations</a>
+    <a href="resume.html">Resume</a>
+  </div>
 </div>
-</nav>
+<div class="nav-dropdown nav-personal">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Personal <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="life.html">Life</a>
+    <a href="travel.html">Travel</a>
+    <a href="formula-1.html">Formula 1</a>
+    <a href="interests.html">Interests &amp; Hobbies</a>
+    <a href="creative.html">Music &amp; Creativity</a>
+  </div>
+</div>
+<a href="contact.html" class="nav-contact">Contact</a>
+</div></div></nav>
 <header class="page-header">
 <div class="wrap">
 <div class="eyebrow" style="color:var(--accent)"><span class="dot"></span>Case Study — Trade &amp; Counterparty Operations</div>
 <h1 class="page-title" style="font-size:clamp(26px,4.2vw,40px)">Getting counterparties Ready to Trade — and keeping them that way</h1>
+<section class="work-visual trade-process-visual">
+<div class="work-visual-head"><div class="eyebrow">Process flow</div><h3>From a counterparty request to Ready to Trade</h3><p>The onboarding workflow starts in Jira, moves through mandatory Legal, Credit and Compliance approvals, and is then maintained and validated in Endur. A missing agreement, credit approval, instrument permission, portfolio or Business Unit can stop trading readiness.</p></div>
+<div class="trade-process-wrap">
+  <div class="trade-process">
+    <div class="tp-node tp-intake"><span class="tp-num">01 · INTAKE</span><strong>Jira request</strong><small>Counterparty information · requested agreements · portfolio selection · operational status</small><div class="tp-pills"><span>Counterparty</span><span>Agreements</span><span>Portfolio</span></div></div>
+    <div class="tp-connector"><i></i><span>workflow</span></div>
+    <div class="tp-approvals">
+      <div class="tp-stage-label"><span>02 · APPROVALS</span><strong>Mandatory controls</strong><small>Each approval must be complete before onboarding progresses.</small></div>
+      <div class="tp-approval-grid">
+        <div class="tp-approval"><b>Legal</b><span>ISDA / EFET<br>agreement terms</span></div>
+        <div class="tp-approval"><b>Credit</b><span>Approved<br>credit limit</span></div>
+        <div class="tp-approval"><b>Compliance</b><span>Mandatory<br>approval</span></div>
+      </div>
+    </div>
+    <div class="tp-connector"><i></i><span>approved data</span></div>
+    <div class="tp-node tp-endur"><span class="tp-num">03 · ENDUR</span><strong>Master data &amp; configuration</strong><small>Approved onboarding information is maintained in the ETRM platform.</small><div class="tp-pills"><span>Counterparty</span><span>Agreement</span><span>Portfolio</span><span>Business Unit</span><span>Instrument permissions</span></div></div>
+  </div>
+  <div class="tp-validation">
+    <div class="tp-validation-head"><span>04 · TRADE VALIDATION</span><strong>All prerequisites must line up</strong></div>
+    <div class="tp-checks">
+      <div><b>✓</b> Valid agreement</div><div><b>✓</b> Credit limit</div><div><b>✓</b> Instrument eligible</div><div><b>✓</b> Portfolio assigned</div><div><b>✓</b> Business Unit configured</div>
+    </div>
+    <div class="tp-outcome"><div class="tp-fail"><span>IF SOMETHING IS MISSING</span><strong>Investigate → validate → correct</strong><small>Typical failures include missing agreements, failed credit workflows, incorrect agreement configuration, missing Business Units and incorrect portfolio assignment.</small></div><div class="tp-arrow">→</div><div class="tp-ready"><span>05 · OUTCOME</span><strong>READY TO TRADE</strong><small>The counterparty has the required agreements, approvals and system setup to support trading activity.</small></div></div>
+  </div>
+</div>
+</section>
+
 <p class="page-lede">How onboarding, master data, and cross-functional approvals come together before an energy trading desk can execute a single deal — and what happens when one piece is missing.</p>
 <div class="tags-row" style="margin-top:20px;">
 <span class="tag">RWE Supply &amp; Trading</span>
@@ -81,7 +121,7 @@
 <p>At RWE Supply &amp; Trading, no counterparty can trade energy or commodity products until
             they clear legal, credit, compliance, and operational checks — a process that runs through
             Jira for workflow and approvals, and Endur (RWE's ETRM platform) for master data and
-            trading configuration. I owned this onboarding process end to end: validating incoming
+            trading configuration. My responsibilities included: validating incoming
             requests, chasing down approvals across Legal, Credit, and Compliance, maintaining
             counterparty records in Endur, and troubleshooting trade bookings that failed after
             "onboarding" looked complete.</p>
@@ -211,9 +251,7 @@
 <li>Verify approved credit limits</li>
 <li>Only then, investigate deeper Endur configuration issues</li>
 </ul>
-<p>This ordering matters: agreement and instrument mismatches were the most common
-            root cause, so checking them first resolved most cases quickly, rather than starting with
-            the rarer, harder-to-diagnose Endur configuration issues.</p>
+<p>This sequence provided a structured diagnostic path from legal and counterparty checks through agreement, instrument, portfolio, Business Unit and credit validation before deeper Endur configuration was investigated.</p>
 </div>
 <div class="doc-section" id="recommendations">
 <div class="doc-num">10 · RECOMMENDATIONS</div>
@@ -237,7 +275,7 @@
 <div class="kpi-grid">
 <div class="kpi-cell"><div class="kpi-num">15+</div><div class="kpi-label">COUNTERPARTIES ONBOARDED / MONTH</div></div>
 <div class="kpi-cell"><div class="kpi-num">4</div><div class="kpi-label">LEGAL ENTITIES (DE · UK · US · SG)</div></div>
-<div class="kpi-cell"><div class="kpi-num">8+</div><div class="kpi-label">DISTINCT FAILURE MODES DIAGNOSED &amp; DOCUMENTED</div></div>
+<div class="kpi-cell"><div class="kpi-num">9</div><div class="kpi-label">COMMON FAILURE SCENARIOS DOCUMENTED</div></div>
 </div>
 </div>
 <div class="doc-section" id="dashboard">
@@ -277,5 +315,5 @@
 </footer>
 <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 
-<script src="assets/animations.js?v=25"></script></body>
+<script src="assets/animations.js?v=34"></script></body>
 </html>

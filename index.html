@@ -9,34 +9,52 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=25">
+<link rel="stylesheet" href="assets/styles.css?v=34">
+<link rel="stylesheet" href="assets/interactive-work.css">
+<link rel="stylesheet" href="assets/work-visuals-v36.css">
 </head>
 <body>
 <nav class="site-nav"><div class="wrap">
 <a class="logo" href="index.html">AMAL <span>KRISHNA</span></a>
-<button aria-expanded="false" aria-label="Open navigation" class="nav-toggle" type="button"><span></span></button>
-<div class="nav-links"><a href="index.html" class="active">Home</a>
-<a href="about.html">About</a>
-<a href="methodology.html">Methodology</a>
-<a href="case-studies.html">Case Studies</a>
-<a href="dashboard-gallery.html">Dashboard Gallery</a>
-<a href="insights.html">Insights</a>
-<a href="life.html">Life</a>
-<a href="credentials.html">Recommendations</a>
-<a href="methodology.html">Resume</a>
-<a href="contact.html">Contact</a></div></div></nav>
+<button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false"><span></span></button>
+<div class="nav-links">
+<a href="index.html" class="nav-home">Home</a>
+<a href="about.html" class="nav-about">About</a>
+<div class="nav-dropdown nav-work">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Work <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="methodology.html">How I Work</a>
+    <a href="case-studies.html">Case Studies</a>
+    <a href="dashboard-gallery.html">Dashboard Gallery</a>
+    <a href="insights.html">Thinking</a>
+    <a href="credentials.html">Recommendations</a>
+    <a href="resume.html">Resume</a>
+  </div>
+</div>
+<div class="nav-dropdown nav-personal">
+  <button class="nav-dropdown-toggle" type="button" aria-expanded="false">Personal <span class="dropdown-arrow" aria-hidden="true"></span></button>
+  <div class="nav-dropdown-menu">
+    <a href="life.html">Life</a>
+    <a href="travel.html">Travel</a>
+    <a href="formula-1.html">Formula 1</a>
+    <a href="interests.html">Interests &amp; Hobbies</a>
+    <a href="creative.html">Music &amp; Creativity</a>
+  </div>
+</div>
+<a href="contact.html" class="nav-contact">Contact</a>
+</div></div></nav>
 <header class="home-hero">
   <div class="wrap home-hero-grid">
     <div class="home-intro">
       <div class="hero-signature" aria-label="Amal Krishna">Amal Krishna</div>
       <div class="eyebrow"><span class="dot"></span>Hello, I'm Amal</div>
       <h1 class="hero-title">India, Oman, Germany.<br><span>And everything in between.</span></h1>
-      <p class="hero-copy">I grew up in Oman, lived and worked in India, and moved to Germany for university and my professional life. This is my corner of the internet — part work, part curiosity, and part life outside the job title.</p>
+      <p class="hero-copy">I grew up in Oman, lived and worked in India, and moved to Germany for university and my professional life. This is my corner of the internet — with a clear split between what I do professionally and what I am curious about personally.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="about.html">About me →</a>
-        <a class="btn" href="life.html">Life outside work →</a>
+        <a class="btn" href="resume.html">View my work →</a>
       </div>
-      <div class="hero-note">Oman → India → Germany · Business · Data · Energy · Life</div>
+      <div class="hero-note">Oman · India · Germany  /  Work · Data · Energy  /  Life · Curiosity</div>
     </div>
     <div class="home-portrait">
       <img src="assets/photos/hero-portrait.jpg" alt="Amal Krishna" loading="eager">
@@ -84,9 +102,20 @@
   </div>
 </section>
 
+
+
 <section>
   <div class="wrap">
-    <div class="section-head"><h2 class="section-title">Three places shaped me.</h2><span class="section-sub">Oman · India · Germany</span></div>
+    <div class="section-head"><div><span class="home-chapter-label">WORK</span><h2 class="section-title">What I do professionally.</h2></div><span class="section-sub">Business · Data · Process</span></div>
+    <div class="professional-teaser">
+      <div><span class="case-domain">RWE Supply &amp; Trading</span><h3>Business analysis, data &amp; process optimisation.</h3><p>I work around operational workflows, counterparty processes, KPIs, reporting and data — turning complex problems into something teams can actually work with. Explore the Work menu above for the full professional route.</p></div>
+      <div class="teaser-links"><a class="btn" href="case-studies.html">View case study →</a><a class="btn" href="credentials.html">Read recommendations →</a></div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="wrap">
+    <div class="section-head"><div><span class="home-chapter-label">LIFE</span><h2 class="section-title">The places that shaped me.</h2></div><span class="section-sub">Oman · India · Germany</span></div>
     <div class="country-grid">
       <article class="country-card">
         <img src="https://images.pexels.com/photos/30799019/pexels-photo-30799019.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="Muscat, Oman — Muttrah coast and mountains" loading="lazy">
@@ -104,19 +133,9 @@
     <div class="stock-credit">Country visuals: Pexels · used as place references, not personal photographs.</div>
   </div>
 </section>
-
-<section>
-  <div class="wrap">
-    <div class="section-head"><h2 class="section-title">The professional side.</h2><span class="section-sub">When you want the other half</span></div>
-    <div class="professional-teaser">
-      <div><span class="case-domain">RWE Supply &amp; Trading</span><h3>Business analysis, data &amp; process optimisation.</h3><p>I work around operational workflows, counterparty processes, KPIs, reporting and data — turning complex problems into something teams can actually work with.</p></div>
-      <div class="teaser-links"><a class="btn" href="case-studies.html">View case study →</a><a class="btn" href="credentials.html">Read recommendations →</a></div>
-    </div>
-  </div>
-</section>
 <section class="home-photo-band">
   <div class="wrap">
-    <div class="section-head"><h2 class="section-title">A little personality.</h2><span class="section-sub">Outside the job title</span></div>
+    <div class="section-head"><div><span class="home-chapter-label">LIFE</span><h2 class="section-title">The person behind the portfolio.</h2></div><span class="section-sub">Outside the job title</span></div>
     <div class="home-photo-grid">
       <figure class="editorial-photo"><img src="assets/photos/reading.jpg" alt="Amal reading while travelling" loading="lazy"><figcaption><strong>CURIOUS · OBSERVE · LEARN</strong><span>Always looking for something new to understand.</span></figcaption></figure>
       <figure class="editorial-photo"><img src="assets/photos/lake-dock.jpg" alt="Amal beside a mountain lake" loading="lazy"><figcaption><strong>OUTSIDE WORK · TRAVEL · CURIOSITY</strong><span>Travel, people, places and the questions they create.</span></figcaption></figure>
@@ -133,6 +152,6 @@
 </div>
 © 2026 Amal Krishna · Personal website
 </div></footer>
-<script src="assets/animations.js?v=25"></script>
+<script src="assets/animations.js?v=34"></script>
 </body>
 </html>
