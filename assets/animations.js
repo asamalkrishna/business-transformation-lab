@@ -64,6 +64,13 @@
         } else {
           dropdown.classList.add("open", "mobile-open");
           button.setAttribute("aria-expanded", "true");
+
+          /* iOS Safari fix: newly-revealed content inside a
+             backdrop-filter ancestor (.nav-links) sometimes isn't
+             painted until the compositor is forced to recalculate.
+             Reading offsetHeight forces a synchronous reflow. */
+          void dropdown.offsetHeight;
+          void menu.offsetHeight;
         }
       });
     });

@@ -2408,8 +2408,16 @@ html.js .reveal[data-delay="5"]{transition-delay:.40s;}
 @media(max-width:920px){
   /* Safari/iOS: mobile dropdowns are controlled exclusively by JS state.
      Do not let :hover or :focus-within decide submenu visibility. */
-  .nav-links{align-items:stretch;}
+  .nav-links{
+    align-items:stretch;
+    /* iOS Safari sometimes fails to repaint new block content that
+       appears inside a backdrop-filter parent until the compositor
+       is forced to re-run. Keeping this on its own layer avoids it. */
+    -webkit-transform:translateZ(0);
+    transform:translateZ(0);
+  }
   .nav-dropdown{width:100%;}
+  .nav-dropdown-menu::before{display:none;}
   .nav-dropdown-toggle{
     width:100%;
     display:flex;
