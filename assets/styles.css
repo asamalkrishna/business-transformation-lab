@@ -2406,6 +2406,8 @@ html.js .reveal[data-delay="5"]{transition-delay:.40s;}
 .nav-dropdown-menu a.active{color:var(--accent);background:rgba(69,227,154,.07)}
 
 @media(max-width:920px){
+  /* Safari/iOS: mobile dropdowns are controlled exclusively by JS state.
+     Do not let :hover or :focus-within decide submenu visibility. */
   .nav-links{align-items:stretch;}
   .nav-dropdown{width:100%;}
   .nav-dropdown-toggle{
@@ -2416,35 +2418,46 @@ html.js .reveal[data-delay="5"]{transition-delay:.40s;}
     text-align:left;
     padding:13px 12px;
     font-size:13px;
+    -webkit-appearance:none;
+    appearance:none;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
   }
-  .nav-dropdown-menu{
-    position:static;
-    transform:none;
-    min-width:0;
-    width:100%;
-    padding:0 0 4px 12px;
-    border:0;
-    border-radius:0;
-    background:transparent;
-    box-shadow:none;
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
-    display:none;
-  }
-  /* Mobile: submenu visibility is controlled by the tap state, not hover/focus. */
-  .nav-dropdown.open .nav-dropdown-menu,
-  .nav-dropdown.mobile-open .nav-dropdown-menu{
-    display:block !important;
+
+  .nav-dropdown-menu,
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown:focus-within .nav-dropdown-menu{
+    position:static !important;
+    left:auto !important;
+    top:auto !important;
+    transform:none !important;
+    min-width:0 !important;
+    width:100% !important;
+    margin:0 !important;
+    padding:0 0 4px 12px !important;
+    border:0 !important;
+    border-radius:0 !important;
+    background:transparent !important;
+    box-shadow:none !important;
     opacity:1 !important;
     visibility:visible !important;
     pointer-events:auto !important;
-    transform:none !important;
-  }
-  .nav-dropdown:not(.open) .nav-dropdown-menu{
     display:none !important;
   }
-  .nav-dropdown-menu a{padding:11px 12px;font-size:12px;}
+
+  .nav-dropdown.open .nav-dropdown-menu,
+  .nav-dropdown.mobile-open .nav-dropdown-menu,
+  .nav-dropdown.open:hover .nav-dropdown-menu,
+  .nav-dropdown.open:focus-within .nav-dropdown-menu{
+    display:block !important;
+  }
+
+  .nav-dropdown-menu a{
+    display:block;
+    padding:11px 12px;
+    font-size:12px;
+    touch-action:manipulation;
+  }
 }
 
 /* Personal F1 card */
