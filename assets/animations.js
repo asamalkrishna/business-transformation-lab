@@ -1,45 +1,27 @@
-/* AMAL KRISHNA — Site interactions
-   Navigation intentionally uses simple click/tap state on mobile.
-   This avoids Safari's hover/focus behaviour for nested menus.
-*/
+
+/* =========================================================
+   AMAL KRISHNA — Site interactions
+   Responsive mobile navigation
+   ========================================================= */
 (function () {
   "use strict";
 
   function initNavigation() {
-    var nav = document.querySelector(".site-nav");
     var toggle = document.querySelector(".nav-toggle");
     var menu = document.querySelector(".nav-links");
-    if (!nav || !toggle || !menu) return;
 
-    var dropdowns = nav.querySelectorAll(".nav-dropdown");
-
-    function closeDropdown(dropdown) {
-      if (!dropdown) return;
-      dropdown.classList.remove("open", "mobile-open");
-      var button = dropdown.querySelector(".nav-dropdown-toggle");
-      if (button) button.setAttribute("aria-expanded", "false");
-    }
-
-    function closeAllDropdowns(except) {
-      dropdowns.forEach(function (dropdown) {
-        if (dropdown !== except) closeDropdown(dropdown);
-      });
-    }
+    if (!toggle || !menu) return;
 
     function setMenu(open) {
-      if (open) {
-        menu.classList.add("open");
-        toggle.setAttribute("aria-expanded", "true");
-        toggle.setAttribute("aria-label", "Close navigation");
-        document.body.classList.add("menu-open");
-      } else {
-        menu.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.setAttribute("aria-label", "Open navigation");
-        document.body.classList.remove("menu-open");
-        closeAllDropdowns(null);
-      }
+      menu.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+      document.body.classList.toggle("menu-open", open);
     }
+
+    // Prevent duplicate listeners if a page/script is evaluated more than once.
+    if (toggle.dataset.navReady === "true") return;
+    toggle.dataset.navReady = "true";
 
     toggle.addEventListener("click", function (event) {
       event.preventDefault();
@@ -47,62 +29,70 @@
       setMenu(!menu.classList.contains("open"));
     });
 
-    /* Mobile Work / Personal: explicit tap state. */
-    dropdowns.forEach(function (dropdown) {
-      var button = dropdown.querySelector(".nav-dropdown-toggle");
-      if (!button) return;
-
-      button.addEventListener("click", function (event) {
-        event.preventDefault();
-        event.stopPropagation();
-
-        var wasOpen = dropdown.classList.contains("open");
-        closeAllDropdowns(dropdown);
-
-        if (wasOpen) {
-          closeDropdown(dropdown);
-        } else {
-          dropdown.classList.add("open", "mobile-open");
-          button.setAttribute("aria-expanded", "true");
-
-          /* iOS Safari fix: newly-revealed content inside a
-             backdrop-filter ancestor (.nav-links) sometimes isn't
-             painted until the compositor is forced to recalculate.
-             Reading offsetHeight forces a synchronous reflow. */
-          void dropdown.offsetHeight;
-          void menu.offsetHeight;
-        }
-      });
-    });
-
-    /* Let every actual page link navigate normally. */
+    // Navigation links must remain clickable. Close only after the browser
+    // has received the click; do not preventDefault.
     menu.querySelectorAll("a").forEach(function (link) {
       link.addEventListener("click", function () {
         setMenu(false);
       });
     });
 
-    /* Close only when the tap/click starts outside the navigation. */
+    // Close when tapping outside the menu.
     document.addEventListener("click", function (event) {
-      if (!nav.contains(event.target)) setMenu(false);
+      if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+        setMenu(false);
+      }
     });
 
+    // Escape closes the menu.
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") setMenu(false);
     });
 
-    /* Current-page state. */
+    // Mark the current page in the compact navigation.
     var currentPage = (window.location.pathname.split("/").pop() || "index.html").toLowerCase();
-    menu.querySelectorAll("a").forEach(function (link) {
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
       var href = (link.getAttribute("href") || "").split("#")[0].toLowerCase();
       if (href && href === currentPage) {
         link.classList.add("active");
-        var parent = link.closest(".nav-dropdown");
-        if (parent) parent.classList.add("has-active");
+        var parentDropdown = link.closest(".nav-dropdown");
+        if (parentDropdown) parentDropdown.classList.add("has-active");
       }
     });
+    if (currentPage === "about.html") document.querySelector(".nav-about")?.classList.add("active");
+    if (currentPage === "index.html") document.querySelector(".nav-home")?.classList.add("active");
 
-    /* Keep desktop clean if the viewport changes size. */
+    // Dropdown menus inside the main navigation.
+    document.querySelectorAll(".nav-dropdown-toggle").forEach(function (button) {
+      button.addEventListener("click", function (event) {
+        event.preventDefault();
+        event.stopPropagation();
+        var dropdown = button.closest(".nav-dropdown");
+        var isOpen = dropdown.classList.contains("open");
+        document.querySelectorAll(".nav-dropdown.open").forEach(function (other) {
+          other.classList.remove("open");
+          var otherButton = other.querySelector(".nav-dropdown-toggle");
+          if (otherButton) otherButton.setAttribute("aria-expanded", "false");
+        });
+        if (!isOpen) {
+          dropdown.classList.add("open");
+          button.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    document.querySelectorAll(".nav-dropdown-menu a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        document.querySelectorAll(".nav-dropdown.open").forEach(function (dropdown) {
+          dropdown.classList.remove("open");
+          var button = dropdown.querySelector(".nav-dropdown-toggle");
+          if (button) button.setAttribute("aria-expanded", "false");
+        });
+        setMenu(false);
+      });
+    });
+
+    // Restore desktop state if the viewport grows.
     window.addEventListener("resize", function () {
       if (window.innerWidth > 920) setMenu(false);
     });
@@ -112,5 +102,100 @@
     document.addEventListener("DOMContentLoaded", initNavigation);
   } else {
     initNavigation();
+  }
+})();
+
+
+(function () {
+  "use strict";
+  document.documentElement.classList.add("js");
+
+  function initReveal() {
+    var selectors = [
+      ".page-header .wrap",
+      "section .section-head",
+      ".personal-card",
+      ".country-card",
+      ".method-detail",
+      ".insight-card",
+      ".professional-teaser",
+      ".family-card",
+      ".callout",
+      ".about-visual figure",
+      ".editorial-photo",
+      ".case-visual",
+      ".doc-section"
+    ];
+    var items = [];
+    selectors.forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        if (!el.classList.contains("reveal")) {
+          el.classList.add("reveal");
+          items.push(el);
+        }
+      });
+    });
+
+    if (!items.length) return;
+
+    // Give repeated cards a restrained stagger, but never make the page feel slow.
+    var counters = {};
+    items.forEach(function (el) {
+      var parent = el.parentElement;
+      var key = parent ? parent.className : "root";
+      counters[key] = (counters[key] || 0) + 1;
+      var n = Math.min(counters[key], 5);
+      if (n > 1) el.setAttribute("data-delay", String(n - 1));
+    });
+
+    if (!("IntersectionObserver" in window)) {
+      items.forEach(function (el) { el.classList.add("is-visible"); });
+      return;
+    }
+
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0.08 });
+
+    items.forEach(function (el) { observer.observe(el); });
+  }
+
+  function initMobileExpanders() {
+    // Only long narrative case-study sections are collapsible.
+    document.querySelectorAll(".doc-section").forEach(function (section) {
+      if (section.querySelector(".data-table,.process-flow,.case-visual,.mock-dashboard,.diagram")) return;
+      var textLength = (section.innerText || "").replace(/\s+/g, " ").trim().length;
+      if (textLength < 520) return;
+      section.classList.add("mobile-expandable");
+      var button = document.createElement("button");
+      button.type = "button";
+      button.className = "mobile-expand-toggle";
+      button.setAttribute("aria-expanded", "false");
+      button.innerHTML = "<span>Read more</span> <span aria-hidden=\"true\">↓</span>";
+      button.addEventListener("click", function () {
+        var expanded = section.classList.toggle("is-expanded");
+        button.setAttribute("aria-expanded", expanded ? "true" : "false");
+        button.innerHTML = expanded
+          ? "<span>Show less</span> <span aria-hidden=\"true\">↑</span>"
+          : "<span>Read more</span> <span aria-hidden=\"true\">↓</span>";
+      });
+      section.appendChild(button);
+    });
+  }
+
+  function init() {
+    initReveal();
+    initMobileExpanders();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
   }
 })();
