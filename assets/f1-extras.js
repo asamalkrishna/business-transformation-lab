@@ -5,10 +5,10 @@ var q=$('.life-quote');if(!q)return;var anchor=q.closest('section');
 var lede=$('.page-lede');
 if(lede)lede.insertAdjacentHTML('afterend','<div class="f1-stats"><div><b>7</b><span>Official titles</span></div><div><b>8</b><span>My scorecard</span></div><div><b>44</b><span>The number</span></div></div>');
 
-var P='M70 200 C70 130 150 110 210 140 S300 215 360 160 S410 60 490 78 S555 170 500 222 S380 262 300 244 S120 275 70 200Z';
+var RM=matchMedia('(prefers-reduced-motion: reduce)').matches,P=window.F1P;
 var html=
 '<section><div class="wrap"><div class="section-head"><h2 class="section-title">Anatomy of a lap.</h2><span class="section-sub">Illustrative telemetry</span></div>'+
-'<div class="lap-grid"><div class="f1-box lap-track"><svg viewBox="0 0 620 320" aria-label="Circuit"><path class="b" d="'+P+'"/><path class="l" id="lapPath" d="'+P+'"/><circle id="lapDot" r="7" cx="70" cy="200"/></svg></div>'+
+'<div class="lap-grid"><div class="f1-box lap-track"><svg viewBox="0 0 620 320" aria-label="Circuit"><path class="b" d="'+P+'"/><path class="l" id="lapPath" d="'+P+'"/><line id="lapGate"/><g id="lapCar" class="car r"><path d="M11 0L-8 -6.5-5 0-8 6.5Z"/></g></svg></div>'+
 '<div class="f1-box lap-data"><div class="ro"><div><small>SPEED</small><b id="rS">0</b><i>km/h</i></div><div><small>GEAR</small><b id="rG">1</b></div><div><small>THROTTLE</small><b id="rT">0</b><i>%</i></div><div><small>BRAKE</small><b id="rB">0</b><i>%</i></div></div>'+
 '<svg id="lapChart" viewBox="0 0 600 150" preserveAspectRatio="none"><polyline id="cSp" class="sp"/><polyline id="cTh" class="th"/><polyline id="cBr" class="br"/><line id="cCur" y1="0" y2="150"/></svg>'+
 '<div class="ctl"><button type="button" id="lapPlay">Pause</button><input id="lapRange" type="range" min="0" max="1000" value="0" aria-label="Lap position"></div></div></div>'+
@@ -24,23 +24,18 @@ var html=
 '<div class="f1-box"><small>MONDAY</small><h3>Debrief</h3><p>What the model predicted, what actually happened, and why the gap exists.</p></div></div></div></section>';
 anchor.insertAdjacentHTML('beforebegin',html);
 
-/* ---------- Lap model ---------- */
-var path=$('#lapPath'),L=path.getTotalLength(),N=260,pts=[],ang=[],cv=[],sp=[],th=[],br=[],gr=[],i,j;
-function sm(a,k){return a.map(function(_,x){var s=0,c=0;for(var d=-k;d<=k;d++){var y=(x+d+N)%N;s+=a[y];c++}return s/c})}
-for(i=0;i<N;i++){var s=L*i/N,p=path.getPointAtLength(s),a=path.getPointAtLength((s+3)%L),b=path.getPointAtLength((s-3+L)%L);pts.push(p);ang.push(Math.atan2(a.y-b.y,a.x-b.x))}
-for(i=0;i<N;i++){var d=ang[(i+1)%N]-ang[i];while(d>Math.PI)d-=2*Math.PI;while(d<-Math.PI)d+=2*Math.PI;cv.push(Math.abs(d))}
-cv=sm(cv,5);var mx=Math.max.apply(null,cv);
-sp=sm(cv.map(function(c){return 305-235*Math.pow(c/mx,.55)}),4);
-for(i=0;i<N;i++){var dv=sp[(i+1)%N]-sp[i];th.push(dv>-.35?100:Math.max(0,100+dv*55));br.push(dv<-.9?Math.min(100,-dv*28):0);gr.push(Math.max(2,Math.min(8,Math.round(sp[i]/40))))}
-th=sm(sm(th,6),4);br=sm(sm(br,5),3);
-function poly(a,max){return a.map(function(v,k){return (k/(N-1)*600).toFixed(1)+','+(146-v/max*136).toFixed(1)}).join(' ')}
-$('#cSp').setAttribute('points',poly(sp,320));$('#cTh').setAttribute('points',poly(th,100));$('#cBr').setAttribute('points',poly(br,100));
-var rng=$('#lapRange'),dot=$('#lapDot'),playing=!matchMedia('(prefers-reduced-motion: reduce)').matches,pos=0,btn=$('#lapPlay');
-function show(f){var k=Math.min(N-1,Math.floor(f*N)),p=pts[k];dot.setAttribute('cx',p.x);dot.setAttribute('cy',p.y);
+/* ---------- Lap model (same engine as the hero) ---------- */
+var path=$('#lapPath'),M=F1Model(path,9000),N=M.N,sp=M.sp,th=M.th,br=M.br,gr=M.gr;
+function poly(a,max){return a.map(function(v,k){return (k/N*600).toFixed(1)+','+(146-v/max*136).toFixed(1)}).join(' ')}
+$('#cSp').setAttribute('points',poly(sp,330));$('#cTh').setAttribute('points',poly(th,100));$('#cBr').setAttribute('points',poly(br,100));
+var p0=path.getPointAtLength(0),q0=path.getPointAtLength(4),gx=-(q0.y-p0.y),gy=q0.x-p0.x,gl=Math.hypot(gx,gy)||1,gt=$('#lapGate');
+gt.setAttribute('x1',p0.x-gx/gl*15);gt.setAttribute('y1',p0.y-gy/gl*15);gt.setAttribute('x2',p0.x+gx/gl*15);gt.setAttribute('y2',p0.y+gy/gl*15);
+var rng=$('#lapRange'),car=$('#lapCar'),btn=$('#lapPlay'),playing=!RM,u=0,last=null;
+function show(f){F1Place(path,M.L,car,f);var k=Math.min(N-1,Math.floor(f*N));
   $('#rS').textContent=Math.round(sp[k]);$('#rG').textContent=gr[k];$('#rT').textContent=Math.round(th[k]);$('#rB').textContent=Math.round(br[k]);
   var cx=f*600;$('#cCur').setAttribute('x1',cx);$('#cCur').setAttribute('x2',cx);rng.value=Math.round(f*1000)}
-var last=0;(function tick(t){if(playing){pos=(pos+(t-last)/9000)%1;show(pos)}last=t;requestAnimationFrame(tick)})(0);
-rng.addEventListener('input',function(){playing=false;btn.textContent='Play';pos=rng.value/1000;show(pos)});
+(function tick(t){if(playing&&last!=null){u=(u+(t-last)/M.lapMs)%1;show(M.fOfU(u))}last=t;requestAnimationFrame(tick)})(performance.now());
+rng.addEventListener('input',function(){playing=false;btn.textContent='Play';var f=rng.value/1000;u=M.uOfF(f);show(f)});
 btn.addEventListener('click',function(){playing=!playing;btn.textContent=playing?'Pause':'Play'});
 btn.textContent=playing?'Pause':'Play';show(0);
 
@@ -52,8 +47,11 @@ var T=57,ST=[
 var tabs=$('#stTabs'),bar=$('#stBar'),txt=$('#stTxt');
 ST.forEach(function(x,k){var b=D.createElement('button');b.type='button';b.textContent=x.n;b.onclick=function(){sel(k)};tabs.appendChild(b)});
 function sel(k){var x=ST[k],ls=0;[].forEach.call(tabs.children,function(b,i){b.classList.toggle('on',i===k)});
-  bar.innerHTML=x.s.map(function(s,i){ls+=s[1];return '<div class="st '+s[0]+'" style="flex:'+s[1]+'"><span>'+s[1]+' laps</span>'+(i<x.s.length-1?'<em>PIT · L'+ls+'</em>':'')+'</div>'}).join('');
+  bar.innerHTML=x.s.map(function(s,i){ls+=s[1];return '<div class="st '+s[0]+'" style="flex:'+s[1]+';--i:'+i+'"><span>'+s[1]+' laps</span>'+(i<x.s.length-1?'<em>PIT · L'+ls+'</em>':'')+'</div>'}).join('')+'<u class="mk"></u>';
   txt.textContent=x.t}
 sel(0);
-if(window.ocFloat)window.ocFloat(anchor.parentElement);
+function cnt(el,a,b,ms,dl){if(RM){el.textContent=b;return}el.textContent=a;setTimeout(function(){var t0=performance.now();(function s(t){var p=Math.min(1,(t-t0)/ms);el.textContent=Math.round(a+(b-a)*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(s)})(t0)},dl)}
+var sb=D.querySelectorAll('.f1-stats b');if(sb.length==3){cnt(sb[0],0,7,1400,600);cnt(sb[1],7,8,450,2600);cnt(sb[2],0,44,1600,600);if(!RM)setTimeout(function(){sb[1].classList.add('pop')},2600)}
+var io='IntersectionObserver' in window?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25}):null;
+D.querySelectorAll('.f1-car-card,.f1-year,.wk,.strat').forEach(function(e){io?io.observe(e):e.classList.add('in')});
 })();
