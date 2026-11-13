@@ -129,7 +129,7 @@
     var items = [];
     selectors.forEach(function (selector) {
       document.querySelectorAll(selector).forEach(function (el) {
-        if (!el.classList.contains("reveal")) {
+        if (!el.classList.contains("reveal") && !el.classList.contains("oc-r") && !el.querySelector(".oc-r")) {
           el.classList.add("reveal");
           items.push(el);
         }

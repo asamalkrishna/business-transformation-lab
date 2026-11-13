@@ -103,10 +103,10 @@ html:has(body.f1-page){background:#050a0e!important}
 .f1-lights span{margin-left:10px;font:600 11px "DM Sans",sans-serif;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5)}.f1-lights span.go{color:var(--grn)}
 .f1-circuit{position:static;top:auto;right:auto;width:100%;display:block}
 .f1-circuit .rd{fill:none;stroke:#1b2128;stroke-width:15;stroke-linejoin:round}
-.f1-circuit .cl{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1.1;stroke-dasharray:1000;stroke-dashoffset:1000;animation:f1d 1.6s ease forwards .2s}
+.f1-circuit .cl{fill:none;stroke:rgba(255,255,255,.5);stroke-width:1.1;stroke-dasharray:var(--L,1200);stroke-dashoffset:var(--L,1200)}.f1-panel.go .cl{animation:f1d 1.6s ease forwards .2s}
 @keyframes f1d{to{stroke-dashoffset:0}}
 .f1-circuit .sc{fill:none;stroke-width:3.2}.f1-circuit .s1{stroke:var(--pur)}.f1-circuit .s2{stroke:var(--grn)}.f1-circuit .s3{stroke:var(--yel)}
-.f1-circuit .tr{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:70 2000;stroke-dashoffset:1000}.f1-circuit .tr.r{stroke:var(--acc)}.f1-circuit .tr.t{stroke:var(--red);opacity:.8}
+.f1-circuit .tr{fill:none;stroke-width:4;stroke-linecap:round;stroke-dasharray:0 5000}.f1-circuit .tr.r{stroke:var(--acc)}.f1-circuit .tr.t{stroke:var(--red);opacity:.8}
 .f1-circuit .gate{stroke:#fff;stroke-width:3}
 .car.r,#lapCar{fill:var(--acc);stroke:#fff;stroke-width:1.2}.car.t{fill:var(--red);stroke:#fff;stroke-width:1.2}#lapGate{stroke:#fff;stroke-width:3}
 .f1-timing{display:flex;gap:26px;align-items:flex-end;padding-top:10px;border-top:1px solid rgba(255,255,255,.1)}
@@ -134,8 +134,24 @@ html:has(body.f1-page){background:#050a0e!important}
 .wk .f1-box small:before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:10px;vertical-align:1px;background:#2a3139;transition:background .3s,box-shadow .3s}
 .wk.in .f1-box small:before{background:var(--grn);box-shadow:0 0 10px var(--grn)}
 .wk .f1-box:nth-child(2) small:before{transition-delay:.35s}.wk .f1-box:nth-child(3) small:before{transition-delay:.7s}.wk .f1-box:nth-child(4) small:before{transition-delay:1.05s}
-@media (max-width:900px){.f1-page .page-header .wrap{grid-template-columns:1fr;gap:28px}.f1-timing{gap:16px}}
+@media (max-width:900px){.f1-page .page-header .wrap{grid-template-columns:minmax(0,1fr);gap:28px}.f1-timing{gap:16px}}
 @media (prefers-reduced-motion:reduce){.f1-page .page-header:after,.f1-ticker div,.strat .st,.strat .mk,.f1-year.in:after{animation:none}.f1-circuit .cl{animation:none;stroke-dashoffset:0}.js-rv .f1-car-image{clip-path:none}.strat .mk{display:none}}
 
 .f1-page .btn-primary,.f1-box button:hover,.f1-box button.on{color:#021412!important}
 .f1-page .f1-car-card:nth-child(2) .personal-kicker{color:rgba(255,255,255,.5)}
+
+.f1-hero-l,.f1-hero-r,.f1-panel{min-width:0}
+.strat:not(.in) .st,.strat:not(.in) .mk{animation-play-state:paused}
+@media(max-width:900px){
+ .f1-stats{width:100%;justify-content:space-between;gap:10px}.f1-stats b{font-size:2.5rem}.f1-stats span{font-size:9px;letter-spacing:.14em}
+ .f1-panel{padding:12px 12px 10px}.f1-timing{gap:14px}.f1-timing .sec i{width:20px}.f1-timing b{font-size:1.6rem}
+ .f1-page .page-header{padding-bottom:48px}.f1-lights span{font-size:10px;letter-spacing:.1em}
+ .f1-page .nav-links{background:#071218!important;border-bottom:1px solid rgba(0,210,190,.3)!important}
+ .f1-page .nav-dropdown-menu{border-left-color:rgba(0,210,190,.5)!important}
+ .f1-page .nav-links a,.f1-page .nav-dropdown-toggle{color:rgba(255,255,255,.85)}
+ .f1-page .nav-dropdown.open .nav-dropdown-toggle,.f1-page .nav-links a.active{color:var(--acc)}
+}
+@media(max-width:560px){.f1-page h1{font-size:clamp(2.5rem,12.5vw,3.3rem)!important}.f1-page h2{font-size:2.1rem!important}.ro{gap:12px 6px}.f1-box{padding:18px}.legend{flex-wrap:wrap;gap:10px 16px}.strat .bar{height:56px}.st{font-size:10px;letter-spacing:.06em}.ctl{gap:10px}}
+
+.f1-page .f1-cars{grid-template-columns:repeat(2,minmax(0,1fr))}.f1-page .f1-car-image{height:auto}.f1-page .f1-car-card{min-width:0}
+@media(max-width:900px){.f1-page .f1-cars,.f1-page .f1-controversy{grid-template-columns:minmax(0,1fr)}}

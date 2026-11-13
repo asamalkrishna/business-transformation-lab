@@ -20,19 +20,21 @@ window.F1Place=function(path,L,g,f){var p=path.getPointAtLength(f*L),q=path.getP
 
 var h=D.querySelector('.page-header .wrap');if(!h)return;
 var l=D.createElement('div');l.className='f1-hero-l';while(h.firstChild)l.appendChild(h.firstChild);h.appendChild(l);
-var c='<path d="M11 0L-8 -6.5-5 0-8 6.5Z"/>',pa=function(k){return '<path class="'+k+'" pathLength="1000" d="'+P+'"/>'};
+var c='<path d="M11 0L-8 -6.5-5 0-8 6.5Z"/>',pa=function(k){return '<path class="'+k+'" d="'+P+'"/>'};
 h.insertAdjacentHTML('beforeend','<div class="f1-hero-r"><div class="f1-panel"><div class="f1-lights" role="button" tabindex="0" aria-label="Replay race start"><i></i><i></i><i></i><i></i><i></i><span>Lights out to replay</span></div>'+
-'<svg class="f1-circuit" viewBox="0 0 620 320" aria-hidden="true">'+pa('rd')+'<path class="cl" id="trk" pathLength="1000" d="'+P+'"/>'+pa('sc s1')+pa('sc s2')+pa('sc s3')+pa('tr t')+pa('tr t')+pa('tr r')+pa('tr r')+'<line class="gate" id="hGate"/><g class="car t" id="hG">'+c+'</g><g class="car r" id="hC">'+c+'</g></svg>'+
+'<svg class="f1-circuit" viewBox="0 0 620 320" aria-hidden="true">'+pa('rd')+'<path class="cl" id="trk" d="'+P+'"/>'+pa('sc s1')+pa('sc s2')+pa('sc s3')+pa('tr t')+pa('tr t')+pa('tr r')+pa('tr r')+'<line class="gate" id="hGate"/><g class="car t" id="hG">'+c+'</g><g class="car r" id="hC">'+c+'</g></svg>'+
 '<div class="f1-timing"><div><small>Lap</small><b id="hL">1</b></div><div><small>Time</small><b id="hT">0:00.000</b></div><div class="sec"><i></i><i></i><i></i></div><div><small>km/h</small><b id="hK">0</b></div></div></div></div>');
 var Q=function(s){return h.querySelector(s)},A=function(s){return[].slice.call(h.querySelectorAll(s))},
 path=Q('#trk'),M=F1Model(path,9000),C=Q('#hC'),G=Q('#hG'),S=A('.sc'),TR=A('.tr.r'),TT=A('.tr.t'),chips=A('.sec i'),lights=A('.f1-lights i'),lab=Q('.f1-lights span'),
 eT=Q('#hT'),eL=Q('#hL'),eK=Q('#hK'),go=false,t0=0,timers=[],gap=.014;
 var p0=path.getPointAtLength(0),q0=path.getPointAtLength(4),gx=-(q0.y-p0.y),gy=q0.x-p0.x,gl=Math.hypot(gx,gy)||1,gt=Q('#hGate');
 gt.setAttribute('x1',p0.x-gx/gl*16);gt.setAttribute('y1',p0.y-gy/gl*16);gt.setAttribute('x2',p0.x+gx/gl*16);gt.setAttribute('y2',p0.y+gy/gl*16);
-function trail(a,f){var o=70-f*1000;a[0].style.strokeDashoffset=o;a[1].style.strokeDashoffset=o-1000}
+var L=M.L,TL=L*.07;Q('.f1-circuit').style.setProperty('--L',L);
+[].concat(TR,TT).forEach(function(e){e.style.strokeDasharray=TL+' '+L*2});
+function trail(a,f){var o=TL-f*L;a[0].style.strokeDashoffset=o;a[1].style.strokeDashoffset=o-L}
 function fmt(ms){var s=(ms%60000)/1000;return Math.floor(ms/60000)+':'+(s<10?'0':'')+s.toFixed(3)}
 function draw(f,g,tf,n){F1Place(path,M.L,C,f);F1Place(path,M.L,G,g);trail(TR,f);trail(TT,g);
-S.forEach(function(e,k){var a=k*333.3,v=Math.max(0,Math.min(333.3,f*1000-a));e.style.strokeDasharray='0 '+a.toFixed(1)+' '+v.toFixed(1)+' 2000'});
+S.forEach(function(e,k){var a=k*L/3,v=Math.max(0,Math.min(L/3,f*L-a));e.style.strokeDasharray='0 '+a.toFixed(1)+' '+v.toFixed(1)+' '+(L*2).toFixed(0)});
 chips.forEach(function(e,k){e.classList.toggle('on',f>=(k+1)/3-.002&&tf>0)});
 eK.textContent=Math.round(M.sp[Math.min(M.N-1,Math.floor(f*M.N))]);eT.textContent=fmt(tf*78400);eL.textContent=n}
 function idle(){draw(0,((-gap)%1+1)%1,0,1)}
@@ -41,7 +43,9 @@ function start(){timers.forEach(clearTimeout);timers=[];go=false;lab.classList.r
 for(var k=0;k<5;k++)(function(k){timers.push(setTimeout(function(){lights[k].classList.add('on')},700+k*620))})(k);
 timers.push(setTimeout(function(){lights.forEach(function(e){e.classList.remove('on')});lab.classList.add('go');lab.textContent='Go';go=true;t0=performance.now()},700+5*620+950))}
 var gl2=Q('.f1-lights');gl2.addEventListener('click',start);gl2.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();start()}});
-idle();if(RM){draw(.62,.6,.62,1);lab.textContent='Motion reduced'}else{requestAnimationFrame(frame);setTimeout(start,350)}
+idle();if(RM){draw(.62,.6,.62,1);lab.textContent='Motion reduced'}else{requestAnimationFrame(frame);var pn=Q('.f1-panel'),began=false;
+function arm(){if(began)return;began=true;pn.classList.add('go');start()}
+if('IntersectionObserver' in window){var io0=new IntersectionObserver(function(es){if(es[0].isIntersecting){io0.disconnect();arm()}},{threshold:.55});io0.observe(pn)}else setTimeout(arm,350)}
 var it=['Mercedes · my team','Hamilton · my driver','Abu Dhabi 2021 · under review','Scorecard · 8 titles','Loyalty with a data-quality issue'].map(function(t){return'<span>'+t+'</span>'}).join('');
 D.querySelector('.page-header').insertAdjacentHTML('afterend','<div class="f1-ticker" aria-hidden="true"><div>'+it+it+'</div></div>');
 })();

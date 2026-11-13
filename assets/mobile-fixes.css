@@ -1,0 +1,24 @@
+/* ===== Mobile fixes (sitewide) ===== */
+html{-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+img,video{max-width:100%;height:auto}
+@media(max-width:920px){
+  .site-nav .wrap{position:static}
+  .site-nav .nav-links{left:0;right:0;width:100%;padding:8px 16px 20px;max-height:calc(100vh - 64px);max-height:calc(100dvh - 64px);overscroll-behavior:contain}
+  .nav-links>a,.nav-dropdown-toggle{min-height:48px;font-size:15px}
+  /* the desktop dropdown is centred with translateX(-50%); on phones that pushed the links off-screen to the left */
+  .nav-links .nav-dropdown-menu,
+  .nav-links .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-links .nav-dropdown:focus-within .nav-dropdown-menu,
+  .nav-links .nav-dropdown.open .nav-dropdown-menu{position:static;left:auto;top:auto;right:auto;transform:none!important;min-width:0;width:100%;margin:0 0 8px;padding:2px 0 4px 14px;border:0;border-left:2px solid rgba(143,247,232,.4);border-radius:0;background:transparent;box-shadow:none;opacity:1;visibility:visible;pointer-events:auto}
+  .nav-links .nav-dropdown-menu a{min-height:46px;font-size:14px;padding:11px 12px}
+  .nav-links .nav-dropdown.open .nav-dropdown-menu{animation:navIn .22s ease}
+  @keyframes navIn{from{opacity:0}}
+  .nav-dropdown-toggle .dropdown-arrow{margin-left:auto}
+}
+.logo{display:inline-flex;align-items:center;min-height:44px}
+.footer-links{display:flex;flex-wrap:wrap;gap:2px 8px}
+.footer-links a{display:inline-flex;align-items:center;min-height:44px;padding:0 6px}
+@media(max-width:920px){.doc-toc a{display:block;padding:11px 0;min-height:44px;box-sizing:border-box}}
+input,select,textarea{font-size:16px}
+@media(hover:none){.oc-tilt{transform:none!important}.oc-tilt:before{display:none}}
+.logo{gap:.28em}

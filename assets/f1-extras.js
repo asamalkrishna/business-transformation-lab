@@ -30,14 +30,15 @@ function poly(a,max){return a.map(function(v,k){return (k/N*600).toFixed(1)+','+
 $('#cSp').setAttribute('points',poly(sp,330));$('#cTh').setAttribute('points',poly(th,100));$('#cBr').setAttribute('points',poly(br,100));
 var p0=path.getPointAtLength(0),q0=path.getPointAtLength(4),gx=-(q0.y-p0.y),gy=q0.x-p0.x,gl=Math.hypot(gx,gy)||1,gt=$('#lapGate');
 gt.setAttribute('x1',p0.x-gx/gl*15);gt.setAttribute('y1',p0.y-gy/gl*15);gt.setAttribute('x2',p0.x+gx/gl*15);gt.setAttribute('y2',p0.y+gy/gl*15);
-var rng=$('#lapRange'),car=$('#lapCar'),btn=$('#lapPlay'),playing=!RM,u=0,last=null;
+var rng=$('#lapRange'),car=$('#lapCar'),btn=$('#lapPlay'),playing=!RM,u=0,last=null,vis=!('IntersectionObserver' in window),seen=false;
 function show(f){F1Place(path,M.L,car,f);var k=Math.min(N-1,Math.floor(f*N));
   $('#rS').textContent=Math.round(sp[k]);$('#rG').textContent=gr[k];$('#rT').textContent=Math.round(th[k]);$('#rB').textContent=Math.round(br[k]);
   var cx=f*600;$('#cCur').setAttribute('x1',cx);$('#cCur').setAttribute('x2',cx);rng.value=Math.round(f*1000)}
-(function tick(t){if(playing&&last!=null){u=(u+(t-last)/M.lapMs)%1;show(M.fOfU(u))}last=t;requestAnimationFrame(tick)})(performance.now());
+(function tick(t){if(playing&&vis&&last!=null){u=(u+(t-last)/M.lapMs)%1;show(M.fOfU(u))}last=t;requestAnimationFrame(tick)})(performance.now());
 rng.addEventListener('input',function(){playing=false;btn.textContent='Play';var f=rng.value/1000;u=M.uOfF(f);show(f)});
 btn.addEventListener('click',function(){playing=!playing;btn.textContent=playing?'Pause':'Play'});
 btn.textContent=playing?'Pause':'Play';show(0);
+if(!vis)new IntersectionObserver(function(es){vis=es[0].isIntersecting;if(vis&&!seen){seen=true;u=0;show(0)}},{threshold:.35}).observe($('.lap-grid'));
 
 /* ---------- Strategy lab ---------- */
 var T=57,ST=[

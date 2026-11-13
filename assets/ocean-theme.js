@@ -1,7 +1,8 @@
 (function(){
 'use strict';
 var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-var D=document, W, H, dpr=Math.min(devicePixelRatio||1,1.5), mx=-999, my=-999, sy=0;
+var F1=/formula-1/.test(location.pathname),mob=matchMedia('(max-width:820px)').matches,coarse=matchMedia('(pointer:coarse)').matches,lastDraw=0;
+var D=document, W, H, dpr=Math.min(devicePixelRatio||1,mob?1:1.5), mx=-999, my=-999, sy=0;
 
 /* ---------- Live ocean canvas ---------- */
 var c=D.createElement('canvas');c.id='oc-canvas';c.setAttribute('aria-hidden','true');D.body.prepend(c);
@@ -12,8 +13,8 @@ addEventListener('scroll',function(){sy=scrollY;var m=D.documentElement.scrollHe
 addEventListener('pointermove',function(e){mx=e.clientX;my=e.clientY},{passive:true});
 
 var depth=0,R=Math.random, bub=[], plank=[], fish=[];
-for(var i=0;i<38;i++)bub.push({x:R()*2000,y:R()*1200,r:2+R()*9,s:.25+R()*.7,p:R()*6.28,w:.5+R()*1.4});
-for(i=0;i<130;i++)plank.push({x:R()*2000,y:R()*1200,r:.6+R()*1.4,s:.08+R()*.25,p:R()*6.28});
+for(var i=0;i<(mob?10:38);i++)bub.push({x:R()*2000,y:R()*1200,r:2+R()*9,s:.25+R()*.7,p:R()*6.28,w:.5+R()*1.4});
+for(i=0;i<(mob?36:130);i++)plank.push({x:R()*2000,y:R()*1200,r:.6+R()*1.4,s:.08+R()*.25,p:R()*6.28});
 for(i=0;i<0;i++)fish.push({x:R()*2000,y:.2*1000+R()*600,s:(.5+R()*1.1)*(R()<.5?-1:1),z:.6+R()*1.2,p:R()*6.28,h:R()<.5?190:170});
 
 function fishShape(f,t){
@@ -32,10 +33,10 @@ var waves=[
  {a:18,f:.015,s:-1.4,y:.96,c:'rgba(6,90,120,.55)'}
 ];
 var last=0, run=true;
-D.addEventListener('visibilitychange',function(){run=!D.hidden;if(run)requestAnimationFrame(loop)});
+D.addEventListener('visibilitychange',function(){if(F1)return;run=!D.hidden;if(run)requestAnimationFrame(loop)});
 
 function loop(ts){
-  if(!run)return; var t=ts/1000; last=t;
+  if(!run)return; if(mob&&ts-lastDraw<33){requestAnimationFrame(loop);return} lastDraw=ts; var t=ts/1000; last=t;
   x.clearRect(0,0,W,H);
   /* plankton */
   for(var p of plank){
@@ -60,7 +61,7 @@ function loop(ts){
     x.fillStyle=gr;x.beginPath();x.arc(bxx,b.y,b.r,0,6.283);x.fill();
   }
   /* parallax waves at the bottom */
-  for(var w of waves){
+  for(var w of (mob?waves.slice(2):waves)){
     var base=H*w.y+sy*.03*(1+w.f*40); x.fillStyle=w.c;x.beginPath();x.moveTo(0,H);
     for(var X=0;X<=W+8;X+=8)x.lineTo(X,base+Math.sin(X*w.f+t*w.s)*w.a+Math.sin(X*w.f*2.3-t*w.s*.7)*w.a*.4);
     x.lineTo(W,H);x.closePath();x.fill();
@@ -69,11 +70,12 @@ function loop(ts){
   }
   requestAnimationFrame(loop);
 }
-if(reduce){loop(0);run=false}else requestAnimationFrame(loop);
+if(F1){run=false;c.remove()}else if(reduce){loop(0);run=false}else requestAnimationFrame(loop);
 
 if(reduce)return;
 
 /* ---------- Cursor light + click ripples ---------- */
+if(!coarse){
 var glow=D.createElement('div');glow.className='oc-cursor';D.body.appendChild(glow);
 var gx=0,gy=0;
 (function mv(){gx+=(mx-gx)*.14;gy+=(my-gy)*.14;glow.style.transform='translate('+(gx-210)+'px,'+(gy-210)+'px)';requestAnimationFrame(mv)})();
@@ -83,6 +85,7 @@ addEventListener('pointerdown',function(e){
     D.body.appendChild(r);setTimeout(function(n){n.remove()},1800,r)}
 });
 
+}
 /* ---------- Scroll progress ---------- */
 var bar=D.createElement('div');bar.className='oc-progress';D.body.appendChild(bar);
 addEventListener('scroll',function(){var m=D.documentElement.scrollHeight-H;bar.style.transform='scaleX('+(m>0?scrollY/m:0)+')'},{passive:true});
@@ -95,6 +98,7 @@ var io=new IntersectionObserver(function(en){en.forEach(function(o){if(o.isInter
 els.forEach(function(e){io.observe(e)});
 
 /* ---------- 3D tilt + spotlight on cards ---------- */
+if(!coarse){
 D.querySelectorAll('[class*="card"],.trade-box').forEach(function(el){
   if(el.offsetWidth>560)return; el.classList.add('oc-tilt');
   el.addEventListener('pointermove',function(e){
@@ -105,6 +109,7 @@ D.querySelectorAll('[class*="card"],.trade-box').forEach(function(el){
   el.addEventListener('pointerleave',function(){el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')});
 });
 
+}
 /* ---------- Hero portrait float ---------- */
 var im=D.querySelector('.home-hero img');if(im&&im.parentElement)im.parentElement.classList.add('oc-float');
 })();
